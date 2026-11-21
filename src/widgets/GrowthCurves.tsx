@@ -3,9 +3,12 @@
 // Sliders set the per-capita rate r and the carrying capacity K. The
 // logistic curve is computed step by step: N(t+1) = N + r·N·(1 − N/K);
 // the exponential curve uses N(t+1) = N + r·N. "Add nutrients" raises K
-// temporarily, like the algae bloom on slide 18.
+// temporarily, like the algae bloom on slide 18. The slide's own J and S
+// curves (slide 14, or slide 17 with its phases) are shown above the
+// simulated graph.
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Readout, Slider, Toggle, WidgetFrame } from '../components/ui';
 
 const STEPS = 60;
@@ -32,6 +35,8 @@ export function GrowthCurves() {
       notice="เพิ่ม r: ทั้งสองแบบโตเร็วขึ้น · ลด K: เส้น S หยุดที่ระดับต่ำลง (**ช่วง stationary: อัตราเกิด = อัตราตาย**) · เปิด**ปุ๋ยไหลลงน้ำ**: K เพิ่มชั่วคราว ประชากรพุ่งแล้วลดลงเมื่อปัจจัยจำกัดอื่นกลับมา"
       onReset={() => { setR(0.15); setK(500); setBloom(false); }}
     >
+      <SlideFig id="e2-14" />
+      <p className="small" style={{ margin: '4px 0' }}>ลองเอง: ปรับ r และ K แล้วดูกราฟจำลอง</p>
       <svg viewBox="0 0 300 200" className="stage" role="img" aria-label="กราฟการเติบโตของประชากร">
         <line x1={30} y1={180} x2={292} y2={180} className="s-muted" />
         <line x1={30} y1={10} x2={30} y2={180} className="s-muted" />

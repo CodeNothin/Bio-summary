@@ -1,11 +1,14 @@
 // =====================================================================
 // Widget: build an epithelium by choosing cell SHAPE and number of LAYERS
-// and see where that tissue is found (animal 5.1 slides 12–14).
+// and see that tissue highlighted on the slide picture (animal 5.1
+// slides 13–14) plus where it is found. Picture boxes are percent of the
+// picture (`spots`).
 // To change a location, edit `where`.
 // =====================================================================
 import { useState } from 'react';
-import type { ReactElement } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Seg, T, WidgetFrame } from '../components/ui';
+import type { Box } from '../data/figures';
 
 type Shape = 'squamous' | 'cuboidal' | 'columnar';
 type Layers = 'simple' | 'stratified' | 'pseudo';
@@ -20,36 +23,22 @@ const where: Record<string, string> = {
   'pseudo-columnar': 'pseudostratified ciliated columnar: ทางเดินหายใจ (โพรงจมูก หลอดลม ขั้วปอด)',
 };
 
+/** where each epithelium is on slide 13 (a5-13) — stratified columnar only on slide 14 */
+const spots: Record<string, [string, Box]> = {
+  'simple-squamous': ['a5-13', [15, 12, 37, 49]],
+  'simple-cuboidal': ['a5-13', [37, 12, 57, 49]],
+  'simple-columnar': ['a5-13', [55, 2, 76, 49]],
+  'stratified-squamous': ['a5-13', [9, 51, 36, 99]],
+  'stratified-cuboidal': ['a5-13', [35, 54, 58, 99]],
+  'pseudo-columnar': ['a5-13', [56, 51, 83, 99]],
+  'stratified-columnar': ['a5-14', [16, 68, 36, 96]],
+};
+
 export function EpitheliumBuilder() {
   const [shape, setShape] = useState<Shape>('squamous');
   const [layers, setLayers] = useState<Layers>('simple');
   const key = layers === 'pseudo' ? 'pseudo-columnar' : `${layers}-${shape}`;
-  const shown: Shape = layers === 'pseudo' ? 'columnar' : shape;
-  const h = shown === 'squamous' ? 10 : shown === 'cuboidal' ? 22 : 40; // cell height
-  const w = shown === 'squamous' ? 40 : shown === 'cuboidal' ? 22 : 18; // cell width
-  const nLayers = layers === 'stratified' ? 3 : 1;
-  const cols = Math.floor(260 / w);
-  const cells: ReactElement[] = [];
-  for (let L = 0; L < nLayers; L++) {
-    for (let c = 0; c < cols; c++) {
-      // in stratified epithelium the top layers flatten (as in the skin)
-      const hh = layers === 'stratified' && L > 0 ? Math.max(8, h * (1 - L * 0.3)) : h;
-      const y = 120 - (L + 1) * (h + 2) - (L > 0 ? 0 : 0);
-      cells.push(<rect key={`${L}-${c}`} x={20 + c * w + (L % 2) * (w / 2)} y={y} width={w - 2} height={hh} rx={4} className="fill-tone tone-pink" />);
-      cells.push(<circle key={`n${L}-${c}`} cx={20 + c * w + (L % 2) * (w / 2) + w / 2 - 1} cy={y + hh / 2} r={Math.min(4, hh / 3)} className="fill-tone tone-purple" />);
-    }
-  }
-  if (layers === 'pseudo') {
-    // every cell touches the basement membrane, but nuclei sit at different heights and some cells are short
-    cells.length = 0;
-    for (let c = 0; c < cols; c++) {
-      const tall = c % 3 !== 1;
-      const hh = tall ? 60 : 30;
-      cells.push(<rect key={c} x={20 + c * w} y={120 - hh} width={w - 2} height={hh} rx={4} className="fill-tone tone-pink" />);
-      cells.push(<circle key={`n${c}`} cx={20 + c * w + w / 2 - 1} cy={120 - (tall ? 40 : 15)} r={4} className="fill-tone tone-purple" />);
-      if (tall) cells.push(<path key={`ci${c}`} d={`M${22 + c * w} ${60} l2 -6 m4 6 l2 -6 m4 6 l2 -6`} className="f-none s-ink" strokeWidth={1} />);
-    }
-  }
+  const [figId, box] = spots[key];
   return (
     <WidgetFrame
       title="ประกอบเนื้อเยื่อบุผิว"
@@ -61,11 +50,9 @@ export function EpitheliumBuilder() {
       {layers !== 'pseudo' && (
         <Seg value={shape} options={[{ value: 'squamous', label: 'แบน (squamous)' }, { value: 'cuboidal', label: 'ลูกเต๋า (cuboidal)' }, { value: 'columnar', label: 'ทรงสูง (columnar)' }]} onChange={setShape} />
       )}
-      <svg viewBox="0 0 300 140" className="stage" style={{ marginTop: 8 }} role="img" aria-label="เนื้อเยื่อบุผิว">
-        {cells}
-        <rect x={16} y={121} width={268} height={5} className="fill-tone tone-brown" />
-        <text x={150} y={138} textAnchor="middle" className="small mut">basement membrane (เยื่อรองรับฐาน) · ด้านบน = apical surface</text>
-      </svg>
+      <div style={{ marginTop: 8 }}>
+        <SlideFig id={figId} spot={box} />
+      </div>
       <div className="step-text">
         <b>{layers === 'pseudo' ? 'pseudostratified columnar' : `${layers} ${shape}`} epithelium</b>
         <br />

@@ -1,60 +1,57 @@
 // =====================================================================
-// Widget: parenchyma / collenchyma / sclereid / fiber side by side.
-// Toggle "ย้อมสี safranin O" to see which walls turn pink-red (secondary
-// walls, slides 28–32). Wall thickness is drawn to show thin-even,
-// thick-uneven (thick only at the corners) and thick secondary walls.
+// Widget: parenchyma / collenchyma / sclereid / fiber, each shown with
+// its slide photo (plant 5.1 slides 28–32). The photos are already
+// stained with safranin O: secondary walls (sclerenchyma) are pink-red,
+// primary walls are not. Pick a cell type to see its photo and facts.
+// To change a fact, edit `cells`.
 // =====================================================================
 import { useState } from 'react';
-import { Toggle, WidgetFrame } from '../components/ui';
+import { SlideFig } from '../components/SlideFig';
+import { Readout, Seg, T, WidgetFrame } from '../components/ui';
 
-/** One cell: an outer wall path and an inner lumen; `corner` thickens corners only. */
-function Cell({ x, y, size, wall, corner, stained, label, sub }: {
-  x: number; y: number; size: number; wall: number; corner?: boolean; stained: boolean; label: string; sub: string;
-}) {
-  const wallCls = stained ? 'fill-tone tone-red' : 'fill-tone tone-tan';
-  const inner = size - 2 * wall;
-  return (
-    <g>
-      <rect x={x} y={y} width={size} height={size} rx={8} className={wallCls} />
-      {corner ? (
-        // collenchyma: thick corners, thin sides → inner shape is a rounded square cut at corners
-        <rect x={x + 3} y={y + 3} width={size - 6} height={size - 6} rx={size * 0.32} className="fill-tone tone-water" />
-      ) : (
-        <rect x={x + wall} y={y + wall} width={inner} height={inner} rx={Math.max(4, 8 - wall / 2)} className="fill-tone tone-water" />
-      )}
-      <text x={x + size / 2} y={y + size + 16} textAnchor="middle" className="small">{label}</text>
-      <text x={x + size / 2} y={y + size + 29} textAnchor="middle" className="small mut">{sub}</text>
-    </g>
-  );
-}
+const cells = {
+  par: {
+    label: 'parenchyma', fig: 'p1-28',
+    wall: 'ปฐมภูมิ บาง สม่ำเสมอทุกด้าน', stain: 'ไม่ติดสี',
+    note: 'พบได้ทั่วไป เช่น ในใบ — ผนังปฐมภูมิเป็นสารกลุ่มคาร์โบไฮเดรตที่**ไม่ติดสีเมื่อย้อมด้วย safranin O**',
+  },
+  col: {
+    label: 'collenchyma', fig: 'p1-30',
+    wall: 'ปฐมภูมิ หนา**ไม่สม่ำเสมอ**', stain: 'ไม่ติดสี',
+    note: 'ให้ความแข็งแรง มักพบใต้ epidermis โดยเฉพาะบริเวณสันของลำต้นที่เป็นเหลี่ยม — ในภาพ ด้านล่างสีแดงคือ fiber',
+  },
+  scl: {
+    label: 'sclereid', fig: 'p1-31',
+    wall: '**ทุติยภูมิ** หนา', stain: 'ติดสีชมพูแดง',
+    note: 'sclerenchyma ชนิดหนึ่ง เซลล์**ขนาดใหญ่ สั้น** เห็นลายที่ผนังเซลล์ชัดเจน (เส้นประสีเหลืองล้อมไว้ 1 เซลล์)',
+  },
+  fib: {
+    label: 'fiber', fig: 'p1-32',
+    wall: '**ทุติยภูมิ** หนา', stain: 'ติดสีชมพูแดง',
+    note: 'sclerenchyma อีกชนิด เซลล์**ขนาดเล็ก ยาว** ให้ความแข็งแรงกับท่อลำเลียงอาหาร (phloem)',
+  },
+};
+type K = keyof typeof cells;
 
 export function CellWalls() {
-  const [stain, setStain] = useState(false);
+  const [k, setK] = useState<K>('par');
+  const c = cells[k];
   return (
     <WidgetFrame
       title="ผนังเซลล์ 4 แบบ"
-      notice="เปิดการย้อมสี แล้วดูว่า**เซลล์ไหนติดสีชมพูแดง** (ผนังทุติยภูมิ) · collenchyma ผนังหนาเฉพาะ**มุม** ส่วน parenchyma บางเท่ากันทุกด้าน"
-      onReset={() => setStain(false)}
+      notice="ภาพทั้งหมด**ย้อมด้วย safranin O** แล้ว: เซลล์ที่มีผนัง**ทุติยภูมิ** (sclereid, fiber) ติดสีชมพูแดง · parenchyma กับ collenchyma ผนังปฐมภูมิไม่ติดสี — collenchyma หนาไม่เท่ากัน"
+      onReset={() => setK('par')}
     >
-      <svg viewBox="0 0 340 130" className="stage" role="img" aria-label="เปรียบเทียบผนังเซลล์">
-        <Cell x={12} y={14} size={66} wall={3} stained={false} label="parenchyma" sub="ปฐมภูมิ บาง" />
-        <Cell x={96} y={14} size={66} wall={3} corner stained={false} label="collenchyma" sub="ปฐมภูมิ หนาไม่เท่า" />
-        <Cell x={180} y={14} size={66} wall={18} stained={stain} label="sclereid" sub="ทุติยภูมิ ใหญ่ สั้น" />
-        {/* fiber: small and long → drawn as a tall thin cell */}
-        <g>
-          <rect x={282} y={6} width={30} height={82} rx={10} className={stain ? 'fill-tone tone-red' : 'fill-tone tone-tan'} />
-          <rect x={293} y={14} width={8} height={66} rx={4} className="fill-tone tone-water" />
-          <text x={297} y={110} textAnchor="middle" className="small">fiber</text>
-          <text x={297} y={123} textAnchor="middle" className="small mut">ทุติยภูมิ เล็ก ยาว</text>
-        </g>
-      </svg>
-      <div className="seg" style={{ marginTop: 8 }}>
-        <Toggle on={stain} label="ย้อมสี safranin O" onChange={setStain} />
+      <Seg value={k} options={(Object.keys(cells) as K[]).map((v) => ({ value: v, label: cells[v].label }))} onChange={setK} />
+      <div style={{ marginTop: 8 }}>
+        <SlideFig id={c.fig} />
       </div>
-      <p className="small" style={{ marginTop: 6 }}>
-        {stain
-          ? 'sclereid และ fiber (sclerenchyma) ติดสีชมพูแดง — parenchyma และ collenchyma ผนังปฐมภูมิไม่ติดสี'
-          : 'ก่อนย้อมสี: ดูความหนาของผนัง (สีน้ำตาล) เทียบกับช่องว่างในเซลล์ (สีฟ้า)'}
+      <div className="readouts">
+        <Readout k="ผนังเซลล์" v={<T>{c.wall}</T>} />
+        <Readout k="safranin O" v={c.stain} hl={c.stain !== 'ไม่ติดสี'} />
+      </div>
+      <p className="small">
+        <T>{c.note}</T>
       </p>
     </WidgetFrame>
   );

@@ -1,20 +1,22 @@
 // =====================================================================
-// Widget: read a specimen label (Unit 7 slide 19). The label text is the
-// slide's example, retyped (not the photo):
+// Widget: read a specimen label (Unit 7 slides 18–19) on the slide's own
+// photo of the label:
 //   "Peninsular Siam: Nakon Sri Tamarat. Khao Luang. 5800 ft. 30.III.1922.
 //    H.M.Pendlebury"
-// Explore mode: tap a line to see what kind of data it is and why it
-// matters. Quiz mode: the widget names a field; tap the matching part.
-// To change the label, edit `parts`.
+// Each part of the label has a tap area (`box`, percent of the picture). Explore mode: tap a part to see what kind
+// of data it is and why it matters. Quiz mode: the widget names a field;
+// tap the matching part. To change a part, edit `parts`.
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Seg, T, WidgetFrame } from '../components/ui';
+import type { Box } from '../data/figures';
 
-const parts = [
-  { id: 'loc', text: 'Peninsular Siam: Nakon Sri Tamarat. Khao Luang.', name: 'สถานที่ (locality)', tone: 'tone-red', use: 'บอก**ที่ไหน** — ภายหลังแปลงเป็นพิกัด (georeference: ละติจูด ลองจิจูด) เพื่อวาดแผนที่การกระจาย' },
-  { id: 'ele', text: '5800 ft.', name: 'ความสูง (elevation)', tone: 'tone-blue', use: 'บอก**สูงเท่าไร** — ใช้เทียบว่าสิ่งมีชีวิตย้ายขึ้นที่สูงหรือไม่เมื่อโลกร้อนขึ้น' },
-  { id: 'date', text: '30.III.1922', name: 'วันที่เก็บ (date)', tone: 'tone-green', use: 'บอก**เมื่อไร** (III = มีนาคม) — ทำให้ศึกษาเป็น**อนุกรมเวลา (time series)**ได้' },
-  { id: 'col', text: 'H.M.Pendlebury', name: 'ผู้เก็บ (collector)', tone: 'tone-purple', use: 'บอก**ใครเก็บ** — ใช้ตามรอยการสำรวจและตรวจสอบข้อมูล' },
+const parts: { id: string; text: string; name: string; tone: string; box: Box; use: string }[] = [
+  { id: 'loc', text: 'Peninsular Siam: Nakon Sri Tamarat. Khao Luang.', name: 'สถานที่ (locality)', tone: 'tone-red', box: [8, 30, 92, 70], use: 'บอก**ที่ไหน** — ภายหลังแปลงเป็นพิกัด (georeference: ละติจูด ลองจิจูด) เพื่อวาดแผนที่การกระจาย' },
+  { id: 'ele', text: '5800 ft.', name: 'ความสูง (elevation)', tone: 'tone-blue', box: [3, 70, 33, 87], use: 'บอก**สูงเท่าไร** — ใช้เทียบว่าสิ่งมีชีวิตย้ายขึ้นที่สูงหรือไม่เมื่อโลกร้อนขึ้น' },
+  { id: 'date', text: '30.III.1922', name: 'วันที่เก็บ (date)', tone: 'tone-green', box: [33, 68, 92, 86], use: 'บอก**เมื่อไร** (III = มีนาคม) — ทำให้ศึกษาเป็น**อนุกรมเวลา (time series)**ได้' },
+  { id: 'col', text: 'H.M.Pendlebury', name: 'ผู้เก็บ (collector)', tone: 'tone-purple', box: [16, 86, 92, 100], use: 'บอก**ใครเก็บ** — ใช้ตามรอยการสำรวจและตรวจสอบข้อมูล' },
 ];
 
 export function SpecimenLabel() {
@@ -45,24 +47,27 @@ export function SpecimenLabel() {
       onReset={reset}
     >
       <Seg value={mode} options={[{ value: 'explore', label: 'สำรวจ' }, { value: 'quiz', label: 'ทดสอบ' }]} onChange={(v) => { setMode(v); setSel(null); setMsg(null); }} />
-      <div className="specimen-label" style={{ marginTop: 10, padding: '10px 12px', borderRadius: 8, border: '1px solid var(--line)', background: 'var(--card)', fontFamily: 'Georgia, serif', lineHeight: 1.9 }}>
-        {parts.map((p) => (
-          <button
-            key={p.id}
-            onClick={() => tap(p.id)}
-            className={p.tone}
-            style={{
-              display: 'inline', font: 'inherit', color: 'inherit', background: mode === 'explore' && sel === p.id ? 'color-mix(in srgb, var(--tone) 25%, transparent)' : 'transparent',
-              border: 'none', borderBottom: mode === 'explore' ? '3px solid var(--tone)' : '2px dashed var(--line)', padding: '0 2px', margin: '0 4px 0 0', cursor: 'pointer',
-            }}
-          >
-            {p.text}
-          </button>
-        ))}
+      <div style={{ marginTop: 8 }}>
+        <SlideFig id="c7-18">
+          {parts.map((p) => {
+            const b = p.box;
+            const on = mode === 'explore' && sel === p.id;
+            return (
+              <button
+                key={p.id}
+                type="button"
+                aria-label={mode === 'explore' ? p.name : p.text}
+                onClick={() => tap(p.id)}
+                className={`slide-hit ${p.tone}${on ? ' on' : ''}${mode === 'quiz' ? ' quiz' : ''}`}
+                style={{ left: `${b[0]}%`, top: `${b[1]}%`, width: `${b[2] - b[0]}%`, height: `${b[3] - b[1]}%` }}
+              />
+            );
+          })}
+        </SlideFig>
       </div>
       {mode === 'explore' ? (
         <div className="step-text">
-          {cur ? (<><b>{cur.name}</b><br /><T>{cur.use}</T></>) : 'แตะข้อความบนป้ายเพื่อดูว่าเป็นข้อมูลประเภทใด'}
+          {cur ? (<><b>{cur.name}</b>: {cur.text}<br /><T>{cur.use}</T></>) : 'แตะข้อความบนป้ายเพื่อดูว่าเป็นข้อมูลประเภทใด'}
         </div>
       ) : (
         <div className="step-text">

@@ -2,7 +2,7 @@
 // Registers every widget under an id so pages can write <W id="..."/>.
 //
 // Two kinds:
-//   - simple "tap the diagram" widgets are made right here with
+//   - simple "tap the slide picture" widgets are made right here with
 //     DiagramExplorer (diagram id + a ลองสังเกต line),
 //   - everything else has its own file in this folder.
 // To add a widget: write it (or add an explorer line), then add
@@ -102,7 +102,7 @@ reg('food-journey', 'ตามอาหารไปทีละจุด', FoodJ
 
 // ---------------------------------------------------------- animal 5.4
 reg('vertebrate-hearts', 'หัวใจสัตว์มีกระดูกสันหลัง', VertebrateHearts);
-explorer('heart-map', 'heart', 'หัวใจคน', 'ห้อง**บน**รับเลือดเข้า ห้อง**ล่าง**ปั๊มออก · สีน้ำเงิน = O₂ ต่ำ (ซีกขวาของหัวใจ = ซ้ายมือเรา) · สีแดง = O₂ สูง · ลิ้นสีเหลือง = AV valve, สีเขียว = semilunar valve');
+explorer('heart-map', 'heart', 'หัวใจคน', 'ห้อง**บน**รับเลือดเข้า ห้อง**ล่าง**ปั๊มออก · ในภาพ สีน้ำเงิน = เลือด O₂ ต่ำ (ซีกขวาของหัวใจ = ซ้ายมือเรา) · สีแดง = O₂ สูง · จุดสีเหลือง = AV valve, จุดสีเขียว = semilunar valve');
 reg('heart-path', 'เส้นทางเลือดผ่านหัวใจ', HeartPath);
 reg('cardiac-output', 'Cardiac output', CardiacOutput);
 reg('cardiac-cycle', 'วัฏจักรหัวใจ', CardiacCycle);

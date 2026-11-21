@@ -1,11 +1,22 @@
 // =====================================================================
 // Widget: hearts of vertebrates (animal 5.4 slides 86–89). Pick an
-// animal group; the drawing shows its chambers and number of circuits.
+// animal group; its column of the slide-89 figure is highlighted (the
+// figure also has the slide's table of loops and chambers).
 // Decision (user, TODO 3): amphibians = 3 chambers; the slide table's
 // "4 (incomplete)" for turtles/lizards = ventricle only partly divided.
 // =====================================================================
 import { useState } from 'react';
-import { Seg, T, WidgetFrame } from '../components/ui';
+import { SlideFig } from '../components/SlideFig';
+import { Readout, Seg, T, WidgetFrame } from '../components/ui';
+import type { Box } from '../data/figures';
+
+/** each group's column on slide 89 (percent of the picture) */
+const cols: Record<string, Box> = {
+  fish: [0, 0, 27, 68],
+  frog: [26, 0, 49, 68],
+  reptile: [48, 0, 71, 68],
+  full: [70, 0, 99, 68],
+};
 
 const groups = {
   fish: { label: 'ปลา', loops: 1, atria: 1, vent: 1, septum: 'none', text: 'วงจรเดียว (single circulation) · หัวใจ 2 ห้อง (1A 1V) · ventricle → เหงือก → ร่างกาย → กลับหัวใจ — ความดันลดลงหลังผ่านเหงือก เลือดจึงไหลช้า' },
@@ -25,28 +36,13 @@ export function VertebrateHearts() {
       onReset={() => setK('fish')}
     >
       <Seg value={k} options={(Object.keys(groups) as K[]).map((x) => ({ value: x, label: groups[x].label }))} onChange={setK} />
-      <svg viewBox="0 0 240 150" className="stage" style={{ marginTop: 8 }} role="img" aria-label="ภาพหัวใจ">
-        {g.atria === 1 ? (
-          <rect x={80} y={16} width={80} height={44} rx={12} className="fill-tone tone-purple" />
-        ) : (
-          <>
-            <rect x={70} y={16} width={48} height={44} rx={12} className="fill-tone tone-blue" />
-            <rect x={122} y={16} width={48} height={44} rx={12} className="fill-tone tone-red" />
-          </>
-        )}
-        {g.vent === 1 ? (
-          <rect x={70} y={66} width={100} height={66} rx={22} className={`fill-tone ${g.atria === 1 ? 'tone-purple' : 'tone-purple'}`} />
-        ) : (
-          <>
-            <rect x={70} y={66} width={48} height={66} rx={18} className="fill-tone tone-blue" />
-            <rect x={122} y={66} width={48} height={66} rx={18} className="fill-tone tone-red" />
-          </>
-        )}
-        {g.septum === 'partial' && <rect x={117} y={96} width={6} height={36} className="fill-tone tone-grey" />}
-        <text x={190} y={40} className="small">atrium × {g.atria}</text>
-        <text x={190} y={100} className="small">ventricle × {g.vent}</text>
-        <text x={6} y={144} className="small">{g.loops === 1 ? '1 วงจร' : '2 วงจร'} · {g.atria + g.vent} ห้อง{g.septum === 'partial' ? ' (ventricle แบ่งไม่สมบูรณ์)' : ''}</text>
-      </svg>
+      <div style={{ marginTop: 8 }}>
+        <SlideFig id="a5-89" spot={cols[k]} />
+      </div>
+      <div className="readouts">
+        <Readout k="จำนวนวงจร" v={g.loops === 1 ? '1 วงจร' : '2 วงจร'} />
+        <Readout k="จำนวนห้อง" v={`${g.atria + g.vent} ห้อง (${g.atria}A ${g.vent}V)${g.septum === 'partial' ? ' — V แบ่งไม่สมบูรณ์' : ''}`} hl />
+      </div>
       <p className="small" style={{ marginTop: 6 }}><T>{g.text}</T></p>
     </WidgetFrame>
   );

@@ -1,44 +1,25 @@
 // =====================================================================
-// Draws a Diagram from src/data/diagrams and lets the user tap its parts.
+// Shows a Diagram from src/data/diagrams (a slide picture with tap
+// points on it) and lets the user tap its parts.
 //
 // Used two ways:
 //   - in widgets: tap a part → its name and explanation appear below
 //     (<DiagramExplorer id="heart" notice="…" />)
-//   - in label questions: the practice page passes `onTap` and decides
-//     what is right or wrong; `mark` colours a part green/red.
+//   - in questions: the practice page passes `onTap` and decides what is
+//     right or wrong; `mark` colours a point green/red, and `quiz` covers
+//     the slide's own printed labels (diagram.masks).
 //
-// `highlight` (list of part ids) dims every other part — step-through
+// `highlight` (list of part ids) dims every other point — step-through
 // widgets use it to spotlight the parts of the current step.
-// Every shape gets an invisible thick outline so small or thin parts are
-// still easy to hit with a finger.
 // =====================================================================
 import { useState } from 'react';
 import { diagrams } from '../data/diagrams';
-import type { Diagram, Shape } from '../data/types';
+import type { Diagram } from '../data/types';
+import { SlideFig } from './SlideFig';
 import { T, WidgetFrame } from './ui';
 
-function ShapeEl({ s, className }: { s: Shape; className: string }) {
-  switch (s.kind) {
-    case 'circle':
-      return <circle cx={s.cx} cy={s.cy} r={s.r} className={className} />;
-    case 'ellipse':
-      return <ellipse cx={s.cx} cy={s.cy} rx={s.rx} ry={s.ry} className={className} />;
-    case 'rect':
-      return <rect x={s.x} y={s.y} width={s.w} height={s.h} rx={s.rx ?? 0} className={className} />;
-    case 'path':
-      return (
-        <path
-          d={s.d}
-          className={`${className}${s.line ? ' line' : ''}`}
-          fillRule={s.evenodd ? 'evenodd' : undefined}
-          strokeWidth={s.line ? (s.w ?? 3) : undefined}
-        />
-      );
-  }
-}
-
 export function TapDiagram({
-  diagram, selected, onTap, highlight, mark, maxWidth = 360,
+  diagram, selected, onTap, highlight, mark, maxWidth = 520, quiz = false,
 }: {
   diagram: Diagram;
   selected?: string | null;
@@ -47,43 +28,25 @@ export function TapDiagram({
   /** colour one part as right/wrong (label questions) */
   mark?: { id: string; ok: boolean } | null;
   maxWidth?: number;
+  /** hide the slide's printed labels */
+  quiz?: boolean;
 }) {
   return (
-    <svg viewBox={diagram.viewBox} className="diagram" style={{ maxWidth }} role="img" aria-label={diagram.title}>
-      {diagram.decor?.map((g, i) => (
-        <g key={i} className={`tone-${g.tone} decor`}>
-          {g.shapes.map((s, j) => (
-            <ShapeEl key={j} s={s} className="" />
-          ))}
-        </g>
-      ))}
-      {diagram.parts.map((p) => {
-        const dim = highlight && !highlight.includes(p.id);
-        const cls = [
-          'part',
-          `tone-${p.tone}`,
-          selected === p.id ? 'sel' : '',
-          dim ? 'dim' : '',
-          mark?.id === p.id ? (mark.ok ? 'mark-ok' : 'mark-bad') : '',
-        ].join(' ');
-        return (
-          <g
-            key={p.id}
-            className={cls}
-            onClick={onTap ? () => onTap(p.id) : undefined}
-            role={onTap ? 'button' : undefined}
-            aria-label={onTap ? p.label : undefined}
-          >
-            {p.shapes.map((s, j) => (
-              <ShapeEl key={`h${j}`} s={s} className="hit" />
-            ))}
-            {p.shapes.map((s, j) => (
-              <ShapeEl key={j} s={s} className="fill" />
-            ))}
-          </g>
-        );
-      })}
-    </svg>
+    <SlideFig
+      id={diagram.fig}
+      maxWidth={maxWidth}
+      masks={quiz ? diagram.masks : undefined}
+      selected={selected}
+      onPin={onTap}
+      mark={mark}
+      pins={diagram.parts.map((p) => ({
+        id: p.id,
+        at: p.at,
+        tone: p.tone,
+        label: quiz ? undefined : p.label,
+        dim: highlight ? !highlight.includes(p.id) : false,
+      }))}
+    />
   );
 }
 

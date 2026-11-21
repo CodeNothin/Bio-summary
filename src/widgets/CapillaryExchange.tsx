@@ -3,10 +3,13 @@
 // at the venule end (animal 5.4 slide 104). Slide along the capillary:
 // blood pressure (CHP) falls from 35 to 18 mmHg while blood colloid
 // osmotic pressure (BCOP) stays 25 mmHg. NFP = CHP − BCOP (calc.ts).
+// The picture is the slide figure; a dashed line moves along its
+// pressure graph (arterial end → venule end) with the slider.
 // Also: cardiac output = heart rate × stroke volume (slide 93).
 // =====================================================================
 import { useState } from 'react';
-import { Arrow, Readout, Slider, WidgetFrame } from '../components/ui';
+import { SlideFig } from '../components/SlideFig';
+import { Readout, Slider, WidgetFrame } from '../components/ui';
 import { cardiacOutput, netFiltrationPressure, round } from '../data/calc';
 
 export function CapillaryExchange() {
@@ -14,22 +17,20 @@ export function CapillaryExchange() {
   const chp = 35 - 17 * pos;
   const bcop = 25;
   const nfp = netFiltrationPressure(chp, bcop);
-  const x = 30 + pos * 240;
+  // the slide graph runs from x 5 % (arterial end) to 40 % of the picture
+  const line = [5 + pos * 35, 9, 5 + pos * 35, 34];
   return (
     <WidgetFrame
       title="การแลกเปลี่ยนที่หลอดเลือดฝอย"
       notice="ความดันเลือดลดลงตามความยาว capillary แต่แรงดึงน้ำกลับ (BCOP) คงที่ → ด้าน **arteriole ของเหลวไหลออก** · ด้าน **venule ไหลกลับเข้า** · ส่วนที่เหลือกลับทางท่อน้ำเหลือง"
       onReset={() => setPos(0)}
     >
-      <svg viewBox="0 0 300 120" className="stage" role="img" aria-label="หลอดเลือดฝอย">
-        <rect x={20} y={48} width={260} height={26} rx={13} className="fill-tone tone-red" opacity={0.5} />
-        <text x={20} y={100} className="small">arteriole</text>
-        <text x={280} y={100} textAnchor="end" className="small">venule</text>
-        <line x1={x} y1={30} x2={x} y2={92} className="s-accent" strokeWidth={2} strokeDasharray="4 3" />
-        {nfp > 0.5 && <Arrow x1={x} y1={48} x2={x} y2={18} cls="accent" w={3} />}
-        {nfp < -0.5 && <Arrow x1={x} y1={10} x2={x} y2={44} cls="blue" w={3} />}
-        <text x={150} y={116} textAnchor="middle" className="small mut">{nfp > 0.5 ? 'ของเหลวไหลออกจาก capillary' : nfp < -0.5 ? 'ของเหลวไหลกลับเข้า capillary' : 'ไม่มีการไหลสุทธิ'}</text>
-      </svg>
+      <SlideFig id="a5-104">
+        <div className="slide-vline" style={{ left: `${line[0]}%`, top: `${line[1]}%`, height: `${line[3] - line[1]}%` }} />
+      </SlideFig>
+      <p className="small" style={{ textAlign: 'center', margin: '0 0 4px' }}>
+        <b>{nfp > 0.5 ? 'ของเหลวไหลออกจาก capillary' : nfp < -0.5 ? 'ของเหลวไหลกลับเข้า capillary' : 'ไม่มีการไหลสุทธิ'}</b>
+      </p>
       <div className="controls">
         <Slider label="ตำแหน่งตามความยาว capillary" value={pos} min={0} max={1} step={0.01} onChange={setPos} show={pos < 0.1 ? 'ปลาย arteriole' : pos > 0.9 ? 'ปลาย venule' : 'กลาง'} />
       </div>

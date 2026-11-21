@@ -9,7 +9,6 @@ export function HeartPath() {
     <DiagramStepper
       diagram="heart"
       title="เส้นทางเลือดผ่านหัวใจ"
-      maxWidth={320}
       notice="ด้าน**ขวา**ของหัวใจ (ซ้ายมือเรา) มีเลือด O₂ ต่ำ ไปปอด · ด้าน**ซ้าย** มีเลือด O₂ สูง ไปร่างกาย · ลิ้นทุกอันทำให้เลือดไหลทางเดียว"
       steps={[
         { title: 'vena cava → atrium ขวา', hl: ['superior-vc', 'inferior-vc', 'ra'], text: 'เลือด O₂ ต่ำจากหัว-แขน (anterior/superior vena cava) และลำตัว-ขา (posterior/inferior vena cava) เข้าสู่ **atrium ขวา**' },

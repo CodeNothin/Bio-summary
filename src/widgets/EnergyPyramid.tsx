@@ -4,8 +4,11 @@
 // typically 10 %) via calc.ts energyAtLevel. Toxin view: a persistent
 // toxin's concentration goes UP each level (biomagnification); the ×10
 // per level here is an illustration, not a slide number.
+// Pictures: slide 22 (pyramid of energy) and slide 29 (DDT and the bald
+// eagle); the computed energy numbers are listed under the picture.
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Seg, Slider, WidgetFrame } from '../components/ui';
 import { energyAtLevel, round } from '../data/calc';
 
@@ -25,24 +28,23 @@ export function EnergyPyramid() {
       onReset={() => { setView('energy'); setEff(10); }}
     >
       <Seg value={view} options={[{ value: 'energy', label: 'พลังงาน' }, { value: 'toxin', label: 'สารพิษ' }]} onChange={setView} />
-      <svg viewBox="0 0 300 175" className="stage" style={{ marginTop: 8 }} role="img" aria-label="พีระมิด">
-        {levels.map((name, i) => {
-          const y = 140 - i * 32;
-          const w = 280 - i * 46;
-          const e = energyAtLevel(E0, i + 1, eff / 100);
-          const tox = 0.01 * 10 ** i; // illustrative ppm
-          return (
-            <g key={name}>
-              <rect x={150 - w / 2} y={y} width={w} height={28} rx={4} className={`fill-tone ${view === 'energy' ? ['tone-green', 'tone-yellow', 'tone-orange', 'tone-red', 'tone-purple'][i] : 'tone-grey'}`} />
-              {view === 'toxin' && <rect x={150 - w / 2} y={y} width={w} height={28} rx={4} className="fill-tone tone-red" opacity={0.15 + i * 0.2} />}
-              <text x={150} y={y + 13} textAnchor="middle" className="small">{name}</text>
-              <text x={150} y={y + 25} textAnchor="middle" className="small">
-                {view === 'energy' ? `${e >= 1 ? round(e, 0).toLocaleString() : round(e, 2)} kJ` : `${tox >= 1 ? tox : tox.toFixed(2)} ppm`}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
+      <div style={{ marginTop: 8 }}>
+        <SlideFig id={view === 'energy' ? 'e4-22' : 'e4-29'} />
+      </div>
+      {view === 'energy' && (
+        <ol className="order-list">
+          {levels.map((name, i) => {
+            const e = energyAtLevel(E0, i + 1, eff / 100);
+            return (
+              <li key={name} style={{ gridTemplateColumns: 'auto 1fr auto' }}>
+                <span className="num">{i + 1}</span>
+                <span>{name}</span>
+                <b>{e >= 1 ? round(e, 0).toLocaleString() : round(e, 2)} kJ</b>
+              </li>
+            );
+          })}
+        </ol>
+      )}
       {view === 'energy' && (
         <div className="controls">
           <Slider label="ประสิทธิภาพการถ่ายทอด (ecological efficiency)" value={eff} min={5} max={20} step={1} onChange={setEff} show={`${eff}%`} />
@@ -51,7 +53,7 @@ export function EnergyPyramid() {
       <p className="small" style={{ marginTop: 6 }}>
         {view === 'energy'
           ? `ผู้ผลิต ${E0.toLocaleString()} kJ → ผู้บริโภคลำดับที่ 3 ได้เพียง ${round(energyAtLevel(E0, 4, eff / 100), 2)} kJ`
-          : 'ตัวอย่างในสไลด์: DDT ทำให้เปลือกไข่นกอินทรีหัวขาวบาง (รบกวน metabolism ของแคลเซียม) ไข่แตกก่อนฟัก ประชากรลดลง — ห้ามใช้ในสหรัฐฯ ปี 1972 (ตัวเลข ppm ในภาพเป็นตัวอย่างประกอบ)'}
+          : 'ตัวอย่างในสไลด์: DDT ทำให้เปลือกไข่นกอินทรีหัวขาวบาง (รบกวน metabolism ของแคลเซียม) ไข่แตกก่อนฟัก ประชากรลดลง — ห้ามใช้ในสหรัฐฯ ปี 1972 (ภาพ: ความเข้มข้น DDT เพิ่มขึ้นทุกขั้น จากในน้ำ 1 เท่า → นกกินปลา 10,000,000 เท่า)'}
       </p>
     </WidgetFrame>
   );

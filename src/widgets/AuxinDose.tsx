@@ -2,10 +2,13 @@
 // Widget: the same auxin concentration affects root and shoot differently
 // (plant 5.5 slides 19, 37). Drag the slider along the concentration
 // axis; the readout says whether root and coleoptile growth is
-// stimulated or inhibited. The two bell curves are drawn to match the
-// slide's sketch (root peaks at a much lower concentration).
+// stimulated or inhibited. The picture is the slide-37 graph; a dashed
+// line moves across it with the slider. The response functions below
+// only decide the readout words and follow the graph's shape (root
+// peaks at a much lower concentration than the coleoptile).
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Slider, WidgetFrame } from '../components/ui';
 
 /** Response (−1…+1) of tissue with optimum at `peak` (on a 0–1 log-like axis). */
@@ -19,28 +22,17 @@ const word = (r: number) => (r > 0.08 ? 'กระตุ้น ↑' : r < -0.08 
 
 export function AuxinDose() {
   const [x, setX] = useState(0.6);
-  const W = 280;
-  const H = 140;
-  const px = (v: number) => 20 + v * (W - 30);
-  const py = (r: number) => 70 - r * 52;
-  const path = (f: (v: number) => number) =>
-    Array.from({ length: 101 }, (_, i) => i / 100).map((v, i) => `${i ? 'L' : 'M'}${px(v).toFixed(1)} ${py(Math.max(-1.2, f(v))).toFixed(1)}`).join(' ');
+  // plot area of the slide graph: x 17 %–87 %, y 15 %–97 % of the picture
+  const line = [17 + x * 70, 15, 17 + x * 70, 97];
   return (
     <WidgetFrame
       title="ความเข้มข้นออกซิน: ราก vs ยอด"
       notice="ความเข้มข้นที่**กระตุ้นยอด (coleoptile)** มากที่สุด กลับ**ยับยั้งราก** — เนื้อเยื่อต่างกันไวต่อฮอร์โมนไม่เท่ากัน"
       onReset={() => setX(0.6)}
     >
-      <svg viewBox={`0 0 ${W} ${H}`} className="stage" role="img" aria-label="กราฟการตอบสนองต่อออกซิน">
-        <line x1={20} y1={70} x2={W - 8} y2={70} className="s-muted" strokeWidth={1} />
-        <text x={22} y={14} className="small mut">กระตุ้น</text>
-        <text x={22} y={134} className="small mut">ยับยั้ง</text>
-        <path d={path(root)} className="f-none stroke-tone tone-yellow" strokeWidth={3} />
-        <path d={path(shoot)} className="f-none stroke-tone tone-green" strokeWidth={3} />
-        <text x={px(0.2)} y={py(1) - 4} className="small">ราก</text>
-        <text x={px(0.6)} y={py(1) - 4} className="small">ยอด</text>
-        <line x1={px(x)} y1={8} x2={px(x)} y2={H - 4} className="s-accent" strokeWidth={2} strokeDasharray="4 3" />
-      </svg>
+      <SlideFig id="p5-37">
+        <div className="slide-vline" style={{ left: `${line[0]}%`, top: `${line[1]}%`, height: `${line[3] - line[1]}%` }} />
+      </SlideFig>
       <div className="controls">
         <Slider label="ความเข้มข้นออกซิน →" value={x} min={0} max={1} step={0.01} onChange={setX} show={x < 0.35 ? 'ต่ำ' : x < 0.7 ? 'ปานกลาง' : 'สูง'} />
       </div>

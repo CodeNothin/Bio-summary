@@ -13,8 +13,10 @@ lecture decks. It is meant to be read on a phone. Ready so far:
 All three units of the course material are written.
 
 - 18 chapter pages, 91 sections, each with a "เข้าใจแล้ว" button
-- 54 widgets, each with a "ลองสังเกต" line and a reset button: tappable diagrams, step-throughs, sliders and
-  small simulations (quadrat sampling, mark–recapture, J/S growth curves, energy pyramid, specimen-label quiz)
+- 54 widgets, each with a "ลองสังเกต" line and a reset button. They are built on the **real slide pictures**
+  (96 figures cut from the lecture PDFs; the class has permission to use them): tap points on the
+  picture, a highlight box that moves step by step, or the slide figure next to sliders. Only three small
+  simulations still draw their own graph (glucose, J/S growth, quadrat field), and each also shows the slide.
 - 320 practice questions in 7 types (237 for Unit 5, 57 for Unit 6, 26 for Unit 7), plus 7 held back (see below). Options are shuffled every time,
   hints open one at a time, every option is explained, and accuracy is tracked per topic. There is a
   weakest-topic drill and a "questions I got wrong" drill.
@@ -45,12 +47,14 @@ http://localhost:5180/#/w/water-potential.
 npm test
 ```
 
-- `src/data/data.test.ts` checks that every question and diagram is well-formed:
+- `src/data/data.test.ts` checks that every question, diagram and slide picture is well-formed:
   - ids are unique, and every question's topic is a real section
   - each mcq has exactly one correct option, and every option has an explanation
   - "ข้อ ก และ ค ถูก" options agree with the truth of the statements they combine
   - true/false questions have a reason; order questions have ≥ 3 distinct steps; match pairs are unique
   - label targets exist in their diagram; sort items go to bins that exist
+  - every diagram's picture exists, its tap points sit inside the picture, and every crop in
+    `figures.json` has an image
   - numeric answers equal what `calc.ts` computes
   - every section has questions, and every glossary link points to a real section
 - `src/data/calc.test.ts` checks the formulas against the slides' own numbers: cardiac output 5.25 L/min,
@@ -89,17 +93,23 @@ src/
     pages.ts             every chapter page and its sections (= practice topics)
     calc.ts              the few formulas on the slides (cardiac output, Ψw, NFP, quadrat, mark–recapture, r, 10 % rule)
     glossary.ts          key terms (flashcards) and comparison tables
-    diagrams/            plant.ts, animal.ts: tappable schematic drawings; shapes.ts: geometry helpers
+    figures.json         which slide pictures exist: id (deck-page) → crop box, plus image sizes
+    figures.ts           figure lookup (image URL, size, caption "สไลด์ … หน้า …")
+    diagrams/            plant.ts, animal.ts: slide pictures with tap points and label covers
     questions/           one question bank per page (Unit 6: e-unit6.ts, Unit 7: c-unit7.ts); index.ts joins them
     *.test.ts            the checks above
   chapters.ts            page id → page component; the list of units
   App.tsx                top bar, router (#/...), bottom tab bar
   pages/                 one file per chapter page, plus Home, Terms, Flashcards
   widgets/               one file per widget; all.ts registers them (simple diagram explorers are made there)
-  components/            ui.tsx (Section, WidgetFrame, controls), TapDiagram, DiagramStepper
+  components/            ui.tsx (Section, WidgetFrame, controls), SlideFig (picture + tap points /
+                         highlight box / label covers), TapDiagram, DiagramStepper
+  assets/slides/         the cut slide pictures (<deck>-<page>.webp), made by scripts/crop-slides.py
   practice/              engine.ts (shuffle/pick/check), QuestionView.tsx (7 types), PracticePage.tsx
   lib/store.ts           localStorage progress
-Source/                  (git-ignored) per-slide notes I took from the decks: notes-plant.md, notes-animal.md, notes-unit6.md, notes-unit7.md
+scripts/crop-slides.py   cuts the figures in figures.json out of the PDFs (Python + PyMuPDF + Pillow)
+Source/                  (git-ignored) per-slide notes I took from the decks: notes-plant.md, notes-animal.md,
+                         notes-unit6.md, notes-unit7.md; pdf/ holds the lecture PDFs named by deck id
 ```
 
 Every file starts with a comment that explains what it does and how to change it.
@@ -109,7 +119,9 @@ Rules the code follows:
 - Answers, explanations and diagram labels live only in `src/data/`. Pages and widgets display them.
 - Every widget has a "ลองสังเกต" line and a reset button.
 - Thai text uses `**bold**` (rendered by `<T>`), with the English term in brackets.
-- Diagrams are drawn simply, not copied from the slides, so the site can be shared.
+- Pictures are the slides' own figures (use is permitted). Positions on a picture (tap points,
+  highlight boxes, label covers) are written in **percent of the cropped picture**, [x, y] or
+  [x0, y0, x1, y1], measured from the top-left corner.
 
 ## Editing content
 
@@ -117,8 +129,15 @@ Rules the code follows:
 - **Add a question:** copy one of the same type in that file and give it a new unique `id`. For an
   "ข้อ ก และ ค ถูก" option, write `{ combo: [0, 2], correct: true, why: '…' }` and add
   `truth: true/false` to the options it combines. The letters are generated after shuffling.
-- **Add a diagram part:** add it to `src/data/diagrams/*.ts` (`id`, `label`, `info`, `tone`, `shapes`).
-  Do not rename an id that a label question uses; the test will tell you if you do.
+- **Add a diagram part:** add it to `src/data/diagrams/*.ts` (`id`, `label`, `info`, `tone`, `at`).
+  `at` is the tap point in percent of the picture. If the slide prints the part's name, add a box to
+  `masks` so label questions hide it. Do not rename an id that a label question uses; the test will tell
+  you if you do.
+- **Add or re-cut a slide picture:** put the PDFs in `Source/pdf/` (`p1` `p3` `p4` `p5` = plant decks,
+  `a5` / `a5x` = animal deck and the 28 Oct extra slides, `e1`–`e5` = Unit 6, `c7` = Unit 7), add
+  `"<deck>-<page>": [x0, y0, x1, y1]` (fractions of the slide) to `src/data/figures.json`, then run
+  `python scripts/crop-slides.py <deck>-<page>`. Show it with `<SlideFig id="…" />`. If you change an
+  existing crop, re-check the tap points and boxes that use it.
 - **Change page text:** edit `src/pages/<Name>Page.tsx`. Every `<Section id>` must exist in `pages.ts`.
 
 ## Adding a chapter
@@ -198,11 +217,12 @@ but are **never shown** in practice until the answer is filled in. To publish on
 
 - Only material in the decks is covered. The surface-to-volume widget (`exchange-surface`) is a teaching
   aid for slide 32's point about folded surfaces; it is not new exam content.
-- Unit 6 widgets: the biome boxes use the slides' rain and temperature ranges but are a simplified
-  climograph; the growth curves are a step-by-step logistic model; the toxin numbers in the
-  biomagnification view are illustrative (the slides give no ppm values). Each file comment says so.
+- Unit 6 widgets: the growth curves are a step-by-step logistic model shown under the slide's own
+  J/S figure. Each file comment says so.
 - The glucose simulator and the transpiration and auxin widgets are qualitative models of the slides'
   rules, not measured data. Their file comments say so.
+- Label questions use the slide pictures with the slide's printed labels covered. The covers were
+  placed by eye; if a printed word still peeks out on some screen, widen its box in `masks`.
 - Typos on the slides are corrected silently on the site (peristasis, Pyrolic, H. pyroli,
   Procarbozypeptidase, Autonomictic, and the positive-feedback slide titled "Negative").
   A note on page 5.6 mentions the last one.

@@ -3,9 +3,12 @@
 // A 6 m × 4 m field has clumped plants. Tap the field to drop 1 m²
 // quadrats; the widget counts plants inside them, then estimates
 //   density = counted ÷ (n × 1 m²),  size = density × 24 m²
-// using calc.ts, and compares with the true count.
+// using calc.ts, and compares with the true count. The slide's own
+// worked example (slide 5) is shown first; flowers are drawn as 🌺 like
+// on the slide.
 // =====================================================================
 import { useMemo, useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Readout, WidgetFrame } from '../components/ui';
 import { populationFromDensity, quadratDensity, round } from '../data/calc';
 import { seeded } from '../practice/engine';
@@ -60,11 +63,13 @@ export function QuadratSampler() {
       notice="แตะในแปลงเพื่อวาง quadrat ขนาด 1 m² — ยิ่งวาง**มาก**และ**กระจายแบบสุ่ม** ค่าประมาณยิ่งใกล้จำนวนจริง · พืชขึ้นเป็น**กลุ่ม (clumped)** จึงวางน้อยอันแล้วคลาดได้มาก"
       onReset={() => setQuads([])}
     >
+      <SlideFig id="e2-5" />
+      <p className="small" style={{ margin: '4px 0' }}>ลองเอง: แปลงจำลอง 6 × 4 m ด้านล่าง</p>
       <svg viewBox={`0 0 ${W * S} ${H * S}`} className="stage" onClick={drop} role="img" aria-label="แปลงพืช 6 × 4 เมตร" style={{ cursor: 'crosshair' }}>
         <rect x={0} y={0} width={W * S} height={H * S} className="fill-tone tone-tan" opacity={0.35} />
         {Array.from({ length: W - 1 }, (_, i) => <line key={`v${i}`} x1={(i + 1) * S} y1={0} x2={(i + 1) * S} y2={H * S} className="s-muted" strokeWidth={0.4} strokeDasharray="2 3" />)}
         {Array.from({ length: H - 1 }, (_, i) => <line key={`h${i}`} x1={0} y1={(i + 1) * S} x2={W * S} y2={(i + 1) * S} className="s-muted" strokeWidth={0.4} strokeDasharray="2 3" />)}
-        {plants.map(([x, y], i) => <circle key={i} cx={x * S} cy={y * S} r={4} className="fill-tone tone-pink" />)}
+        {plants.map(([x, y], i) => <text key={i} x={x * S} y={y * S + 5} textAnchor="middle" fontSize={14}>🌺</text>)}
         {quads.map((q, i) => (
           <g key={i}>
             <rect x={q[0] * S + 1} y={q[1] * S + 1} width={S - 2} height={S - 2} className="f-none s-accent" strokeWidth={3} />

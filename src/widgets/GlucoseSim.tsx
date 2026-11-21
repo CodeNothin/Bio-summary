@@ -4,8 +4,11 @@
 // level back to ~90 mg/100 mL, glucagon raises it when it falls.
 // Toggle "ดื้ออินซูลิน" to see why glucose stays high in type 2 diabetes.
 // This is a teaching model (simple step rules), not real physiology data.
+// Above the graph: the slide figure (insulin/glucagon, slide 167; with
+// insulin resistance on, the extra deck's insulin-resistance figure).
 // =====================================================================
 import { useEffect, useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Toggle, WidgetFrame } from '../components/ui';
 
 const SET = 90; // normal level from slide 167 (mg/100 mL)
@@ -44,6 +47,7 @@ export function GlucoseSim() {
       notice="กดกินข้าว: กลูโคสพุ่ง → **insulin** ดึงกลับลงมา (เซลล์รับกลูโคส ตับเก็บเป็น glycogen) · ปล่อยไว้นาน: กลูโคสต่ำ → **glucagon** สลาย glycogen · เปิด**ดื้ออินซูลิน**: เซลล์ไม่ตอบสนอง กลูโคสค้างสูง (hyperglycemia)"
       onReset={() => { setG(Array(60).fill(SET)); setResist(false); setRunning(true); }}
     >
+      <SlideFig id={resist ? 'a5x-2' : 'a5-167'} />
       <svg viewBox="0 0 290 130" className="stage" role="img" aria-label="กราฟกลูโคสในเลือด">
         <line x1={10} y1={py(SET)} x2={285} y2={py(SET)} className="s-good" strokeDasharray="5 4" strokeWidth={1.5} />
         <text x={286} y={py(SET) - 4} textAnchor="end" className="small mut">ปกติ ~90</text>

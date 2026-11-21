@@ -29,7 +29,7 @@ export function PlantXSection() {
     >
       <Seg value={which} options={[...choices]} onChange={(v) => { setWhich(v); setSel(null); }} />
       <div style={{ marginTop: 8 }}>
-        <TapDiagram diagram={d} selected={sel} onTap={setSel} maxWidth={300} />
+        <TapDiagram diagram={d} selected={sel} onTap={setSel} />
       </div>
       <div className="part-info">
         {part ? (

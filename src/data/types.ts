@@ -161,14 +161,6 @@ export type Question = Mcq | TrueFalse | Order | Match | Label | Sort | Numeric;
 
 // ------------------------------------------------------------- diagrams
 
-/** One drawable shape. Coordinates are in the diagram's viewBox units. */
-export type Shape =
-  /** evenodd = holes are cut out (used for rings); line = stroke only, no fill */
-  | { kind: 'path'; d: string; evenodd?: boolean; line?: boolean; w?: number }
-  | { kind: 'circle'; cx: number; cy: number; r: number }
-  | { kind: 'ellipse'; cx: number; cy: number; rx: number; ry: number }
-  | { kind: 'rect'; x: number; y: number; w: number; h: number; rx?: number };
-
 /**
  * Colour names, mapped to CSS variables in styles.css (.tone-<name>).
  * "line" = outline only.
@@ -185,17 +177,18 @@ export interface DiagramPart {
   /** one-to-three sentence explanation shown when tapped */
   info: string;
   tone: Tone;
-  shapes: Shape[];
+  /** where the tap point sits: [x, y] in percent of the cropped slide picture */
+  at: [number, number];
 }
 
 export interface Diagram {
   id: string;
   title: string;
-  /** "minX minY width height" */
-  viewBox: string;
-  /** background drawing that is not tappable */
-  decor?: { tone: Tone; shapes: Shape[] }[];
-  /** tappable parts, drawn in this order (later = on top) */
+  /** slide picture id from src/data/figures.json, e.g. 'a5-92' */
+  fig: string;
+  /** boxes [x0, y0, x1, y1] (percent) that hide the slide's printed labels in label questions */
+  masks?: [number, number, number, number][];
+  /** tappable parts */
   parts: DiagramPart[];
   /** slide reference */
   source: string;

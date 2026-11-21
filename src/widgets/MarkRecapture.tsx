@@ -2,9 +2,11 @@
 // Widget: mark–recapture in a pond (Unit 6.2 slide 6). The pond holds a
 // hidden number of fish. Step 1: catch and mark some. Step 2: release and
 // let them mix. Step 3: catch again and count marked ones. The estimate
-// N = marked × caught ÷ recaptured comes from calc.ts.
+// N = marked × caught ÷ recaptured comes from calc.ts. The slide's own
+// squirrel example (slide 6) is shown at the top.
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Readout, Slider, WidgetFrame } from '../components/ui';
 import { markRecapture, round } from '../data/calc';
 import { seeded } from '../practice/engine';
@@ -36,6 +38,8 @@ export function MarkRecapture() {
       notice="สัดส่วนปลาที่มีเครื่องหมายใน**การจับครั้งที่ 2** ≈ สัดส่วนในประชากรทั้งบ่อ → **N = ทำเครื่องหมาย × จับครั้งที่ 2 ÷ ที่มีเครื่องหมาย** · กดจับหลายครั้ง: ค่าประมาณแกว่งรอบค่าจริง"
       onReset={() => { setTrueN(120); setMark(30); setCatch2(40); setRound2(null); setSeed(1); }}
     >
+      <SlideFig id="e2-6" />
+      <p className="small" style={{ margin: '4px 0' }}>ลองเอง: บ่อปลาจำลอง</p>
       <div className="controls">
         <Slider label="จำนวนปลาจริงในบ่อ (ปกติเราไม่รู้)" value={trueN} min={40} max={400} step={10} onChange={(v) => { setTrueN(v); setRound2(null); }} show={`${trueN} ตัว`} />
         <Slider label="ครั้งที่ 1: จับและทำเครื่องหมาย" value={mark} min={5} max={80} step={1} onChange={(v) => { setMark(v); setRound2(null); }} show={`${mark} ตัว`} />

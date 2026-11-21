@@ -3,29 +3,31 @@
 // the deck calls "current research in natural history museums" (slide 10):
 // Museomics (DNA) and Digitization (images + metadata). Steps and examples
 // are the slides'; the step order is the site's way of laying them out.
-// Edit `routes` to change a step.
+// Each step shows the slide it comes from (`fig`). Edit `routes` to
+// change a step.
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Seg, StepNav, T, WidgetFrame } from '../components/ui';
 
 const routes = {
   dna: {
     label: '🧬 Museomics',
     steps: [
-      { icon: '🗄️', t: 'ตัวอย่างในคลัง', s: 'ตัวอย่างสัตว์/พืชที่เก็บไว้หลายสิบถึงหลายร้อยปี พร้อม**ป้าย** (ที่ไหน เมื่อไร ใครเก็บ)' },
-      { icon: '✂️', t: 'เก็บเนื้อเยื่อเล็กน้อย', s: 'ได้ **historical DNA (hDNA)** จากตัวอย่างพิพิธภัณฑ์/หอพรรณไม้ หรือ **ancient DNA (aDNA)** จากซากโบราณ' },
-      { icon: '🧬', t: 'อ่านลำดับ DNA', s: 'museum + genomics = **museomics**' },
-      { icon: '⚖️', t: 'เทียบอดีตกับปัจจุบัน', s: 'เช่น **Balto** สุนัขลากเลื่อนอะแลสกา มีบรรพบุรุษร่วมกับสายพันธุ์สุนัขเอเชียและอาร์กติกปัจจุบัน (Moon et al., 2023)' },
+      { fig: 'c7-5', icon: '🗄️', t: 'ตัวอย่างในคลัง', s: 'ตัวอย่างสัตว์/พืชที่เก็บไว้หลายสิบถึงหลายร้อยปี พร้อม**ป้าย** (ที่ไหน เมื่อไร ใครเก็บ)' },
+      { fig: 'c7-16', icon: '✂️', t: 'เก็บเนื้อเยื่อเล็กน้อย', s: 'ได้ **historical DNA (hDNA)** จากตัวอย่างพิพิธภัณฑ์/หอพรรณไม้ หรือ **ancient DNA (aDNA)** จากซากโบราณ' },
+      { fig: 'c7-17', icon: '🧬', t: 'อ่านลำดับ DNA', s: 'museum + genomics = **museomics**' },
+      { fig: 'c7-20', icon: '⚖️', t: 'เทียบอดีตกับปัจจุบัน', s: 'เช่น **Balto** สุนัขลากเลื่อนอะแลสกา มีบรรพบุรุษร่วมกับสายพันธุ์สุนัขเอเชียและอาร์กติกปัจจุบัน (Moon et al., 2023)' },
     ],
   },
   digi: {
     label: '💻 Digitization',
     steps: [
-      { icon: '🗄️', t: 'ตัวอย่างในคลัง', s: 'แมลงที่ปักเข็ม นกสตัฟฟ์ ฟอสซิล พร้อมป้าย' },
-      { icon: '📷', t: 'ถ่ายภาพ/สแกน', s: '**ALICE**: กล้องหลายตัวถ่ายตัวอย่างและป้ายพร้อมกัน · **3D scanning** เช่น กะโหลก Toxodon ที่ Darwin เก็บ' },
-      { icon: '🏷️', t: 'บันทึก metadata', s: 'สถานที่ **georeference** (ละติจูด ลองจิจูด) ความสูง อนุกรมวิธาน เพศ เวลา ผู้เก็บ หมายเลขทะเบียน …' },
-      { icon: '🌐', t: 'เผยแพร่ฐานข้อมูล', s: 'คลังท้องถิ่น **NHM Data Portal** → คลังระดับโลก **GBIF** (เข้าถึงฟรี) = big data' },
-      { icon: '🤖', t: 'ใช้ AI/computer vision', s: '**ระบุชนิด**ด้วงจากภาพ (CNN) · **วัดขนาด**ปีกผีเสื้อนับแสนตัว (Mothra) เพื่อดูผลของอุณหภูมิ' },
+      { fig: 'c7-5', icon: '🗄️', t: 'ตัวอย่างในคลัง', s: 'แมลงที่ปักเข็ม นกสตัฟฟ์ ฟอสซิล พร้อมป้าย' },
+      { fig: 'c7-26', icon: '📷', t: 'ถ่ายภาพ/สแกน', s: '**ALICE**: กล้องหลายตัวถ่ายตัวอย่างและป้ายพร้อมกัน · **3D scanning** เช่น กะโหลก Toxodon ที่ Darwin เก็บ' },
+      { fig: 'c7-22', icon: '🏷️', t: 'บันทึก metadata', s: 'สถานที่ **georeference** (ละติจูด ลองจิจูด) ความสูง อนุกรมวิธาน เพศ เวลา ผู้เก็บ หมายเลขทะเบียน …' },
+      { fig: 'c7-25', icon: '🌐', t: 'เผยแพร่ฐานข้อมูล', s: 'คลังท้องถิ่น **NHM Data Portal** → คลังระดับโลก **GBIF** (เข้าถึงฟรี) = big data' },
+      { fig: 'c7-27', icon: '🤖', t: 'ใช้ AI/computer vision', s: '**ระบุชนิด**ด้วงจากภาพ (CNN) · **วัดขนาด**ปีกผีเสื้อนับแสนตัว (Mothra) เพื่อดูผลของอุณหภูมิ' },
     ],
   },
 };
@@ -54,6 +56,7 @@ export function CabinetToData() {
           </button>
         ))}
       </div>
+      <SlideFig id={steps[i].fig} />
       <div className="step-text">
         <b>{i + 1}. {steps[i].t}</b>
         <br />

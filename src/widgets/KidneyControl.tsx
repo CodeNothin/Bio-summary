@@ -1,9 +1,19 @@
 // =====================================================================
 // Widget: the two kidney control loops (animal 5.7 slides 136–137),
-// step by step: ADH for blood osmolarity, RAAS for blood pressure/volume.
+// step by step: ADH for blood osmolarity, RAAS for blood pressure/volume,
+// on the slide figures; each step lights up its part (`spots`, percent
+// of the slide page).
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { Seg, StepNav, T, WidgetFrame } from '../components/ui';
+import type { Box } from '../data/figures';
+
+const figs = { adh: 'a5-136', raas: 'a5-137' };
+const spots: Record<string, Box[]> = {
+  adh: [[14, 50, 37, 66], [15, 24, 82, 40], [40, 34, 58, 56], [50, 34, 94, 74], [40, 78, 64, 94]],
+  raas: [[66, 35, 84, 50], [53, 46, 84, 92], [5, 52, 35, 93], [5, 35, 58, 52], [4, 24, 70, 38]],
+};
 
 const loops = {
   adh: [
@@ -34,6 +44,9 @@ export function KidneyControl() {
       onReset={() => { setK('adh'); setI(0); }}
     >
       <Seg value={k} options={[{ value: 'adh', label: 'ADH' }, { value: 'raas', label: 'RAAS' }]} onChange={(v) => { setK(v); setI(0); }} />
+      <div style={{ marginTop: 8 }}>
+        <SlideFig id={figs[k]} spot={spots[k][i]} />
+      </div>
       <div className="step-text"><T>{steps[i]}</T></div>
       <StepNav i={i} n={steps.length} setI={setI} />
     </WidgetFrame>

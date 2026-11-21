@@ -3,20 +3,22 @@
 // animal 5.6 slides 141–174. Pick a situation; the loop fills in and says
 // whether it is negative feedback (back to the set point) or positive
 // feedback (pushes further away, usually in emergencies).
+// Each case also shows the slide figure for that example (`fig`).
 // To add a situation, add an entry to `cases`.
 // =====================================================================
 import { useState } from 'react';
+import { SlideFig } from '../components/SlideFig';
 import { T, WidgetFrame } from '../components/ui';
 
 const cases = [
-  { id: 'cold', label: 'อากาศหนาว', kind: 'neg', stimulus: 'อุณหภูมิร่างกายลดลง', receptor: 'ตัวรับอุณหภูมิที่ผิวหนัง', center: 'ไฮโปทาลามัส (heat-promoting center)', effector: 'กล้ามเนื้อสั่น · หลอดเลือดที่ผิวหดตัว · TRH → TSH → thyroxine เพิ่ม metabolism', response: 'อุณหภูมิกลับขึ้นสู่ 35.6–37.8 °C' },
-  { id: 'hot', label: 'อากาศร้อน', kind: 'neg', stimulus: 'อุณหภูมิร่างกายสูงขึ้น', receptor: 'ตัวรับอุณหภูมิ', center: 'ไฮโปทาลามัส (heat-loss center)', effector: 'หลอดเลือดที่ผิวขยาย · ต่อมเหงื่อหลั่งเหงื่อ (ระเหยพาความร้อนออก)', response: 'อุณหภูมิลดลงสู่ปกติ' },
-  { id: 'glu-hi', label: 'กลูโคสสูง (หลังกินข้าว)', kind: 'neg', stimulus: 'กลูโคสในเลือดสูงกว่า ~90 mg/100 mL', receptor: 'เซลล์ตับอ่อน', center: 'ตับอ่อน → หลั่ง insulin', effector: 'เซลล์ร่างกายรับกลูโคส · ตับสร้าง glycogen', response: 'กลูโคสในเลือดลดลงสู่ปกติ' },
-  { id: 'glu-lo', label: 'กลูโคสต่ำ (อดอาหาร)', kind: 'neg', stimulus: 'กลูโคสในเลือดต่ำ', receptor: 'เซลล์ตับอ่อน', center: 'ตับอ่อน → หลั่ง glucagon', effector: 'ตับสลาย glycogen ปล่อยกลูโคส', response: 'กลูโคสในเลือดเพิ่มขึ้นสู่ปกติ' },
-  { id: 'ca-lo', label: 'แคลเซียมในเลือดต่ำ', kind: 'neg', stimulus: 'Ca²⁺ ในเลือดต่ำกว่า ~10 mg/100 mL', receptor: 'ต่อมพาราไทรอยด์', center: 'หลั่ง PTH', effector: 'กระตุ้น osteoclast · ไตเก็บ Ca²⁺ · ลำไส้ดูดซึม Ca²⁺ มากขึ้น', response: 'Ca²⁺ ในเลือดเพิ่มขึ้นสู่ปกติ' },
-  { id: 'osm', label: 'เหงื่อออกมาก', kind: 'neg', stimulus: 'osmolarity ของเลือดสูงขึ้น', receptor: 'osmoreceptor ในไฮโปทาลามัส', center: 'ต่อมใต้สมองส่วนหลังปล่อย ADH (+ กระหายน้ำ)', effector: 'collecting duct ดูดน้ำกลับมากขึ้น', response: 'osmolarity กลับสู่ ~300 mOsm/L' },
-  { id: 'oxy', label: 'ลูกดูดนม / คลอดบุตร', kind: 'pos', stimulus: 'ลูกดูดนม กระตุ้นตัวรับที่หัวนม', receptor: 'ตัวรับที่หัวนม → เส้นประสาทไขสันหลัง', center: 'ไฮโปทาลามัส → ต่อมใต้สมองส่วนหลังปล่อย oxytocin', effector: 'ต่อมน้ำนมหลั่งน้ำนม (มดลูกหดตัวขณะคลอด)', response: 'ยิ่งดูด ยิ่งหลั่ง oxytocin มากขึ้น — จนกว่าจะหยุดดูด' },
-  { id: 'clot', label: 'เกิดบาดแผล', kind: 'pos', stimulus: 'หลอดเลือดฉีกขาด', receptor: 'เกล็ดเลือดเกาะบริเวณแผล', center: 'เกล็ดเลือดปล่อยสารเคมี', effector: 'สารดึงดูดเกล็ดเลือดเพิ่มขึ้นอีก', response: 'ลิ่มเลือดโตขึ้นเรื่อย ๆ จนปิดแผลได้' },
+  { id: 'cold', fig: 'a5-143', label: 'อากาศหนาว', kind: 'neg', stimulus: 'อุณหภูมิร่างกายลดลง', receptor: 'ตัวรับอุณหภูมิที่ผิวหนัง', center: 'ไฮโปทาลามัส (heat-promoting center)', effector: 'กล้ามเนื้อสั่น · หลอดเลือดที่ผิวหดตัว · TRH → TSH → thyroxine เพิ่ม metabolism', response: 'อุณหภูมิกลับขึ้นสู่ 35.6–37.8 °C' },
+  { id: 'hot', fig: 'a5-143', label: 'อากาศร้อน', kind: 'neg', stimulus: 'อุณหภูมิร่างกายสูงขึ้น', receptor: 'ตัวรับอุณหภูมิ', center: 'ไฮโปทาลามัส (heat-loss center)', effector: 'หลอดเลือดที่ผิวขยาย · ต่อมเหงื่อหลั่งเหงื่อ (ระเหยพาความร้อนออก)', response: 'อุณหภูมิลดลงสู่ปกติ' },
+  { id: 'glu-hi', fig: 'a5-167', label: 'กลูโคสสูง (หลังกินข้าว)', kind: 'neg', stimulus: 'กลูโคสในเลือดสูงกว่า ~90 mg/100 mL', receptor: 'เซลล์ตับอ่อน', center: 'ตับอ่อน → หลั่ง insulin', effector: 'เซลล์ร่างกายรับกลูโคส · ตับสร้าง glycogen', response: 'กลูโคสในเลือดลดลงสู่ปกติ' },
+  { id: 'glu-lo', fig: 'a5-167', label: 'กลูโคสต่ำ (อดอาหาร)', kind: 'neg', stimulus: 'กลูโคสในเลือดต่ำ', receptor: 'เซลล์ตับอ่อน', center: 'ตับอ่อน → หลั่ง glucagon', effector: 'ตับสลาย glycogen ปล่อยกลูโคส', response: 'กลูโคสในเลือดเพิ่มขึ้นสู่ปกติ' },
+  { id: 'ca-lo', fig: 'a5-168', label: 'แคลเซียมในเลือดต่ำ', kind: 'neg', stimulus: 'Ca²⁺ ในเลือดต่ำกว่า ~10 mg/100 mL', receptor: 'ต่อมพาราไทรอยด์', center: 'หลั่ง PTH', effector: 'กระตุ้น osteoclast · ไตเก็บ Ca²⁺ · ลำไส้ดูดซึม Ca²⁺ มากขึ้น', response: 'Ca²⁺ ในเลือดเพิ่มขึ้นสู่ปกติ' },
+  { id: 'osm', fig: 'a5-169', label: 'เหงื่อออกมาก', kind: 'neg', stimulus: 'osmolarity ของเลือดสูงขึ้น', receptor: 'osmoreceptor ในไฮโปทาลามัส', center: 'ต่อมใต้สมองส่วนหลังปล่อย ADH (+ กระหายน้ำ)', effector: 'collecting duct ดูดน้ำกลับมากขึ้น', response: 'osmolarity กลับสู่ ~300 mOsm/L' },
+  { id: 'oxy', fig: 'a5-166', label: 'ลูกดูดนม / คลอดบุตร', kind: 'pos', stimulus: 'ลูกดูดนม กระตุ้นตัวรับที่หัวนม', receptor: 'ตัวรับที่หัวนม → เส้นประสาทไขสันหลัง', center: 'ไฮโปทาลามัส → ต่อมใต้สมองส่วนหลังปล่อย oxytocin', effector: 'ต่อมน้ำนมหลั่งน้ำนม (มดลูกหดตัวขณะคลอด)', response: 'ยิ่งดูด ยิ่งหลั่ง oxytocin มากขึ้น — จนกว่าจะหยุดดูด' },
+  { id: 'clot', fig: 'a5-144', label: 'เกิดบาดแผล', kind: 'pos', stimulus: 'หลอดเลือดฉีกขาด', receptor: 'เกล็ดเลือดเกาะบริเวณแผล', center: 'เกล็ดเลือดปล่อยสารเคมี', effector: 'สารดึงดูดเกล็ดเลือดเพิ่มขึ้นอีก', response: 'ลิ่มเลือดโตขึ้นเรื่อย ๆ จนปิดแผลได้' },
 ] as const;
 
 export function FeedbackLoop() {
@@ -41,6 +43,9 @@ export function FeedbackLoop() {
             {x.label}
           </button>
         ))}
+      </div>
+      <div style={{ marginTop: 8 }}>
+        <SlideFig id={c.fig} />
       </div>
       <ol className="order-list" style={{ marginTop: 8 }}>
         {rows.map(([k, v], i) => (

@@ -8,12 +8,16 @@
 //   - tf has a reason, order has ≥ 3 distinct steps, match pairs unique,
 //     label targets exist in their diagram, sort items go to real bins,
 //     numeric answers equal what calc.ts computes
-//   - diagrams: unique part ids, every part has a label and info
+//   - diagrams: unique part ids, every part has a label and info, a tap
+//     point inside its slide picture
+//   - slide figures: every crop is a real box and has an image
 //   - glossary links point at real sections
 // If a test fails, the message names the question id to fix.
 // =====================================================================
 import { describe, expect, it } from 'vitest';
 import { diagrams, allDiagrams } from './diagrams';
+import { figures } from './figures';
+import spec from './figures.json';
 import { compares, terms } from './glossary';
 import { allSections, pages, sectionById } from './pages';
 import { allQuestions, readyQuestions } from './questions';
@@ -138,9 +142,11 @@ describe('diagrams', () => {
     for (const p of d.parts) {
       expect(nonEmpty(p.label), p.id).toBe(true);
       expect(nonEmpty(p.info), p.id).toBe(true);
-      expect(p.shapes.length, p.id).toBeGreaterThan(0);
+      // tap point inside the picture
+      for (const v of p.at) expect(v >= 0 && v <= 100, p.id).toBe(true);
     }
-    expect(d.viewBox.split(' ').length).toBe(4);
+    expect(figures[d.fig], `no slide figure ${d.fig}`).toBeTruthy();
+    for (const m of d.masks ?? []) expect(m[0] < m[2] && m[1] < m[3], `${d.id} mask`).toBe(true);
   });
   it('diagram ids are unique', () => {
     expect(new Set(allDiagrams.map((d) => d.id)).size).toBe(allDiagrams.length);
@@ -158,5 +164,14 @@ describe('glossary', () => {
   });
   it('comparison tables have rows as wide as their header', () => {
     for (const c of compares) for (const r of c.rows) expect(r.length, c.title).toBe(c.head.length);
+  });
+});
+
+describe('slide figures', () => {
+  it.each(Object.entries(spec.figures))('%s: crop box is inside the page and has an image', (id, c) => {
+    const [x0, y0, x1, y1] = c as number[];
+    expect(0 <= x0 && x0 < x1 && x1 <= 1 && 0 <= y0 && y0 < y1 && y1 <= 1).toBe(true);
+    expect(figures[id].src, `run python scripts/crop-slides.py ${id}`).toBeTruthy();
+    expect((spec.sizes as Record<string, number[]>)[id]).toBeTruthy();
   });
 });

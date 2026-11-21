@@ -39,7 +39,7 @@ function McqView({ q, onAnswered }: Props<Mcq>) {
       <p className="q-prompt">
         <T>{q.prompt}</T>
       </p>
-      {q.diagram && <TapDiagram diagram={diagrams[q.diagram]} maxWidth={300} />}
+      {q.diagram && <TapDiagram diagram={diagrams[q.diagram]} maxWidth={460} quiz />}
       <div className="choice-list">
         {shown.map((o, i) => {
           const cls = answered ? (o.correct ? 'good' : i === pick ? 'bad' : '') : '';
@@ -267,7 +267,8 @@ function LabelView({ q, onAnswered }: Props<Label>) {
         onTap={answered ? undefined : (id) => { setTap(id); onAnswered(id === q.target); }}
         mark={answered ? { id: q.target, ok: true } : null}
         highlight={answered ? [q.target, tap!] : undefined}
-        maxWidth={320}
+        maxWidth={460}
+        quiz
       />
       {answered && (
         <Verdict ok={tap === q.target}>

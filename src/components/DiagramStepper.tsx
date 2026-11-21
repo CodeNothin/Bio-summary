@@ -27,7 +27,7 @@ export function DiagramStepper({ diagram, title, notice, steps, maxWidth }: {
   const s = steps[i];
   return (
     <WidgetFrame title={title} notice={notice} onReset={() => setI(0)}>
-      <TapDiagram diagram={d} highlight={s.hl} maxWidth={maxWidth ?? 300} />
+      <TapDiagram diagram={d} highlight={s.hl} maxWidth={maxWidth ?? 520} />
       <div className="step-text">
         <b>{i + 1}. {s.title}</b>
         <br />

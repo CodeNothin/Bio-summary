@@ -630,70 +630,116 @@ svg text.big { font-size: 15px; font-weight: 700; }
 .fill-tone { fill: var(--tone); stroke: var(--part-stroke); stroke-width: 1; }
 .stroke-tone { fill: none; stroke: var(--tone); }
 
-/* ------------------------------------------------- tappable diagrams */
-.diagram {
-  display: block;
+/* ------------------------------------------------- slide pictures */
+/* <SlideFig>: a slide image with masks, a spotlight box and tap points
+   on top. Everything inside .slide-wrap is positioned in percent. */
+.slide-fig {
+  margin: 0 auto 8px;
   width: 100%;
-  height: auto;
-  margin: 0 auto;
-  background: var(--bg);
+}
+.slide-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
-.diagram .decor > * {
-  fill: var(--tone);
-  opacity: 0.45;
+.slide-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
-.diagram .decor > .line {
-  fill: none;
-  stroke: var(--tone);
+.slide-fig figcaption {
+  margin-top: 3px;
+  text-align: right;
 }
-.diagram .tone-line.decor > * {
-  fill: none;
-  stroke: var(--muted);
-  stroke-width: 1.5;
-  opacity: 0.6;
+/* covers a printed label on the slide (label questions) */
+.slide-mask {
+  position: absolute;
+  background: #eceff3;
+  border-radius: 4px;
 }
-.part .fill {
-  fill: var(--tone);
-  stroke: var(--part-stroke);
-  stroke-width: 1;
-  transition: opacity 0.2s;
+/* spotlight: the box stays bright, the huge shadow darkens the rest */
+.slide-spot {
+  position: absolute;
+  border: 3px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  transition: all 0.35s ease;
 }
-.part .fill.line {
-  fill: none;
-  stroke: var(--tone);
-  stroke-linecap: round;
-  stroke-linejoin: round;
+/* a moving marker line on a graph picture (AuxinDose) */
+.slide-vline {
+  position: absolute;
+  width: 0;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 0 0 1.5px #fff;
+  transition: left 0.1s;
 }
-.part .hit {
-  fill: transparent;
-  stroke: transparent;
-  stroke-width: 14;
-}
-.part[role='button'] {
+/* a tappable box on a picture (SpecimenLabel) */
+.slide-hit {
+  position: absolute;
+  padding: 0;
+  background: transparent;
+  border: 2.5px solid var(--tone);
+  border-radius: 6px;
   cursor: pointer;
 }
-.part.sel .fill {
-  stroke: var(--ink);
-  stroke-width: 2.5;
+.slide-hit.on {
+  background: color-mix(in srgb, var(--tone) 28%, transparent);
+  box-shadow: 0 0 0 2px #fff;
 }
-.part.sel .fill.line {
-  stroke: var(--tone);
-  filter: drop-shadow(0 0 2px var(--ink));
+.slide-hit.quiz {
+  border: 2px dashed rgba(0, 0, 0, 0.45);
 }
-.part.dim {
-  opacity: 0.22;
+/* a tap point */
+.slide-pin {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  margin: -9.5px 0 0 -9.5px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--tone, var(--accent));
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font: 700 10px/15px system-ui, sans-serif;
+  text-align: center;
+  text-shadow: 0 0 2px #000;
+  transition: transform 0.15s, opacity 0.2s;
 }
-.part.mark-ok .fill {
-  stroke: var(--good);
-  stroke-width: 3.5;
+button.slide-pin {
+  cursor: pointer;
 }
-.part.mark-bad .fill {
-  stroke: var(--bad);
-  stroke-width: 3.5;
+/* bigger invisible hit area for fingers */
+button.slide-pin::before {
+  content: '';
+  position: absolute;
+  inset: -11px;
+  border-radius: 50%;
+}
+.slide-pin.sel {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 3px var(--ink), 0 0 10px 3px var(--accent);
+  z-index: 2;
+}
+.slide-pin.dim {
+  opacity: 0.25;
+}
+.slide-pin.mark-ok {
+  background: var(--good);
+  transform: scale(1.35);
+  opacity: 1;
+}
+.slide-pin.mark-bad {
+  background: var(--bad);
+  opacity: 1;
 }
 .part-info {
   min-height: 3.4em;
