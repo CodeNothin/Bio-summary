@@ -16,6 +16,7 @@ import type { Question } from '../types';
 export const eIntro: Question[] = [
   {
     id: 'ei-eco-01', type: 'order', topic: 'ei-ecology', source: '6.1 สไลด์ 7–8',
+    inText: ['สิ่งมีชีวิต (organism)', 'ประชากร (population)', 'สังคม (community)', 'ระบบนิเวศ (ecosystem)', 'ชีวภาค (biosphere)'],
     prompt: 'เรียงลำดับขั้นการจัดระบบที่นักนิเวศวิทยาศึกษา จากเล็กไปใหญ่',
     steps: ['organism (สิ่งมีชีวิต)', 'population (ประชากร)', 'community (สังคมสิ่งมีชีวิต)', 'ecosystem (ระบบนิเวศ)', 'biosphere (ชีวภาค)'],
     hints: ['community = หลายประชากรต่างชนิดกัน', 'ecosystem = community + ปัจจัยทางกายภาพ'],
@@ -23,6 +24,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-eco-02', type: 'match', topic: 'ei-ecology', source: '6.1 สไลด์ 8',
+    inText: ['organismal ecology — โครงสร้าง สรีรวิทยา พฤติกรรม', 'population ecology — ปัจจัยที่กำหนดว่าชนิดหนึ่งมีจำนวนเท่าใดในพื้นที่', 'community ecology — หลายชนิดที่มีปฏิสัมพันธ์กัน', 'ecosystem ecology — การไหลของพลังงานและการหมุนเวียนสาร'],
     prompt: 'จับคู่สาขานิเวศวิทยากับสิ่งที่ศึกษา',
     pairs: [
       { left: 'Organismal ecology', right: 'โครงสร้าง สรีรวิทยา พฤติกรรมของสิ่งมีชีวิตที่รับมือกับสิ่งแวดล้อม' },
@@ -35,6 +37,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-fac-01', type: 'sort', topic: 'ei-factors', source: '6.1 สไลด์ 10–11',
+    inText: ['ปัจจัยทางชีวภาพ (biotic): ถูกล่า ปรสิต การแข่งขัน โรค', 'ออกซิเจนที่ละลาย ความเค็ม pH', 'อุณหภูมิ ความชื้น แสง'],
     prompt: 'จัดปัจจัยต่อไปนี้เป็นปัจจัยทางชีวภาพหรือกายภาพ/เคมี',
     bins: [{ id: 'bio', label: 'biotic (สิ่งมีชีวิตอื่น)' }, { id: 'abio', label: 'abiotic (เคมี/กายภาพ)' }],
     items: [
@@ -46,6 +49,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-fac-02', type: 'mcq', topic: 'ei-factors', source: '6.1 สไลด์ 10–12',
+    inText: ['การแพร่กระจาย (dispersal)', 'สิ่งกีดขวางทางภูมิศาสตร์', 'นกกีวีพบเฉพาะนิวซีแลนด์'],
     prompt: 'นกกีวีพบเฉพาะในนิวซีแลนด์ ข้อใดอธิบายได้ดีที่สุดตามแผนผังในสไลด์',
     options: [
       { text: 'การแพร่กระจาย (dispersal) ถูกจำกัดด้วยสิ่งกีดขวางทางภูมิศาสตร์ (ทะเล) จึงไปถึงพื้นที่อื่นไม่ได้', correct: true, why: 'ขั้นแรกของแผนผัง: "Does dispersal limit its distribution?" — พื้นที่ที่เข้าไม่ถึง' },
@@ -58,6 +62,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-cl-01', type: 'mcq', topic: 'ei-climate', source: '6.1 สไลด์ 16',
+    inText: 'ด้านปลายลม (leeward) อากาศแห้งแล้ว',
     prompt: 'ด้านใดของภูเขาที่มักแห้งแล้งเนื่องจากปรากฏการณ์ rain shadow',
     options: [
       { text: 'ด้านปลายลม (leeward) — อากาศเสียความชื้นเป็นฝนที่ด้านรับลมไปแล้ว', correct: true, why: 'อากาศชื้นลอยขึ้นด้านรับลม เย็นลง ตกเป็นฝน แล้วลงด้านหลังเป็นอากาศแห้ง' },
@@ -70,6 +75,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-cl-02', type: 'numeric', topic: 'ei-climate', source: '6.1 สไลด์ 17 (adiabatic cooling)',
+    inText: ['6.5 °C', '30 − (6.5 × 2) = 17 °C'],
     prompt: 'ถ้าเชิงเขามีอุณหภูมิ 30 °C ยอดเขาที่สูงกว่า 2,000 เมตร จะมีอุณหภูมิประมาณกี่ °C (อุณหภูมิลด ~6.5 °C ต่อ 1,000 m)',
     answer: 17, unit: '°C', tolerance: 0.01,
     compute: () => 30 - adiabaticDrop(2000),
@@ -79,6 +85,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-cl-03', type: 'mcq', topic: 'ei-climate', source: '6.1 สไลด์ 14–15',
+    inText: ['แสงอาทิตย์ตกกระทบเส้นศูนย์สูตรมากกว่าขั้วโลก', 'Coriolis effect', 'convection cell'],
     prompt: 'ข้อใดเป็นตัวขับเคลื่อนหลักของการหมุนเวียนอากาศตามละติจูด (latitudinal circulation)',
     options: [
       { text: 'แสงอาทิตย์ทำให้ร้อนไม่เท่ากันระหว่างเส้นศูนย์สูตรกับขั้วโลก การหมุนของโลก (Coriolis effect) และอากาศร้อนลอยขึ้น–เย็นจมลง', correct: true, why: 'Key drivers ในสไลด์ 15' },
@@ -91,6 +98,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-te-01', type: 'match', topic: 'ei-terrestrial', source: '6.1 สไลด์ 21–27',
+    inText: ['ความหลากหลายสูงสุดบนบก', 'หญ้า + ต้นไม้ทนแล้งกระจาย', 'ใกล้ละติจูด 30°', 'ละติจูดสูงใต้ทุนดรา ต้นสนใบเข็ม'],
     prompt: 'จับคู่ชีวนิเวศบนบกกับลักษณะเด่น',
     pairs: [
       { left: 'ป่าเขตร้อน (tropical forest)', right: 'ฝน > 2000 mm อุ่นตลอดปี หลายชั้นเรือนยอด ความหลากหลายสูงสุดบนบก' },
@@ -105,6 +113,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-te-02', type: 'mcq', topic: 'ei-terrestrial', source: '6.1 สไลด์ 18–20',
+    inText: 'ชีวนิเวศบนบกนิยามด้วยภูมิอากาศ + พืชพรรณ',
     prompt: 'ชีวนิเวศบนบก (terrestrial biome) ถูกจำแนกจากอะไรเป็นหลัก',
     options: [
       { text: 'ภูมิอากาศและชนิดพืชพรรณที่เด่น (vegetation)', correct: true, why: 'ภูมิอากาศ + การรบกวน → สังคมพืช → ชนิดของชีวนิเวศบนบก' },
@@ -117,6 +126,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-aq-01', type: 'mcq', topic: 'ei-aquatic', source: '6.1 สไลด์ 28–30',
+    inText: ['ปัจจัยทางกายภาพของน้ำ (ความเค็ม ความลึก)', '~3.5%', '< 1%'],
     prompt: 'ข้อใดถูกต้องเกี่ยวกับชีวนิเวศในน้ำ',
     options: [
       { text: 'จำแนกจากลักษณะทางกายภาพของน้ำ เช่น ความเค็มและความลึก — ทะเลเค็ม ~3.5% น้ำจืด < 1%', correct: true, why: 'สไลด์ 28–30' },
@@ -129,6 +139,7 @@ export const eIntro: Question[] = [
   },
   {
     id: 'ei-aq-02', type: 'tf', topic: 'ei-aquatic', source: '6.1 สไลด์ 31',
+    inText: 'การเปลี่ยนแปลงภูมิอากาศ (ทำให้ขอบเขตชีวนิเวศเลื่อน)',
     statement: 'การเปลี่ยนแปลงสภาพภูมิอากาศทำให้ขอบเขตของชีวนิเวศเลื่อน เช่น ทุนดราอุ่นขึ้น ทะเลทรายขยายตัว',
     answer: true,
     why: 'สไลด์ 31: climate change shifts biome boundaries',
@@ -140,6 +151,7 @@ export const eIntro: Question[] = [
 export const ePopulation: Question[] = [
   {
     id: 'ep-sz-01', type: 'numeric', topic: 'ep-size', source: '6.2 สไลด์ 5',
+    inText: 'ความหนาแน่น = จำนวนที่นับได้ ÷ (จำนวน quadrat × ขนาด quadrat)',
     prompt: 'วาง quadrat ขนาด 1 m² จำนวน 4 อัน นับต้นหญ้าได้รวม 20 ต้น ความหนาแน่นเท่ากับกี่ต้นต่อ m²',
     answer: 5, unit: 'ต้น/m²',
     compute: () => quadratDensity(20, 4, 1),
@@ -149,6 +161,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-sz-02', type: 'numeric', topic: 'ep-size', source: '6.2 สไลด์ 5 (ดัดแปลงตัวเลข)',
+    inText: 'ขนาดประชากร = ความหนาแน่น × พื้นที่ทั้งหมด',
     prompt: 'จากข้อมูล quadrat ได้ความหนาแน่น 5 ต้น/m² พื้นที่ศึกษากว้าง 4 m ยาว 10 m ประชากรทั้งพื้นที่มีกี่ต้น',
     answer: 200, unit: 'ต้น',
     compute: () => populationFromDensity(5, 4 * 10),
@@ -158,6 +171,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-sz-03', type: 'numeric', topic: 'ep-size', source: '6.2 สไลด์ 6 (ดัดแปลงตัวเลข)',
+    inText: 'N = M × C ÷ R',
     prompt: 'จับปลาครั้งแรก 30 ตัว ทำเครื่องหมายแล้วปล่อย ต่อมาจับครั้งที่สองได้ 40 ตัว มีเครื่องหมาย 6 ตัว ประมาณขนาดประชากรปลาได้กี่ตัว',
     answer: 200, unit: 'ตัว',
     compute: () => markRecapture(30, 40, 6),
@@ -167,6 +181,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-sz-04', type: 'match', topic: 'ep-size', source: '6.2 สไลด์ 2–6',
+    inText: ['ขนาด (size)', 'ความหนาแน่น (density: จำนวนต่อพื้นที่หรือปริมาตร)', 'พืช สัตว์ที่เคลื่อนที่ช้า', 'สัตว์ที่เคลื่อนที่ได้ (ปลา ค้างคาว)', 'นับทุกตัว แม่นยำแต่เหนื่อย'],
     prompt: 'จับคู่คำกับความหมาย/การใช้',
     pairs: [
       { left: 'ขนาดประชากร (population size)', right: 'จำนวนสิ่งมีชีวิตทั้งหมดในประชากร' },
@@ -180,6 +195,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-di-01', type: 'mcq', topic: 'ep-dispersion', source: '6.2 สไลด์ 7–8',
+    inText: ['แบบกลุ่ม (clumped) พบบ่อยที่สุด', 'รวมกลุ่มเพื่อผสมพันธุ์ หาอาหาร ความปลอดภัย หรือรวมรอบทรัพยากร'],
     prompt: 'การกระจายตัวแบบใดพบมากที่สุดในธรรมชาติ และเกิดจากอะไร',
     options: [
       { text: 'แบบกลุ่ม (clumped) — รวมกลุ่มตามแหล่งทรัพยากร ช่วยการผสมพันธุ์ หาอาหาร และปลอดภัย', correct: true, why: 'clumped: most common' },
@@ -192,6 +208,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-ch-01', type: 'numeric', topic: 'ep-change', source: '6.2 สไลด์ 12 (ตัวอย่างที่ 1)',
+    inText: ['b = B ÷ N', 'b = 48 ÷ 1000 = 0.048'],
     prompt: 'หมู่บ้าน C มีประชากร 1,000 คน เกิด 48 คนต่อปี อัตราการเกิดต่อหัว (per capita birth rate, b) เท่ากับเท่าใด',
     answer: 0.048, unit: 'ต่อปี',
     compute: () => perCapita(48, 1000),
@@ -201,6 +218,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-ch-02', type: 'numeric', topic: 'ep-change', source: '6.2 สไลด์ 12 (ตัวอย่างที่ 3)',
+    inText: ['r = b − d', 'จำนวนที่เปลี่ยนต่อปี = r × N', 'ลดลง 12 ต่อปี'],
     prompt: 'ประชากรกวาง 2,000 ตัว มี b = 0.034 และ d = 0.040 ต่อปี ประชากรเปลี่ยนแปลงกี่ตัวต่อปี (ตอบเป็นค่าลบถ้าลดลง)',
     answer: -12, unit: 'ตัว/ปี', tolerance: 0.001,
     compute: () => rateOfIncrease(0.034, 0.04) * 2000,
@@ -210,6 +228,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-ch-03', type: 'mcq', topic: 'ep-change', source: '6.2 สไลด์ 9–11',
+    inText: 'ประชากรแต่ละที่มีขนาดต่างกัน การเทียบด้วยจำนวนจริงจึงทำได้ยาก',
     prompt: 'ทำไมนักนิเวศวิทยาจึงนิยมใช้อัตราต่อหัว (per capita rate) แทนจำนวนที่เกิด/ตายจริง',
     options: [
       { text: 'ประชากรในแต่ละพื้นที่มีขนาดต่างกัน การเทียบด้วยจำนวนจริงจึงทำได้ยาก', correct: true, why: 'หมู่บ้าน A (100 คน) และ B (1000 คน) เพิ่ม +5 เท่ากัน แต่สัมพัทธ์ต่างกันมาก' },
@@ -222,6 +241,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-gr-01', type: 'mcq', topic: 'ep-growth', source: '6.2 สไลด์ 14–16',
+    inText: ['ทรัพยากรจำกัด', 'เข้าใกล้ K', 'Logistic (กราฟ S / sigmoid)'],
     prompt: 'การเติบโตแบบ logistic ต่างจากแบบ exponential อย่างไร',
     options: [
       { text: 'logistic เป็นกราฟรูป S ทรัพยากรจำกัดและมีการแข่งขัน การเติบโตช้าลงเมื่อเข้าใกล้ carrying capacity (K)', correct: true, why: 'สไลด์ 15–16' },
@@ -234,6 +254,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-gr-02', type: 'tf', topic: 'ep-growth', source: '6.2 สไลด์ 17–18',
+    inText: 'ไม่ทำให้ประชากรเกิน K ได้ถาวร',
     statement: 'การปล่อยปูจำนวนมาก (เช่น 20,000 ตัว) ลงทะเล จะทำให้ประชากรปูเพิ่มขึ้นเกิน carrying capacity ได้อย่างถาวร',
     answer: false,
     why: 'ถ้าเกิน K ทรัพยากรจะไม่พอ การแข่งขัน อดอาหาร และการตายจะดึงประชากรกลับลง',
@@ -242,6 +263,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-gr-03', type: 'sort', topic: 'ep-growth', source: '6.2 สไลด์ 17',
+    inText: ['abiotic (อุณหภูมิ น้ำ แสง ธาตุอาหาร ดิน ความเค็ม)', 'biotic (การล่า การแข่งขัน ปรสิต)'],
     prompt: 'จัดปัจจัยจำกัด (limiting factors) เป็นปัจจัยทางกายภาพหรือชีวภาพ',
     bins: [{ id: 'a', label: 'abiotic' }, { id: 'b', label: 'biotic' }],
     items: [
@@ -253,6 +275,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-de-01', type: 'match', topic: 'ep-demography', source: '6.2 สไลด์ 24',
+    inText: ['Type I อัตรารอดสูงช่วงต้นและกลางชีวิต ตายมากตอนแก่ คน สัตว์ใหญ่', 'Type II อัตราตายคงที่ทุกช่วงอายุ นก สัตว์ฟันแทะ สัตว์เลื้อยคลาน', 'Type III ตายมากตอนเล็ก ตัวที่รอดมักอยู่ได้นาน ปะการัง พืช'],
     prompt: 'จับคู่ survivorship curve กับลักษณะและตัวอย่าง',
     pairs: [
       { left: 'Type I', right: 'อัตรารอดสูงช่วงต้นและกลางชีวิต ตายมากตอนแก่ — คน สัตว์ใหญ่' },
@@ -264,6 +287,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-de-02', type: 'mcq', topic: 'ep-demography', source: '6.2 สไลด์ 26',
+    inText: 'สังคมสูงวัยโดยสมบูรณ์ (aged society) อายุ 60+ เกิน 20% หรือ 65+ เกิน 14%',
     prompt: 'สังคมที่มีผู้สูงอายุ 65 ปีขึ้นไปมากกว่า 14% ของประชากร จัดเป็นสังคมแบบใดตามสไลด์',
     options: [
       { text: 'aged society (สังคมสูงวัยโดยสมบูรณ์)', correct: true, why: 'aged: 60+ > 20% หรือ 65+ > 14%' },
@@ -276,6 +300,7 @@ export const ePopulation: Question[] = [
   },
   {
     id: 'ep-de-03', type: 'tf', topic: 'ep-demography', source: '6.2 สไลด์ 27–28',
+    inText: ['ความสัมพันธ์ผู้ล่า–เหยื่อ', 'snowshoe hare กับ lynx ขึ้นลงเป็นวัฏจักร'],
     statement: 'ประชากรกระต่ายหิมะ (snowshoe hare) และลิงซ์ (lynx) มีการขึ้นลงเป็นวัฏจักร ซึ่งเป็นตัวอย่างพลวัตประชากรจากปฏิสัมพันธ์ผู้ล่า–เหยื่อ',
     answer: true,
     why: 'สไลด์ 28: Population cycles in snowshoe hare and lynx',
@@ -287,6 +312,7 @@ export const ePopulation: Question[] = [
 export const eCommunity: Question[] = [
   {
     id: 'ec-in-01', type: 'match', topic: 'ec-interactions', source: '6.3 สไลด์ 4–5',
+    inText: ['competition ภาวะแข่งขัน − / −', 'predation, herbivory ภาวะล่าเหยื่อ / กินพืช + / −', 'mutualism * ภาวะพึ่งพา + / +', 'commensalism * ภาวะอิงอาศัย + / 0', 'amensalism ภาวะกระทบกระเทือน 0 / −', 'neutralism ภาวะเป็นกลาง 0 / 0'],
     prompt: 'จับคู่ความสัมพันธ์กับสัญลักษณ์ผลต่อสองชนิด',
     pairs: [
       { left: 'ภาวะแข่งขัน (competition)', right: '− / −' },
@@ -301,6 +327,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-in-02', type: 'mcq', topic: 'ec-interactions', source: '6.3 สไลด์ 4, 25',
+    inText: 'protocooperation ภาวะได้ประโยชน์ร่วมกัน + / +',
     prompt: 'ความสัมพันธ์ที่ทั้งสองฝ่ายได้ประโยชน์ แต่ไม่จำเป็นต่อการอยู่รอด (แยกกันก็อยู่ได้) เรียกว่าอะไร',
     options: [
       { text: 'ภาวะได้ประโยชน์ร่วมกัน (protocooperation)', correct: true, why: '+/+ แต่ไม่ obligatory' },
@@ -313,6 +340,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-co-01', type: 'mcq', topic: 'ec-competition', source: '6.3 สไลด์ 7',
+    inText: ['Competitive exclusion principle', 'อยู่ร่วมกันถาวรไม่ได้', 'ชนิดที่ได้เปรียบด้านการสืบพันธุ์จะชนะ'],
     prompt: 'หลักการกีดกันจากการแข่งขัน (competitive exclusion principle, Gause 1934) กล่าวว่าอย่างไร',
     options: [
       { text: 'สองชนิดที่แข่งขันทรัพยากรเดียวกันอยู่ร่วมกันถาวรไม่ได้ ชนิดที่ได้เปรียบในการสืบพันธุ์จะกำจัดอีกชนิดออกไป', correct: true, why: 'ตามสไลด์ 7' },
@@ -325,6 +353,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-co-02', type: 'mcq', topic: 'ec-competition', source: '6.3 สไลด์ 9–11',
+    inText: 'realized niche niche ที่ใช้จริง แคบกว่าเพราะการแข่งขัน',
     prompt: 'ข้อใดถูกต้องเกี่ยวกับ niche',
     options: [
       { text: 'realized niche มักเล็กกว่า fundamental niche เพราะถูกจำกัดด้วยการแข่งขันหรือการล่า', correct: true, why: 'สไลด์ 10–11' },
@@ -337,6 +366,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-co-03', type: 'match', topic: 'ec-competition', source: '6.3 สไลด์ 11–13',
+    inText: ['Competitive exclusion principle', 'Resource partitioning: แบ่งทรัพยากรกันใช้ (นก warbler 5 ชนิดหากินคนละส่วนของต้นสน)', 'วิวัฒน์ให้ลักษณะต่างกันมากขึ้น'],
     prompt: 'เมื่อสองชนิดมี niche ซ้อนทับกัน จับคู่ผลลัพธ์กับคำอธิบาย',
     pairs: [
       { left: 'competitive exclusion', right: 'ชนิดที่ได้เปรียบครองพื้นที่ ชนิดที่อ่อนกว่าลดลงจนหายไป' },
@@ -348,6 +378,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-co-04', type: 'order', topic: 'ec-competition', source: '6.3 สไลด์ 14',
+    inText: 'ที่ไม่เหมาะ → ลดลง · เหมาะแต่แข่งไม่ได้ → ลดลง · แข่งได้ → อยู่ร่วม · แข่งชนะ → ชนิดพื้นเมืองลดลง',
     prompt: 'เรียงผลของชนิดพันธุ์ต่างถิ่น (เช่น ปลาหมอคางดำ) จากที่ "กระทบชนิดพื้นเมืองน้อยที่สุด" ไป "มากที่สุด"',
     steps: [
       'สิ่งแวดล้อมไม่เหมาะ → ประชากรต่างถิ่นลดลงและหายไป',
@@ -360,6 +391,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-pr-01', type: 'sort', topic: 'ec-predation', source: '6.3 สไลด์ 15–19',
+    inText: ['เหยื่อ — พฤติกรรม ซ่อน หนี อยู่เป็นฝูง ส่งเสียงเตือน', 'พรางตัว (camouflage) สีเตือน หนาม สารพิษ การเลียนแบบ (mimicry)'],
     prompt: 'จัดการป้องกันตัวของเหยื่อเป็นแบบพฤติกรรมหรือแบบรูปร่าง/สรีระ',
     bins: [{ id: 'beh', label: 'behavioral' }, { id: 'mor', label: 'morphological/physiological' }],
     items: [
@@ -371,6 +403,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-pr-02', type: 'tf', topic: 'ec-predation', source: '6.3 สไลด์ 20–21',
+    inText: ['Herbivory (+/−)', 'หนาม ใบเหนียว สารพิษ'],
     statement: 'herbivory เป็นความสัมพันธ์แบบ +/− และพืชมีการป้องกันตัว เช่น หนาม ใบเหนียว สารพิษหรือรสขม',
     answer: true,
     why: 'สไลด์ 20 — และสัตว์กินพืชก็อาจวิวัฒน์มาเอาชนะการป้องกันเหล่านี้',
@@ -379,6 +412,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-sy-01', type: 'mcq', topic: 'ec-symbiosis', source: '6.3 สไลด์ 22–24',
+    inText: ['Mutualism (+/+)', 'ปมรากถั่ว', 'ไลเคน'],
     prompt: 'ไลเคน (รา + สาหร่าย) และปมรากถั่ว (ถั่ว + แบคทีเรีย) เป็นตัวอย่างความสัมพันธ์แบบใด',
     options: [
       { text: 'ภาวะพึ่งพา (mutualism) +/+', correct: true, why: 'สไลด์ 22' },
@@ -391,6 +425,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-sy-02', type: 'mcq', topic: 'ec-symbiosis', source: '6.3 สไลด์ 28',
+    inText: 'Amensalism / antibiosis (0/−): เช่น รา Penicillium หลั่งสารยับยั้งแบคทีเรีย',
     prompt: 'รา Penicillium หลั่งสารยับยั้งการเจริญของแบคทีเรียรอบโคโลนี เป็นตัวอย่างความสัมพันธ์แบบใด',
     options: [
       { text: 'antibiosis / amensalism (0 / −)', correct: true, why: 'ราไม่ได้รับผล แบคทีเรียถูกยับยั้ง' },
@@ -403,6 +438,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-dv-01', type: 'mcq', topic: 'ec-diversity', source: '6.3 สไลด์ 29',
+    inText: ['สังคม 1 หลากหลายกว่า', 'richness', 'relative abundance'],
     prompt: 'สังคม 1 มีต้นไม้ 4 ชนิด ชนิดละ 5 ต้น (25% เท่ากัน) สังคม 2 มี 4 ชนิดเช่นกัน แต่เป็น 16, 1, 1, 2 ต้น สังคมใดมีความหลากหลายสูงกว่า เพราะอะไร',
     options: [
       { text: 'สังคม 1 — richness เท่ากัน แต่ relative abundance สม่ำเสมอกว่า', correct: true, why: 'ความหลากหลายมี 2 องค์ประกอบ: richness และ relative abundance' },
@@ -415,6 +451,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-dv-02', type: 'sort', topic: 'ec-diversity', source: '6.3 สไลด์ 31–33',
+    inText: ['หินเปล่าจากลาวา เนินทรายใหม่', 'ไร่ร้าง ป่าหลังไฟไหม้'],
     prompt: 'จัดตัวอย่างเป็นการแทนที่แบบปฐมภูมิหรือทุติยภูมิ',
     bins: [{ id: 'p', label: 'primary succession' }, { id: 's', label: 'secondary succession' }],
     items: [
@@ -426,6 +463,7 @@ export const eCommunity: Question[] = [
   },
   {
     id: 'ec-dv-03', type: 'tf', topic: 'ec-diversity', source: '6.3 สไลด์ 31',
+    inText: 'climax community (ระยะสุดท้ายที่เสถียร องค์ประกอบชนิดเปลี่ยนน้อย)',
     statement: 'climax community คือระยะสุดท้ายที่เสถียรของการแทนที่ องค์ประกอบชนิดเปลี่ยนแปลงน้อยเมื่อเวลาผ่านไป',
     answer: true,
     why: 'สไลด์ 31',
@@ -437,6 +475,7 @@ export const eCommunity: Question[] = [
 export const eEcosystem: Question[] = [
   {
     id: 'ee-st-01', type: 'sort', topic: 'ee-structure', source: '6.4 สไลด์ 7',
+    inText: ['ผู้ผลิต (producer, autotroph)', 'พืช สาหร่าย', 'scavenger/detritivore กินซาก', 'ผู้ย่อยสลาย (decomposer, saprotroph)', 'แบคทีเรีย รา'],
     prompt: 'จัดสิ่งมีชีวิตตามบทบาทเชิงอาหาร',
     bins: [
       { id: 'p', label: 'ผู้ผลิต (producer)' },
@@ -453,6 +492,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-st-02', type: 'tf', topic: 'ee-structure', source: '6.4 สไลด์ 3',
+    inText: ['พลังงานไหลทางเดียว', 'สสารหมุนเวียน'],
     statement: 'ในระบบนิเวศ พลังงานไหลทางเดียว ส่วนสาร (biogeochemicals) หมุนเวียนระหว่างสิ่งมีชีวิตกับสิ่งแวดล้อม',
     answer: true,
     why: 'สไลด์ 3',
@@ -461,6 +501,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-fc-01', type: 'mcq', topic: 'ee-foodchain', source: '6.4 สไลด์ 10',
+    inText: 'ลูกศร A → B แปลว่า B กิน A',
     prompt: 'ในสายใยอาหาร ลูกศร A → B หมายความว่าอะไร',
     options: [
       { text: 'B กิน A (พลังงานไหลจาก A ไป B)', correct: true, why: 'ลูกศรชี้ทิศทางการไหลของพลังงาน' },
@@ -473,6 +514,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-fc-02', type: 'mcq', topic: 'ee-foodchain', source: '6.4 สไลด์ 13–15',
+    inText: ['Keystone species', 'มากเกินสัดส่วนกับจำนวน', 'นากทะเล → ควบคุมเม่นทะเล → ป่าสาหร่ายเคลป์อยู่ได้'],
     prompt: 'นากทะเล (sea otter) ในป่าสาหร่ายเคลป์มีจำนวนไม่มาก แต่เมื่อหายไป เม่นทะเลเพิ่มขึ้นและกินเคลป์จนป่าเสียหาย นากทะเลจัดเป็นอะไร',
     options: [
       { text: 'keystone species', correct: true, why: 'ไม่จำเป็นต้องมีจำนวนมาก แต่ผลกระทบต่อระบบนิเวศสูงเกินสัดส่วน' },
@@ -485,6 +527,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-en-01', type: 'numeric', topic: 'ee-energy', source: '6.4 สไลด์ 21 (กฎ 10%)',
+    inText: ['พลังงานที่ลำดับขั้น n ≈ พลังงานผู้ผลิต × (0.1)ⁿ⁻¹', 'ลำดับที่ 2: 500 kJ'],
     prompt: 'ผู้ผลิตมีพลังงาน 50,000 kJ ถ้าถ่ายทอดได้ 10% ต่อลำดับ ผู้บริโภคลำดับที่ 2 (ระดับที่ 3) ได้รับพลังงานกี่ kJ',
     answer: 500, unit: 'kJ',
     compute: () => energyAtLevel(50000, 3),
@@ -494,6 +537,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-en-02', type: 'mcq', topic: 'ee-energy', source: '6.4 สไลด์ 21',
+    inText: 'ผู้บริโภคลำดับสูงสุด (ได้พลังงานน้อยที่สุด ประชากรจึงเล็ก)',
     prompt: 'ตามพีระมิดพลังงาน ลำดับขั้นใดเสี่ยงต่อการสูญพันธุ์มากที่สุด เพราะอะไร',
     options: [
       { text: 'ผู้บริโภคลำดับสูงสุด เพราะได้รับพลังงานน้อยที่สุด (~10% ต่อขั้น) จึงมีจำนวนน้อย', correct: true, why: 'พลังงานลดลงทุกขั้น ทำให้ห่วงโซ่ยาวได้ไม่เกิน ~5 ระดับผู้บริโภค' },
@@ -506,6 +550,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-en-03', type: 'mcq', topic: 'ee-energy', source: '6.4 สไลด์ 19',
+    inText: ['GPP (gross primary production): พลังงานทั้งหมดที่ผู้ผลิตตรึงได้จากการสังเคราะห์ด้วยแสง', 'NPP (net primary production): ส่วนที่เหลือเก็บเป็นมวลชีวภาพ ส่งต่อให้ผู้บริโภคได้'],
     prompt: 'GPP และ NPP ต่างกันอย่างไร',
     options: [
       { text: 'GPP = สารคาร์บอนทั้งหมดที่พืชสร้างจากการสังเคราะห์ด้วยแสง · NPP = ส่วนที่เหลือสะสมเป็นมวลชีวภาพ ส่งต่อให้ผู้บริโภคได้', correct: true, why: 'สไลด์ 19' },
@@ -518,6 +563,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-cy-01', type: 'order', topic: 'ee-cycles', source: '6.4 สไลด์ 25',
+    inText: ['N และ P จากปุ๋ย น้ำทิ้ง ผงซักฟอก ไหลลงแหล่งน้ำ', 'algal bloom', 'O₂ ในน้ำลดลง', 'ปลาและสัตว์น้ำตาย'],
     prompt: 'เรียงลำดับการเกิด eutrophication',
     steps: [
       'ปุ๋ย น้ำทิ้ง ผงซักฟอกไหลลงแหล่งน้ำ',
@@ -531,6 +577,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-cy-02', type: 'tf', topic: 'ee-cycles', source: '6.4 สไลด์ 22–24',
+    inText: 'น้ำ คาร์บอน ไนโตรเจน ฟอสฟอรัส — สารเคมีหมุนเวียนระหว่างสิ่งมีชีวิตกับสิ่งแวดล้อม',
     statement: 'วัฏจักรชีวธรณีเคมี (biogeochemical cycles) คือการหมุนเวียนธาตุจำเป็น เช่น คาร์บอน ไนโตรเจน ฟอสฟอรัส และน้ำ ผ่านสิ่งมีชีวิต บรรยากาศ น้ำ และดิน',
     answer: true,
     why: 'bio- = สิ่งมีชีวิต, geo- = บรรยากาศ น้ำ ดิน',
@@ -539,6 +586,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-tx-01', type: 'mcq', topic: 'ee-toxins', source: '6.4 สไลด์ 26–29',
+    inText: 'ความเข้มข้นเพิ่มขึ้นในแต่ละลำดับขั้น',
     prompt: 'ข้อใดอธิบาย biomagnification ได้ถูกต้อง',
     options: [
       { text: 'ความเข้มข้นของสารพิษเพิ่มขึ้นตามลำดับขั้นของห่วงโซ่อาหาร ผู้บริโภคระดับบนได้รับผลรุนแรงที่สุด', correct: true, why: 'สไลด์ 26' },
@@ -551,6 +599,7 @@ export const eEcosystem: Question[] = [
   },
   {
     id: 'ee-tx-02', type: 'match', topic: 'ee-toxins', source: '6.4 สไลด์ 26–31',
+    inText: ['โรคมินามาตะ (ปรอท)', 'เปลือกไข่บาง', 'methylmercury ในอาร์กติก', 'ไมโครพลาสติก คือพลาสติกขนาด < 5 mm'],
     prompt: 'จับคู่ตัวอย่างกับคำอธิบาย',
     pairs: [
       { left: 'Minamata disease', right: 'ตัวอย่าง bioaccumulation ของปรอท' },
@@ -566,6 +615,7 @@ export const eEcosystem: Question[] = [
 export const eIssues: Question[] = [
   {
     id: 'es-sv-01', type: 'sort', topic: 'es-services', source: '6.5 สไลด์ 4–8',
+    inText: ['Provisioning ประโยชน์โดยตรง อาหาร น้ำจืด ไม้', 'ควบคุมภูมิอากาศ น้ำและน้ำท่วม คุณภาพอากาศ การผสมเกสร', 'นันทนาการ ความงาม สุขภาพจิต การศึกษา จิตวิญญาณ', 'หมุนเวียนธาตุอาหาร การเกิดดิน ผลผลิตปฐมภูมิ'],
     prompt: 'จัดตัวอย่างให้ตรงกับประเภทบริการระบบนิเวศ',
     bins: [
       { id: 'prov', label: 'Provisioning (ประโยชน์โดยตรง)' },
@@ -584,6 +634,7 @@ export const eIssues: Question[] = [
   },
   {
     id: 'es-sv-02', type: 'mcq', topic: 'es-services', source: '6.5 สไลด์ 3',
+    inText: 'ecosystem functions) คือกระบวนการตามธรรมชาติ (สังเคราะห์ด้วยแสง หมุนเวียนธาตุอาหาร การไหลของพลังงาน)',
     prompt: 'ข้อใดเป็น "ecosystem function" ไม่ใช่ "ecosystem service"',
     options: [
       { text: 'การไหลของพลังงานผ่านสายใยอาหาร', correct: true, why: 'เป็นกระบวนการทางธรรมชาติในระบบนิเวศ' },
@@ -596,6 +647,7 @@ export const eIssues: Question[] = [
   },
   {
     id: 'es-is-01', type: 'tf', topic: 'es-issues', source: '6.5 สไลด์ 13',
+    inText: 'การบริโภคเกินพอดีทำให้ความต้องการเกิน K ของโลก',
     statement: 'การบริโภคเกินขนาด (overconsumption) นำไปสู่การใช้ทรัพยากรเกินกว่าที่สิ่งแวดล้อมรองรับได้ (เกิน carrying capacity)',
     answer: true,
     why: 'สไลด์ 13: Overconsumption > resource exploitation > over carrying capacity (K)',
@@ -604,6 +656,7 @@ export const eIssues: Question[] = [
   },
   {
     id: 'es-ex-01', type: 'mcq', topic: 'es-extinction', source: '6.5 สไลด์ 18',
+    inText: ['สูงกว่า 100–1,000 เท่า', 'Sixth Mass Extinction'],
     prompt: 'อัตราการสูญพันธุ์ในปัจจุบันเทียบกับ background extinction เป็นอย่างไรตามสไลด์',
     options: [
       { text: 'สูงกว่า 100–1,000 เท่า เร่งโดยกิจกรรมมนุษย์ — เรียกว่า Sixth Mass Extinction', correct: true, why: 'สไลด์ 18' },
@@ -616,6 +669,7 @@ export const eIssues: Question[] = [
   },
   {
     id: 'es-ex-02', type: 'match', topic: 'es-extinction', source: '6.5 สไลด์ 21',
+    inText: ['ชนิดพันธุ์พื้นเมือง (native) อยู่ในพื้นที่นั้นตามธรรมชาติ', 'มนุษย์นำเข้ามา ทั้งตั้งใจและไม่ตั้งใจ', 'ต่างถิ่นที่แพร่เร็วและสร้างความเสียหาย'],
     prompt: 'จับคู่คำกับความหมาย',
     pairs: [
       { left: 'native species (ชนิดพันธุ์พื้นเมือง)', right: 'พบตามธรรมชาติในถิ่นการกระจายดั้งเดิม' },
@@ -627,6 +681,7 @@ export const eIssues: Question[] = [
   },
   {
     id: 'es-ex-03', type: 'sort', topic: 'es-extinction', source: '6.5 สไลด์ 19–20',
+    inText: 'ทำลายแหล่งที่อยู่ ใช้ทรัพยากรเกินขนาด การเปลี่ยนแปลงภูมิอากาศ มลพิษ ชนิดพันธุ์รุกราน',
     prompt: 'สาเหตุใดทำให้เกิด Anthropocene extinction และสาเหตุใดเป็นของ mass extinction ในอดีต',
     bins: [{ id: 'h', label: 'Anthropocene (มนุษย์)' }, { id: 'n', label: 'mass extinction ในอดีต (ธรรมชาติ)' }],
     items: [
@@ -638,6 +693,7 @@ export const eIssues: Question[] = [
   },
   {
     id: 'es-so-01', type: 'mcq', topic: 'es-solutions', source: '6.5 สไลด์ 27',
+    inText: ['Carbon neutrality ปล่อย CO₂ สุทธิเป็นศูนย์ ด้วยการลดการปล่อย + ชดเชย (เช่น carbon credit)', 'Net zero emission สมดุลก๊าซเรือนกระจกทุกชนิด'],
     prompt: 'carbon neutrality ต่างจาก net zero emission อย่างไรตามสไลด์',
     options: [
       { text: 'carbon neutrality = ปล่อย CO₂ สุทธิเป็นศูนย์ (ลดการปล่อย + ชดเชย เช่น carbon credit) · net zero = สมดุลก๊าซเรือนกระจก "ทุกชนิด" ระหว่างการปล่อยกับการดูดกลับ', correct: true, why: 'สไลด์ 27' },
@@ -650,6 +706,7 @@ export const eIssues: Question[] = [
   },
   {
     id: 'es-so-02', type: 'tf', topic: 'es-solutions', source: '6.5 สไลด์ 24',
+    inText: 'ปี 2024 ร้อนที่สุด เกิน 1.5 °C',
     statement: 'ตามสไลด์ ปี 2024 เป็นปีที่ร้อนที่สุดเท่าที่มีการบันทึก โดยอุณหภูมิสูงกว่ายุคก่อนอุตสาหกรรมเกิน 1.5 °C',
     answer: true,
     why: 'สไลด์ 24 — อุณหภูมิโลกเพิ่ม ~1.1 °C ตั้งแต่ปี 1880',

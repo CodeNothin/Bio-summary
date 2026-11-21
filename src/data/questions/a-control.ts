@@ -13,6 +13,7 @@ export const aControl: Question[] = [
   // ---------------------------------------------------------- ak-homeostasis
   {
     id: 'ak-ho-01', type: 'mcq', topic: 'ak-homeostasis', source: 'สัตว์ 5.6 สไลด์ 139',
+    inText: ['regulator', 'นาก (river otter) อุณหภูมิกาย ~38 °C คงที่', 'conformer', 'ปลา largemouth bass'],
     prompt: 'ในกราฟอุณหภูมิร่างกายเทียบกับอุณหภูมิสิ่งแวดล้อม นาก (river otter) มีอุณหภูมิคงที่ ~38 °C ส่วนปลา largemouth bass มีอุณหภูมิเปลี่ยนตามน้ำ ข้อใดถูก',
     options: [
       { text: 'นากเป็น thermoregulator ส่วนปลาเป็น thermoconformer', correct: true, why: 'regulator รักษาภายในให้คงที่ · conformer เปลี่ยนตามภายนอก' },
@@ -25,6 +26,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-ho-02', type: 'sort', topic: 'ak-homeostasis', source: 'สัตว์ 5.6 สไลด์ 140',
+    inText: ['สัตว์ไม่มีกระดูกสันหลัง ปลา สะเทินน้ำสะเทินบก สัตว์เลื้อยคลาน', 'นก สัตว์เลี้ยงลูกด้วยนม'],
     prompt: 'จัดสัตว์เป็น ectotherm หรือ endotherm',
     bins: [{ id: 'ecto', label: 'ectotherm (ได้ความร้อนจากภายนอก)' }, { id: 'endo', label: 'endotherm (ได้ความร้อนจาก metabolism)' }],
     items: [
@@ -36,6 +38,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-ho-03', type: 'order', topic: 'ak-homeostasis', source: 'สัตว์ 5.6 สไลด์ 141',
+    inText: ['(1) สิ่งเร้า (stimulus)', '(2) ตัวรับ (receptor/sensor)', 'afferent pathway', 'efferent pathway', '(5) การตอบสนองของ effector ย้อนกลับ'],
     prompt: 'เรียงลำดับการทำงานของระบบควบคุมสมดุล',
     steps: ['สิ่งเร้า (stimulus) ทำให้ค่าตัวแปรเปลี่ยน', 'ตัวรับ (receptor/sensor) ตรวจจับการเปลี่ยนแปลง', 'ส่งข้อมูลทาง afferent pathway ไปศูนย์ควบคุม (control center)', 'ศูนย์ควบคุมส่งคำสั่งทาง efferent pathway ไปอวัยวะแสดงผล (effector)', 'การตอบสนองของ effector ย้อนกลับไปมีผลต่อสิ่งเร้า'],
     hints: ['receptor → control center → effector'],
@@ -44,6 +47,7 @@ export const aControl: Question[] = [
   // ---------------------------------------------------------- ak-feedback
   {
     id: 'ak-fb-01', type: 'sort', topic: 'ak-feedback', source: 'สัตว์ 5.6 สไลด์ 143–144, 165–167',
+    inText: ['อุณหภูมิร่างกาย ระดับฮอร์โมน (ไทรอยด์ กลูโคส แคลเซียม)', 'การรวมตัวของเกล็ดเลือดเมื่อเกิดบาดแผล · oxytocin ขณะคลอด/ให้นม'],
     prompt: 'จัดตัวอย่างเป็นกลไกย้อนกลับแบบลบหรือแบบบวก',
     bins: [{ id: 'neg', label: 'negative feedback (กลับสู่สมดุล)' }, { id: 'pos', label: 'positive feedback (เร่งให้ห่างจากเดิม)' }],
     items: [
@@ -58,6 +62,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-fb-02', type: 'tf', topic: 'ak-feedback', source: 'สัตว์ 5.6 สไลด์ 143',
+    inText: 'ตอบสนองตรงกันข้ามกับที่เกิดตอนแรก → กลับเข้าสู่สมดุล',
     statement: 'กลไกย้อนกลับแบบลบทำให้เกิดการตอบสนองในทางตรงกันข้ามกับที่เกิดตอนแรก ทำให้ร่างกายกลับเข้าสู่สมดุล',
     answer: true,
     why: 'นิยามตามสไลด์ 143',
@@ -67,6 +72,7 @@ export const aControl: Question[] = [
   // ---------------------------------------------------------- ak-nervous
   {
     id: 'ak-nv-01', type: 'match', topic: 'ak-nervous', source: 'สัตว์ 5.6 สไลด์ 147–148',
+    inText: ['CNS (ระบบประสาทส่วนกลาง) สมอง และไขสันหลัง', 'เส้นประสาทสมอง (cranial nerves) · เส้นประสาทไขสันหลัง (spinal nerves) · ระบบประสาทอัตโนวัติ', 'sensory input (sensory neuron: receptor → CNS)', 'integration (สมองและไขสันหลัง)', 'motor output (motor neuron → effector)'],
     prompt: 'จับคู่ส่วนของระบบประสาทกับคำอธิบาย',
     pairs: [
       { left: 'CNS', right: 'สมองและไขสันหลัง' },
@@ -80,6 +86,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-nv-02', type: 'mcq', topic: 'ak-nervous', source: 'สัตว์ 5.6 สไลด์ 146',
+    inText: 'ไฮดรา = ร่างแหประสาท (nerve net)',
     prompt: 'ไฮดรา (cnidarian) มีการจัดระบบประสาทแบบใด',
     options: [
       { text: 'ร่างแหประสาท (nerve net)', correct: true, why: 'ภาพ (a) ในสไลด์ 146' },
@@ -93,6 +100,7 @@ export const aControl: Question[] = [
   // ---------------------------------------------------------- ak-neuron
   {
     id: 'ak-ne-01', type: 'label', topic: 'ak-neuron', source: 'สัตว์ 5.6 สไลด์ 151',
+    inText: 'axon นำ action potential จาก cell body ไปเซลล์อื่น',
     prompt: 'แตะส่วนที่นำ action potential "ออกจาก" ตัวเซลล์ไปยังเซลล์อื่น',
     diagram: 'neuron', target: 'axon',
     hints: ['ทำหน้าที่คล้ายสายเคเบิล'],
@@ -100,6 +108,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-ne-02', type: 'label', topic: 'ak-neuron', source: 'สัตว์ 5.6 สไลด์ 152',
+    inText: 'PNS = Schwann cell',
     prompt: 'แตะส่วนที่ใน PNS สร้างจาก Schwann cell',
     diagram: 'neuron', target: 'myelin',
     hints: ['หุ้ม axon เป็นช่วง ๆ'],
@@ -107,6 +116,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-ne-03', type: 'mcq', topic: 'ak-neuron', source: 'สัตว์ 5.6 สไลด์ 153',
+    inText: 'resting membrane potential = −70 mV',
     prompt: 'ศักย์เยื่อเซลล์ระยะพักของเซลล์ประสาท (resting membrane potential) มีค่าประมาณเท่าใด',
     options: [
       { text: '−70 mV', correct: true, why: 'สไลด์ 153' },
@@ -119,6 +129,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-ne-04', type: 'tf', topic: 'ak-neuron', source: 'สัตว์ 5.6 สไลด์ 149',
+    inText: 'transducer เปลี่ยนพลังงานของสิ่งเร้า (สารเคมี ความร้อน ความดัน) เป็นสัญญาณไฟฟ้า',
     statement: 'เซลล์ประสาทเป็น transducer คือเปลี่ยนพลังงานของสิ่งเร้า (สารเคมี ความร้อน ความดัน) ให้เป็นสัญญาณไฟฟ้าที่เรียกว่า nerve impulse หรือ action potential',
     answer: true,
     why: 'สไลด์ 149',
@@ -127,6 +138,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-ne-05', type: 'mcq', topic: 'ak-neuron', source: 'สัตว์ 5.6 สไลด์ 154',
+    inText: 'presynaptic cell ปล่อยสารสื่อประสาท (acetylcholine, epinephrine, norepinephrine, dopamine) → เปลี่ยนศักย์เยื่อเซลล์ของ postsynaptic cell',
     prompt: 'ที่ chemical synapse สิ่งใดทำให้ศักย์เยื่อเซลล์ของ postsynaptic cell เปลี่ยนแปลง',
     options: [
       { text: 'สารสื่อประสาท (neurotransmitter) เช่น acetylcholine', correct: true, why: 'สไลด์ 154' },
@@ -140,6 +152,7 @@ export const aControl: Question[] = [
   // ---------------------------------------------------------- ak-reflex
   {
     id: 'ak-re-01', type: 'order', topic: 'ak-reflex', source: 'สัตว์ 5.6 สไลด์ 158',
+    inText: 'sensory receptor → sensory neuron → integration center หรือ interneuron → motor neuron → effector',
     prompt: 'เรียงวงจร reflex arc',
     steps: ['sensory receptor', 'sensory neuron', 'integration center หรือ interneuron (ในไขสันหลัง)', 'motor neuron', 'effector'],
     hints: ['รับ → ส่งเข้า → ประมวล → ส่งออก → ทำงาน'],
@@ -147,6 +160,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-re-02', type: 'tf', topic: 'ak-reflex', source: 'สัตว์ 5.6 สไลด์ 156–157',
+    inText: 'การตอบสนองที่เกิดขึ้นโดยอัตโนมัตินอกอำนาจจิตใจ (involuntary)',
     statement: 'กิริยารีเฟล็กซ์ (reflex action) เป็นการตอบสนองที่เกิดขึ้นโดยอัตโนมัตินอกอำนาจจิตใจ (involuntary)',
     answer: true,
     why: 'สไลด์ 156',
@@ -156,6 +170,7 @@ export const aControl: Question[] = [
   // ---------------------------------------------------------- ak-hormones
   {
     id: 'ak-hm-01', type: 'match', topic: 'ak-hormones', source: 'สัตว์ 5.6 สไลด์ 161',
+    inText: ['growth hormone, insulin', 'thyroid hormone, epinephrine, norepinephrine', 'สเตียรอยด์ (steroid) — โครงสร้างหลักคอเลสเตอรอล androgens', 'prostaglandins'],
     prompt: 'จับคู่ประเภทฮอร์โมน (ตามโครงสร้างเคมี) กับตัวอย่าง',
     pairs: [
       { left: 'Polypeptide hormone', right: 'growth hormone, insulin' },
@@ -168,6 +183,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-hm-02', type: 'label', topic: 'ak-hormones', source: 'สัตว์ 5.6 สไลด์ 163–164',
+    inText: 'ไทรอยด์ T3, T4 (metabolism) · calcitonin (ลด Ca²⁺)',
     prompt: 'แตะต่อมที่หลั่ง calcitonin (ลดแคลเซียมในเลือด)',
     diagram: 'glands', target: 'thyroid',
     hints: ['ต่อมเดียวกับที่สร้าง T3, T4'],
@@ -175,6 +191,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-hm-03', type: 'label', topic: 'ak-hormones', source: 'สัตว์ 5.6 สไลด์ 164',
+    inText: 'melatonin (จังหวะชีวภาพ)',
     prompt: 'แตะต่อมที่หลั่ง melatonin เกี่ยวกับจังหวะชีวภาพ',
     diagram: 'glands', target: 'pineal',
     hints: ['อยู่ในสมอง ควบคุมโดยวงจรสว่าง/มืด'],
@@ -182,6 +199,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-hm-04', type: 'match', topic: 'ak-hormones', source: 'สัตว์ 5.6 สไลด์ 163–164',
+    inText: ['ADH → ไตเก็บน้ำ', 'oxytocin → มดลูกและต่อมน้ำนมหดตัว', 'insulin (ลดกลูโคส)', 'glucagon (เพิ่มกลูโคส)', 'mineralocorticoids (ดูดกลับ Na⁺ ขับ K⁺ ที่ไต)', 'thymosin (T lymphocyte)'],
     prompt: 'จับคู่ฮอร์โมนกับหน้าที่ (Table 45.1)',
     pairs: [
       { left: 'ADH', right: 'เพิ่มการเก็บน้ำกลับที่ไต' },
@@ -196,6 +214,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-hm-05', type: 'mcq', topic: 'ak-hormones', source: 'สัตว์ 5.6 สไลด์ 170',
+    inText: 'ฮอร์โมนสร้างจากเซลล์ประสาทของไฮโปทาลามัสที่ยื่น axon เข้ามา',
     prompt: 'ฮอร์โมนที่หลั่งจากต่อมใต้สมองส่วนหลัง (posterior pituitary) สร้างมาจากที่ใด',
     options: [
       { text: 'เซลล์ประสาทของไฮโปทาลามัส ซึ่งยื่น axon เข้ามาในต่อมใต้สมองส่วนหลัง', correct: true, why: 'สไลด์ 170' },
@@ -209,6 +228,7 @@ export const aControl: Question[] = [
   // ---------------------------------------------------------- ak-regulation
   {
     id: 'ak-rg-01', type: 'mcq', topic: 'ak-regulation', source: 'สัตว์ 5.6 สไลด์ 167',
+    inText: 'insulin ลด · glucagon เพิ่ม = antagonistic hormones',
     prompt: 'insulin และ glucagon ถูกเรียกว่าเป็น antagonistic hormones เพราะอะไร',
     options: [
       { text: 'ทำงานตรงข้ามกัน: insulin ลดกลูโคสในเลือด glucagon เพิ่มกลูโคสในเลือด', correct: true, why: 'สไลด์ 167' },
@@ -221,6 +241,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-rg-02', type: 'mcq', topic: 'ak-regulation', source: 'สัตว์ 5.6 สไลด์ 168',
+    inText: 'PTH (พาราไทรอยด์) เพิ่ม — กระตุ้น osteoclast ยับยั้ง osteoblast เก็บ Ca²⁺ ที่ไต ดูดซึมที่ลำไส้เล็ก',
     prompt: 'ข้อใดเป็นผลของฮอร์โมน PTH',
     options: [
       { text: 'กระตุ้น osteoclast ยับยั้ง osteoblast เพิ่มการเก็บแคลเซียมที่ไตและการดูดซึมที่ลำไส้เล็ก', correct: true, why: 'PTH เพิ่มแคลเซียมในเลือด' },
@@ -233,6 +254,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-rg-03', type: 'order', topic: 'ak-regulation', source: 'สัตว์ 5.6 สไลด์ 136, 169',
+    inText: ['osmoreceptor ในไฮโปทาลามัส', 'ต่อมใต้สมองส่วนหลังปล่อย ADH', 'collecting duct ดูดน้ำกลับมากขึ้น', '~300 mOsm/L'],
     prompt: 'เรียงการควบคุม osmolarity ของเลือดเมื่อเหงื่อออกมาก',
     steps: ['osmolarity ของเลือดเพิ่มขึ้น', 'osmoreceptor ในไฮโปทาลามัสตรวจพบ', 'ต่อมใต้สมองส่วนหลังปล่อย ADH (และเกิดความกระหาย)', 'collecting duct ดูดน้ำกลับมากขึ้น', 'osmolarity กลับสู่ปกติ (~300 mOsm/L)'],
     hints: ['ADH ทำงานที่ collecting duct'],
@@ -240,6 +262,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-rg-04', type: 'mcq', topic: 'ak-regulation', source: 'สัตว์ 5.6 สไลด์ 173–174',
+    inText: ['หนาว → หลอดเลือดที่ผิวหนังหดตัว กล้ามเนื้อสั่น', 'ไทรอยด์หลั่ง thyroxine เพิ่ม metabolism'],
     prompt: 'เมื่ออากาศหนาว ร่างกายตอบสนองอย่างไร',
     options: [
       { text: 'หลอดเลือดที่ผิวหนังหดตัว กล้ามเนื้อสั่น และไทรอยด์หลั่ง thyroxine เพิ่ม metabolism', correct: true, why: 'สไลด์ 173–174' },
@@ -252,6 +275,7 @@ export const aControl: Question[] = [
   },
   {
     id: 'ak-rg-05', type: 'sort', topic: 'ak-regulation', source: 'สัตว์ 5.6 สไลด์ 172',
+    inText: ['ระยะสั้น — เส้นประสาท → adrenal medulla', 'glycogen → กลูโคส ความดันและการหายใจเพิ่ม', 'mineralocorticoids (เก็บ Na⁺ น้ำ)', 'glucocorticoids (โปรตีน/ไขมัน → กลูโคส ภูมิคุ้มกันถูกกด)'],
     prompt: 'จัดผลของฮอร์โมนในภาวะเครียด',
     bins: [
       { id: 'short', label: 'ระยะสั้น (epinephrine, norepinephrine จาก adrenal medulla)' },

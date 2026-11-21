@@ -11,6 +11,7 @@ import type { Question } from '../types';
 export const aRespiration: Question[] = [
   {
     id: 'ar-in-01', type: 'mcq', topic: 'ar-intro', source: 'สัตว์ 5.5 สไลด์ 109',
+    inText: ['นำ O₂ เข้าและ CO₂ ออกจากร่างกาย', 'สร้างพลังงาน ATP จากกลูโคสหรือสารอาหารอื่น'],
     prompt: 'ข้อใดแยก "การหายใจ (respiration/gas exchange)" กับ "การหายใจระดับเซลล์ (cellular respiration)" ได้ถูกต้อง',
     options: [
       { text: 'gas exchange = นำ O₂ เข้าและ CO₂ ออกจากร่างกาย · cellular respiration = สร้าง ATP จากกลูโคสหรือสารอาหาร', correct: true, why: 'สไลด์ 109' },
@@ -23,6 +24,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-or-01', type: 'match', topic: 'ar-organs', source: 'สัตว์ 5.5 สไลด์ 110',
+    inText: ['โปรโตซัว อะมีบา · ฟองน้ำ cnidarians หนอนตัวแบน', 'ไส้เดือนดิน สัตว์สะเทินน้ำสะเทินบกบางชนิด', 'ดาวทะเล หนอนทะเล (parapodium) หอย กุ้ง ปลา', 'แมลง ตะขาบ กิ้งกือ', 'แมงมุม หอยทากบก สัตว์มีกระดูกสันหลัง'],
     prompt: 'จับคู่อวัยวะแลกเปลี่ยนแก๊สกับสัตว์ที่ใช้',
     pairs: [
       { left: 'เยื่อเซลล์ (wet body surface)', right: 'โปรโตซัว อะมีบา ฟองน้ำ cnidarians หนอนตัวแบน' },
@@ -36,6 +38,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-or-02', type: 'mcq', topic: 'ar-organs', source: 'สัตว์ 5.5 สไลด์ 113',
+    inText: 'O₂ ในน้ำน้อยกว่าในอากาศ (โดยเฉพาะน้ำเค็มและน้ำอุ่น)',
     prompt: 'ข้อเสียของการใช้น้ำเป็น respiratory medium (เหงือก) คืออะไร',
     options: [
       { text: 'ปริมาณ O₂ ในน้ำต่ำกว่าในอากาศ โดยเฉพาะน้ำเค็มและน้ำอุ่น', correct: true, why: 'สไลด์ 113' },
@@ -48,6 +51,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-or-03', type: 'mcq', topic: 'ar-organs', source: 'สัตว์ 5.5 สไลด์ 114–115',
+    inText: ['เลือดไหลสวนทางกับน้ำ', 'O₂ ในน้ำสูงกว่าในเลือดเสมอ'],
     prompt: 'countercurrent exchange ที่เหงือกปลาทำให้แลกเปลี่ยน O₂ ได้มีประสิทธิภาพเพราะอะไร',
     options: [
       { text: 'เลือดไหลสวนทางกับน้ำ ทำให้ O₂ ในน้ำสูงกว่าในเลือดเสมอตลอดความยาวเหงือก O₂ จึงแพร่เข้าเลือดได้ตลอด', correct: true, why: 'ภาพ: น้ำ 100→70→40→15% เทียบเลือด 90→60→30→5%' },
@@ -60,6 +64,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-or-04', type: 'order', topic: 'ar-organs', source: 'สัตว์ 5.5 สไลด์ 116',
+    inText: 'รูเปิด (spiracle) → ท่อลม (trachea) → ท่อลมฝอย (tracheole) → เซลล์กล้ามเนื้อ',
     prompt: 'เรียงทางเดินของอากาศในระบบท่อลมของแมลง',
     steps: ['รูเปิด (spiracle)', 'ท่อลม (trachea)', 'ท่อลมฝอย (tracheole)', 'เซลล์กล้ามเนื้อ'],
     hints: ['tracheole สัมผัสเซลล์โดยตรง'],
@@ -67,6 +72,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-lu-01', type: 'sort', topic: 'ar-lungs', source: 'สัตว์ 5.5 สไลด์ 118–120',
+    inText: ['กบ positive pressure breathing', 'คน negative pressure breathing'],
     prompt: 'จัดสัตว์ตามแบบการหายใจด้วยปอด',
     bins: [{ id: 'pos', label: 'positive pressure breathing' }, { id: 'neg', label: 'negative pressure breathing' }],
     items: [
@@ -78,6 +84,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-lu-02', type: 'mcq', topic: 'ar-lungs', source: 'สัตว์ 5.5 สไลด์ 119',
+    inText: ['ถุงลม 8–9 ถุง ทำหน้าที่คล้ายลูกสูบ', 'cross-current → ประสิทธิภาพสูง'],
     prompt: 'การหายใจของนกมีประสิทธิภาพสูงเพราะอะไร',
     options: [
       { text: 'มีถุงลม 8–9 ถุงทำหน้าที่คล้ายลูกสูบ และทิศทางอากาศกับเลือดเป็นแบบ cross-current ที่ parabronchi', correct: true, why: 'สไลด์ 119' },
@@ -90,6 +97,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-lu-03', type: 'label', topic: 'ar-lungs', source: 'สัตว์ 5.5 สไลด์ 117',
+    inText: ['ถุงลม (alveoli)', 'พื้นที่แลกเปลี่ยนแก๊ส'],
     prompt: 'แตะบริเวณที่เกิดการแลกเปลี่ยนแก๊สในปอดคน',
     diagram: 'resp-tract', target: 'alveoli',
     hints: ['ปลายสุดของหลอดลมฝอย'],
@@ -97,6 +105,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-lu-04', type: 'tf', topic: 'ar-lungs', source: 'สัตว์ 5.5 สไลด์ 120',
+    inText: 'ปอดมีถุงหุ้ม 2 ชั้น ชั้นนอกยึดผนังทรวงอก ช่องว่างระหว่างถุงทั้ง 2 ชั้นมีของเหลวบรรจุอยู่ (surfactant)',
     statement: 'ปอดคนมีถุงหุ้ม 2 ชั้น ชั้นนอกยึดติดกับผนังทรวงอก และช่องว่างระหว่างถุงทั้ง 2 ชั้นมีของเหลวบรรจุอยู่ (surfactant)',
     answer: true,
     why: 'ตามข้อความในสไลด์ 120',
@@ -105,6 +114,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-me-01', type: 'order', topic: 'ar-mechanics', source: 'สัตว์ 5.5 สไลด์ 121–122',
+    inText: 'กล้ามเนื้อระหว่างซี่โครงหดตัว และกะบังลมหดตัว (เลื่อนลง) → ช่องอกขยาย ปริมาตรเพิ่ม → ความดันในทรวงอกลดลง',
     prompt: 'เรียงเหตุการณ์ขณะหายใจเข้า',
     steps: ['กล้ามเนื้อระหว่างซี่โครงหดตัว และกะบังลมหดตัว (เลื่อนลง)', 'ช่องอกขยาย ปริมาตรเพิ่ม', 'ความดันอากาศในทรวงอกลดลง (ต่ำกว่า 760 mmHg)', 'อากาศไหลเข้าปอด'],
     hints: ['Boyle\'s law: V ∝ 1/P'],
@@ -112,6 +122,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-me-02', type: 'mcq', topic: 'ar-mechanics', source: 'สัตว์ 5.5 สไลด์ 121',
+    inText: 'Boyle\'s law: V ∝ 1/P — ปริมาตรเพิ่ม ความดันลด',
     prompt: 'ตามกฎของ Boyle ถ้าปริมาตรช่องอกเพิ่มขึ้น ความดันอากาศในทรวงอกจะเป็นอย่างไร',
     options: [
       { text: 'ลดลง อากาศจึงไหลเข้าปอด', correct: true, why: 'V ∝ 1/P' },
@@ -124,6 +135,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-me-03', type: 'label', topic: 'ar-mechanics', source: 'สัตว์ 5.5 สไลด์ 121–122',
+    inText: 'กะบังลมหดตัว (เลื่อนลง)',
     prompt: 'แตะกล้ามเนื้อที่หดตัวแล้ว "เลื่อนต่ำลง" ขณะหายใจเข้า',
     diagram: 'resp-tract', target: 'diaphragm',
     hints: ['ทำหน้าที่คล้ายลูกสูบ'],
@@ -131,6 +143,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-tr-01', type: 'mcq', topic: 'ar-transport', source: 'สัตว์ 5.5 สไลด์ 123',
+    inText: ['medulla oblongata และ pons', 'ปริมาณ CO₂ ในเลือดและในของเหลวในสมองและไขสันหลัง'],
     prompt: 'ศูนย์ควบคุมการหายใจอยู่ที่ใด และปัจจัยหลักที่ทำให้หายใจเร็วขึ้นคืออะไร',
     options: [
       { text: 'medulla oblongata และ pons — ปริมาณ CO₂ ในเลือดและในน้ำไขสันหลังที่เพิ่มขึ้น', correct: true, why: 'สไลด์ 123' },
@@ -143,6 +156,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-tr-02', type: 'tf', topic: 'ar-transport', source: 'สัตว์ 5.5 สไลด์ 124',
+    inText: ['ความดันย่อย (partial pressure) สูง → ต่ำ', 'ถุงลม 104/40'],
     statement: 'แก๊สแพร่จากบริเวณที่มีความดันย่อย (partial pressure) สูงไปต่ำ เช่น O₂ แพร่จากถุงลม (PO₂ 104 mmHg) เข้าสู่เลือดที่มาจาก pulmonary artery (PO₂ 40 mmHg)',
     answer: true,
     why: 'ตัวเลขจากภาพสไลด์ 124',
@@ -151,6 +165,7 @@ export const aRespiration: Question[] = [
   },
   {
     id: 'ar-tr-03', type: 'mcq', topic: 'ar-transport', source: 'สัตว์ 5.5 สไลด์ 125',
+    inText: 'CO₂ ส่วนใหญ่ขนส่งในรูป HCO₃⁻ ใน plasma',
     prompt: 'CO₂ ส่วนใหญ่ถูกขนส่งในเลือดในรูปใด (ตามภาพในสไลด์)',
     options: [
       { text: 'ไบคาร์บอเนตไอออน (HCO₃⁻) ใน plasma ซึ่งเกิดจาก CO₂ + H₂O → H₂CO₃ → H⁺ + HCO₃⁻ ในเม็ดเลือดแดง', correct: true, why: 'HCO₃⁻ ออกไปใน plasma (chloride shift) ส่วน H⁺ จับกับ Hb' },

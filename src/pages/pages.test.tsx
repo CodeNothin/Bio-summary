@@ -5,7 +5,7 @@
 // every ready question's `inText` phrase really appears in the text of
 // its own section. This keeps the pages "everything you need to know":
 // if an edit drops the answer to a practice question, the test names it.
-// A page whose questions use `inText` must give it on every ready one.
+// Every ready question must have `inText`.
 // Also: every widget shows a grey "how to use" line (<How>, ui.tsx).
 // =====================================================================
 import { renderToString } from 'react-dom/server';
@@ -24,6 +24,7 @@ function sectionTexts(html: string): Record<string, string> {
     const id = b.slice(0, b.indexOf('"'));
     out[id] = b
       .replace(/<!--.*?-->/g, '')
+      .replace(/<\/?(b|i|em|strong|span|a)\b[^>]*>/g, '') // inline tags: no gap
       .replace(/<[^>]+>/g, ' ')
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -38,7 +39,7 @@ function sectionTexts(html: string): Record<string, string> {
 describe('page text answers the practice questions', () => {
   for (const p of pages) {
     const qs = readyQuestions.filter((q) => p.sections.some((s) => s.id === q.topic));
-    if (!qs.some((q) => q.inText)) continue;
+    if (!qs.length) continue;
     it(p.id, () => {
       const C = pageComponents[p.id]!;
       expect(C, p.id).toBeTruthy();

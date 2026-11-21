@@ -13,6 +13,7 @@ export const pNutrition: Question[] = [
   // ---------------------------------------------------------- pn-essential
   {
     id: 'pn-ess-01', type: 'mcq', topic: 'pn-essential', source: 'พืช 5.3 สไลด์ 4',
+    inText: 'ไม่สามารถดำรงชีวิตจนครบวงชีพได้',
     prompt: '"ธาตุที่จำเป็น" ของพืช หมายถึงอะไร',
     options: [
       { text: 'ธาตุที่เมื่อไม่ได้รับ พืชจะแสดงอาการขาดธาตุและไม่สามารถดำรงชีวิตจนครบวงชีพได้', correct: true, why: 'นิยามตามสไลด์ 4' },
@@ -25,6 +26,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-ess-02', type: 'sort', topic: 'pn-essential', source: 'พืช 5.3 สไลด์ 5, 21; แบบฝึกหัดสไลด์ 32',
+    inText: ['C, H, O · N, P, K, Ca, Mg, S', 'Fe, B, Mn, Cu, Zn, Mo, Cl, Ni', 'Na, Si, Co, Se, Al'],
     prompt: 'จัดกลุ่มธาตุอาหารของพืช',
     bins: [
       { id: 'macro', label: 'ธาตุที่จำเป็นมาก (macronutrient)' },
@@ -43,6 +45,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-ess-03', type: 'mcq', topic: 'pn-essential', source: 'พืช 5.3 สไลด์ 5; แบบฝึกหัดสไลด์ 32 ข้อ 4–5',
+    inText: ['macronutrient (ต้องการปริมาณมาก) C, H, O · N, P, K, Ca, Mg, S 9', 'micronutrient (ต้องการปริมาณน้อย) Fe, B, Mn, Cu, Zn, Mo, Cl, Ni 8'],
     prompt: 'ธาตุที่จำเป็นของพืช 17 ธาตุ แบ่งเป็น macronutrient และ micronutrient อย่างละกี่ธาตุ',
     options: [
       { text: 'macronutrient 9 ธาตุ, micronutrient 8 ธาตุ', correct: true, why: '9 + 8 = 17' },
@@ -55,6 +58,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-ess-04', type: 'tf', topic: 'pn-essential', source: 'พืช 5.3 สไลด์ 6',
+    inText: 'C 40–45%, O 40–45%',
     statement: 'ในมวลแห้ง (dry matter) ของพืช ธาตุที่พบมากที่สุดคือ C และ O (อย่างละประมาณ 40–45%)',
     answer: true,
     why: 'สไลด์ 6: พืชเป็นน้ำ ~90% มวลแห้ง ~10% ประกอบด้วย C 40–45%, O 40–45%, H 6%',
@@ -64,6 +68,7 @@ export const pNutrition: Question[] = [
   // ---------------------------------------------------------- pn-sources
   {
     id: 'pn-src-01', type: 'mcq', topic: 'pn-sources', source: 'พืช 5.3 สไลด์ 8',
+    inText: 'กรดอ่อน pH 5.5–6.5',
     prompt: 'ช่วง pH ของดินที่เหมาะสมต่อการละลายของธาตุที่จำเป็นมากที่สุดคือข้อใด',
     options: [
       { text: 'กรดอ่อน pH 5.5–6.5', correct: true, why: 'ตามสไลด์ 8' },
@@ -76,6 +81,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-src-02', type: 'sort', topic: 'pn-sources', source: 'พืช 5.3 สไลด์ 8',
+    inText: ['NH₄⁺, K⁺, Ca²⁺ เกาะบนผิวอนุภาคดิน', 'NO₃⁻, H₂PO₄⁻, SO₄²⁻, Cl⁻, HCO₃⁻ อยู่ในสารละลายในดิน'],
     prompt: 'ไอออนต่อไปนี้ "เกาะบนผิวอนุภาคดิน" หรือ "อยู่ในสารละลายในดิน"',
     bins: [{ id: 'on', label: 'ประจุบวก — เกาะผิวดินที่มีประจุลบ' }, { id: 'sol', label: 'ประจุลบ — อยู่ในสารละลายดิน' }],
     items: [
@@ -87,6 +93,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-src-03', type: 'mcq', topic: 'pn-sources', source: 'พืช 5.3 สไลด์ 7, 9',
+    inText: 'ดินผสมมี nutrient cycling และ holding capacity สูงกว่า',
     prompt: 'พืชที่ปลูกในดินผสมเจริญเติบโตดีกว่า (ใบเขียว) พืชที่ปลูกในทราย (ใบเหลือง) เพราะอะไร',
     options: [
       { text: 'ดินผสมมี nutrient cycling และ holding capacity สูงกว่าทราย', correct: true, why: 'ตามสไลด์ 9' },
@@ -100,6 +107,7 @@ export const pNutrition: Question[] = [
   // ---------------------------------------------------------- pn-roles
   {
     id: 'pn-role-01', type: 'match', topic: 'pn-roles', source: 'พืช 5.3 สไลด์ 11–19',
+    inText: ['องค์ประกอบของโปรตีน เอนไซม์ คลอโรฟิลล์ ฮอร์โมน กรดนิวคลีอิก', 'เยื่อหุ้มเซลล์ (phospholipid)', 'ค่าออสโมติก', 'องค์ประกอบของผนังเซลล์ การแบ่งเซลล์', 'องค์ประกอบของคลอโรฟิลล์ กระตุ้นเอนไซม์', 'cysteine, methionine'],
     prompt: 'จับคู่ธาตุกับบทบาท',
     pairs: [
       { left: 'N', right: 'องค์ประกอบของโปรตีน เอนไซม์ คลอโรฟิลล์ ฮอร์โมน กรดนิวคลีอิก' },
@@ -114,6 +122,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-role-02', type: 'sort', topic: 'pn-roles', source: 'พืช 5.3 สไลด์ 11–18',
+    inText: ['ธาตุ mobile ย้ายจากใบแก่ไปใช้ที่ใบอ่อนได้', 'ธาตุ immobile (Ca, Fe)', 'S กรดอะมิโน cysteine, methionine รีดอกซ์ mobile (ตามสไลด์)'],
     prompt: 'ตามสไลด์ ธาตุใดเคลื่อนย้ายได้ (mobile) และธาตุใดเคลื่อนย้ายไม่ได้ (immobile)',
     bins: [{ id: 'm', label: 'mobile — อาการเกิดที่ใบแก่' }, { id: 'i', label: 'immobile — อาการเกิดที่ใบอ่อน/ยอด' }],
     items: [
@@ -125,6 +134,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-role-03', type: 'mcq', topic: 'pn-roles', source: 'พืช 5.3 สไลด์ 14; แบบฝึกหัดสไลด์ 35',
+    inText: 'ใบอ่อนเหลือง → ขาด Fe',
     prompt: 'พืชที่ได้รับธาตุอาหารไม่เพียงพอ มีอาการใบเหลือง "เกิดที่ใบอ่อน" อาการดังกล่าวน่าจะเกิดจากการขาดธาตุใด',
     options: [
       { text: 'micronutrient ชนิด Fe', correct: true, why: 'Fe เป็น immobile และเกี่ยวกับการสร้างคลอโรฟิลล์ → ใบอ่อนเหลืองก่อนใบแก่' },
@@ -137,6 +147,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-role-04', type: 'mcq', topic: 'pn-roles', source: 'พืช 5.3 สไลด์ 13; แบบฝึกหัดสไลด์ 34',
+    inText: 'ต้นหักล้มง่าย → ขาด K เพราะ K คุมค่าออสโมติก',
     prompt: 'พืชที่ต้นหักล้มง่าย อาจขาดธาตุใด เหตุผลคืออะไร',
     options: [
       { text: 'K เพราะมีบทบาทควบคุมแรงดันเต่งของเซลล์ (ค่าออสโมติก)', correct: true, why: 'สไลด์ 13: ขาด K → ต้นหักล้มง่าย, K ควบคุมค่าออสโมติก' },
@@ -149,6 +160,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-role-05', type: 'mcq', topic: 'pn-roles', source: 'พืช 5.3 สไลด์ 12; แบบฝึกหัดสไลด์ 33',
+    inText: ['ATP', 'DNA', 'แคระแกร็น ใบแก่เขียวเข้ม'],
     prompt: 'พืชต้องการ phosphorus เพื่อสร้างสารอะไร และหากขาดธาตุนี้จะมีอาการอย่างไร',
     options: [
       { text: 'adenosine triphosphate / ต้นแคระแกร็น', truth: true, why: 'ถูก แต่ยังมีอีกข้อที่ถูก' },
@@ -161,6 +173,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-role-06', type: 'mcq', topic: 'pn-roles', source: 'พืช 5.3 สไลด์ 16; แบบฝึกหัดสไลด์ 33',
+    inText: 'cysteine, methionine',
     prompt: 'พืชต้องการธาตุใดสำหรับสร้างกรดอะมิโนบางชนิด (cysteine และ methionine)',
     options: [
       { text: 'S', correct: true, why: 'cysteine และ methionine มีกำมะถันในโครงสร้าง' },
@@ -173,6 +186,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-role-07', type: 'tf', topic: 'pn-roles', source: 'พืช 5.3 สไลด์ 14',
+    inText: 'อาการเกิดที่ใบอ่อน/ปลายยอดก่อน',
     statement: 'Ca เป็นธาตุที่เคลื่อนย้ายได้ (mobile) จึงแสดงอาการขาดที่ใบแก่ก่อน',
     answer: false,
     why: 'Ca เป็น immobile element อาการจึงเกิดที่ใบอ่อนที่เพิ่งเกิดใหม่ (ปลายยอดแห้งตาย หงิกงอ)',
@@ -181,6 +195,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-role-08', type: 'mcq', topic: 'pn-roles', source: 'แบบฝึกหัด 5.3 สไลด์ 34',
+    inText: 'pH มากกว่า 7.5 ทำให้ micronutrient เช่น Mn ละลายได้น้อย',
     prompt: 'หากดินมีค่า pH มากกว่า 7.5 พืชอาจขาดธาตุใด (ดูจากแผนภาพการละลายของธาตุตาม pH)',
     options: [
       { text: 'micronutrient ชนิด Mn', correct: true, why: 'ในแผนภาพ แถบของ Mn (และ Fe, B, Cu, Zn) แคบลงมากเมื่อดินเป็นเบส = ละลายได้น้อย' },
@@ -194,6 +209,7 @@ export const pNutrition: Question[] = [
   // ---------------------------------------------------------- pn-beneficial
   {
     id: 'pn-ben-01', type: 'mcq', topic: 'pn-beneficial', source: 'แบบฝึกหัด 5.3 สไลด์ 35',
+    inText: 'ถ้าขาดแล้วพืชยังออกดอกติดผลครบวงชีพได้ Na จึงไม่ใช่ธาตุที่จำเป็น',
     prompt: 'พืช "บางชนิด" ต้องการ Na เมื่อขาด Na แล้วเจริญเติบโตช้าลง แต่ยังออกดอกและติดผลได้ Na จัดเป็นธาตุที่จำเป็นหรือไม่ เพราะเหตุใด',
     options: [
       { text: 'ไม่ใช่ เพราะแม้ขาดธาตุนั้น พืชยังคงเจริญจนครบวงชีวิตได้', correct: true, why: 'ตามนิยาม ธาตุจำเป็นต้องทำให้พืช "ครบวงชีพไม่ได้" ถ้าขาด' },
@@ -206,6 +222,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-ben-02', type: 'match', topic: 'pn-beneficial', source: 'พืช 5.3 สไลด์ 21–23, 27',
+    inText: ['สะสมในผนังเซลล์ → แข็งแรง ต้านทานโรคและแมลง', 'ช่วยการตรึง N₂ ของพืชตระกูลถั่วในดินที่ขาด N', 'คะน้าเสริม Se', 'ช่วยการเติบโตของชาในดิน pH ต่ำ', 'แกลบไปสกัด Si ผลิตนาโนซิลิกอน'],
     prompt: 'จับคู่ธาตุเสริมประโยชน์/การประยุกต์กับคำอธิบาย',
     pairs: [
       { left: 'Si', right: 'ข้าวสะสมในผนังเซลล์ เพิ่มความแข็งแรง ต้านทานโรคและแมลง' },
@@ -219,6 +236,7 @@ export const pNutrition: Question[] = [
   },
   {
     id: 'pn-ben-03', type: 'tf', topic: 'pn-beneficial', source: 'พืช 5.3 สไลด์ 21',
+    inText: 'จำเป็นสำหรับพืชวงศ์หญ้า (Gramineae)',
     statement: 'ซิลิกอน (Si) จัดเป็นธาตุเสริมประโยชน์ แต่เป็นธาตุที่จำเป็นสำหรับพืชวงศ์หญ้า (Gramineae)',
     answer: true,
     why: 'ตาราง Beneficial Elements (Yoneyama 2010) ในสไลด์ 21',

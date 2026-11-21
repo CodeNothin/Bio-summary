@@ -16,6 +16,7 @@ export const cMuseum: Question[] = [
   // ------------------------------------------------ cm-questions
   {
     id: 'cm-q-01', type: 'match', topic: 'cm-questions', source: '7 สไลด์ 3',
+    inText: ['ใช้พลังงานรักษาความเป็นระเบียบ', 'การสืบพันธุ์ การถ่ายทอดลักษณะ และวิวัฒนาการ', 'วิวัฒนาการ (evolution) ทำให้ประชากรเปลี่ยนไปข้ามรุ่น', 'หลักฐานและความรู้'],
     prompt: 'จับคู่คำถามพื้นฐานทางชีววิทยากับคำตอบในสไลด์',
     pairs: [
       { left: 'สิ่งมีชีวิตอยู่รอดและรักษาความเป็นระเบียบได้อย่างไร', right: 'ใช้พลังงานรักษาความเป็นระเบียบ ต้านแนวโน้มสู่ความไร้ระเบียบ (disorder)' },
@@ -28,6 +29,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-q-02', type: 'mcq', topic: 'cm-questions', source: '7 สไลด์ 3',
+    inText: 'แต่ละตัวมีชีวิตชั่วคราว แต่ชีวิตดำเนินต่อด้วยการสืบพันธุ์ การถ่ายทอดลักษณะ และวิวัฒนาการ',
     prompt: 'ตามสไลด์ "ชีวิตดำเนินต่อไปได้อย่างไรเมื่อแต่ละตัวตายไป" (How does life continue when individuals die?)',
     options: [
       { text: 'แต่ละตัวมีชีวิตชั่วคราว แต่ชีวิตดำเนินต่อด้วยการสืบพันธุ์ การถ่ายทอดลักษณะ และวิวัฒนาการ', correct: true, why: 'ตรงกับสไลด์ 3 ข้อ 2' },
@@ -40,6 +42,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-q-03', type: 'tf', topic: 'cm-questions', source: '7 สไลด์ 3',
+    inText: 'ใช้พลังงานรักษาความเป็นระเบียบ ต้านแนวโน้มตามธรรมชาติที่จะไปสู่ความไร้ระเบียบ (disorder)',
     statement: 'ตามสไลด์ สิ่งมีชีวิตต้องใช้พลังงานเพื่อรักษาความเป็นระเบียบ (organization) และต้านแนวโน้มตามธรรมชาติที่จะไปสู่ความไร้ระเบียบ',
     answer: true,
     why: 'สไลด์ 3 ข้อ 1: Life requires energy to maintain organization and resist the natural tendency toward disorder.',
@@ -48,6 +51,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-q-04', type: 'mcq', topic: 'cm-questions', source: '7 สไลด์ 3',
+    inText: 'วิวัฒนาการ (evolution) ทำให้ประชากรเปลี่ยนไปข้ามรุ่น',
     prompt: 'คำถาม "ประชากรตอบสนองต่อสิ่งแวดล้อมที่เปลี่ยนไปอย่างไร" สไลด์ตอบด้วยกระบวนการใด',
     options: [
       { text: 'วิวัฒนาการ (evolution) ทำให้ประชากรเปลี่ยนไปข้ามรุ่น', correct: true, why: 'Evolution enables populations to change across generations' },
@@ -62,6 +66,7 @@ export const cMuseum: Question[] = [
   // ------------------------------------------------ cm-museum
   {
     id: 'cm-mu-01', type: 'mcq', topic: 'cm-museum', source: '7 สไลด์ 4–5',
+    inText: 'ผู้เข้าชมทั่วไปมักไม่เห็นคือ Collection & Research',
     prompt: 'สไลด์แสดงพิพิธภัณฑ์ 2 ด้าน ด้านใดที่ผู้เข้าชมทั่วไปมักไม่เห็น',
     options: [
       { text: 'Collection & Research — คลังตัวอย่างและงานวิจัยเบื้องหลัง', correct: true, why: 'สไลด์ 5: นักวิทยาศาสตร์ทำงานกับตัวอย่างในคลัง ไม่ใช่ห้องจัดแสดง' },
@@ -74,6 +79,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-mu-02', type: 'tf', topic: 'cm-museum', source: '7 สไลด์ 8',
+    inText: ['Treasure from Siam', 'Schomburgk\'s deer'],
     statement: 'Schomburgk\'s deer (Rucervus schomburgki Blyth, 1863) ถูกนำเสนอในสไลด์ในฐานะ "Treasure from Siam" ที่เก็บอยู่ในพิพิธภัณฑ์',
     answer: true,
     why: 'สไลด์ 8: "Treasure from Siam: Schomburgk\'s deer" — มีเขา ป้ายตัวอย่าง และภาพจากงานของ Blyth (1863)',
@@ -82,6 +88,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-mu-03', type: 'mcq', topic: 'cm-museum', source: '7 สไลด์ 8',
+    inText: 'Blyth, 1863 = ผู้บรรยายชนิดและปีที่ตีพิมพ์',
     prompt: 'ในชื่อ Rucervus schomburgki Blyth, 1863 ส่วน "Blyth, 1863" หมายถึงอะไร',
     options: [
       { text: 'ผู้ตั้งชื่อ/บรรยายชนิดนี้ และปีที่ตีพิมพ์', correct: true, why: 'สไลด์แสดงหน้าสิ่งพิมพ์ของ Blyth (1863) ที่บรรยายเขากวางนี้' },
@@ -94,6 +101,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-mu-04', type: 'tf', topic: 'cm-museum', source: '7 สไลด์ 31',
+    inText: 'พิพิธภัณฑ์ธรรมชาติวิทยา จุฬาลงกรณ์มหาวิทยาลัย',
     statement: 'จุฬาลงกรณ์มหาวิทยาลัยมีพิพิธภัณฑ์ธรรมชาติวิทยาของตัวเอง',
     answer: true,
     why: 'สไลด์ 31: Chulalongkorn University Museum of Natural History',
@@ -104,6 +112,7 @@ export const cMuseum: Question[] = [
   // ------------------------------------------------ cm-museomics
   {
     id: 'cm-dna-01', type: 'mcq', topic: 'cm-museomics', source: '7 สไลด์ 17',
+    inText: '"museum" + "genomics": การศึกษาลำดับ DNA จากตัวอย่างพิพิธภัณฑ์',
     prompt: 'Museomics คืออะไร',
     options: [
       { text: 'การศึกษาลำดับดีเอ็นเอที่ได้จากตัวอย่างในพิพิธภัณฑ์ (museum + genomics)', correct: true, why: 'นิยามในสไลด์ 17' },
@@ -116,6 +125,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-02', type: 'sort', topic: 'cm-museomics', source: '7 สไลด์ 16–17',
+    inText: ['DNA จากซากอินทรีย์โบราณ เช่น กระดูก ฟัน ขน เมล็ด (ตรงข้ามกับ modern DNA)', 'DNA จากตัวอย่างในพิพิธภัณฑ์และหอพรรณไม้ (herbarium)'],
     prompt: 'จัดแหล่งของ DNA ให้ตรงประเภท',
     bins: [{ id: 'a', label: 'ancient DNA (aDNA)' }, { id: 'h', label: 'historical DNA (hDNA)' }, { id: 'm', label: 'modern DNA' }],
     items: [
@@ -130,6 +140,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-03', type: 'mcq', topic: 'cm-museomics', source: '7 สไลด์ 13–15',
+    inText: ['2022', 'สกัด DNA จากกระดูกของมนุษย์โบราณที่สูญพันธุ์ไปแล้ว'],
     prompt: 'Svante Pääbo ได้รางวัลโนเบลสาขาสรีรวิทยาหรือการแพทย์ปี 2022 จากงานใด',
     options: [
       { text: 'สกัด DNA จากกระดูกของมนุษย์โบราณที่สูญพันธุ์ไปแล้ว (นีแอนเดอร์ทัล เดนิโซวัน)', correct: true, why: 'สไลด์ 14: extracted DNA from bone specimens from extinct hominins' },
@@ -142,6 +153,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-04', type: 'tf', topic: 'cm-museomics', source: '7 สไลด์ 15',
+    inText: 'เมื่อ Homo sapiens กระจายจากแอฟริกาไปทั่วทวีป ได้ผสมพันธุ์กับทั้งสองกลุ่ม',
     statement: 'งานของ Pääbo แสดงว่าเมื่อ Homo sapiens กระจายจากแอฟริกาไปทั่วยูเรเชีย ได้ผสมพันธุ์กับนีแอนเดอร์ทัลและเดนิโซวัน และร่องรอยยังอยู่ใน DNA ของเรา',
     answer: true,
     why: 'สไลด์ 15: Interbreeding occurred when Homo sapiens spread across the continent, leaving traces that remain in our DNA.',
@@ -150,6 +162,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-05', type: 'mcq', topic: 'cm-museomics', source: '7 สไลด์ 15',
+    inText: 'นีแอนเดอร์ทัลอยู่ทางตะวันตก เดนิโซวันอยู่ทางตะวันออก',
     prompt: 'ตามสไลด์ นีแอนเดอร์ทัลและเดนิโซวันอาศัยอยู่ส่วนใดของยูเรเชีย',
     options: [
       { text: 'นีแอนเดอร์ทัลทางตะวันตก เดนิโซวันทางตะวันออก', correct: true, why: 'Neanderthals lived in the west and Denisovans in the east' },
@@ -162,6 +175,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-06', type: 'match', topic: 'cm-museomics', source: '7 สไลด์ 16–17',
+    inText: ['Ancient DNA (aDNA) DNA จากซากอินทรีย์โบราณ', 'Paleogenomics การสร้างและวิเคราะห์จีโนมของสิ่งมีชีวิตที่สูญพันธุ์', 'Museomics "museum" + "genomics"', 'Historical DNA (hDNA) DNA จากตัวอย่างในพิพิธภัณฑ์และหอพรรณไม้'],
     prompt: 'จับคู่คำศัพท์กับความหมาย',
     pairs: [
       { left: 'Ancient DNA (aDNA)', right: 'DNA จากซากอินทรีย์โบราณ เช่น กระดูก ฟัน ขน เมล็ด' },
@@ -174,6 +188,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-07', type: 'mcq', topic: 'cm-museomics', source: '7 สไลด์ 18',
+    inText: ['อนุกรมเวลา (time series)', 'หาได้ยาก', 'ทั้งสังคม'],
     prompt: 'ข้อใด**ไม่ใช่**เหตุผลในสไลด์ที่ทำให้ตัวอย่างพิพิธภัณฑ์มีค่าต่องานวิจัยด้าน DNA',
     options: [
       { text: 'ตัวอย่างพิพิธภัณฑ์มี DNA คุณภาพดีกว่าสิ่งมีชีวิตปัจจุบันเสมอ', correct: true, why: 'ไม่อยู่ในสไลด์ และ DNA จากตัวอย่างเก่ามักเสื่อมสภาพ' },
@@ -186,6 +201,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-08', type: 'mcq', topic: 'cm-museomics', source: '7 สไลด์ 20',
+    inText: 'Balto สุนัขลากเลื่อนชื่อดังของอะแลสกาในศตวรรษที่ 20 มีบรรพบุรุษร่วมกับสายพันธุ์สุนัขเอเชียและอาร์กติก',
     prompt: 'งานวิจัย museomics เรื่อง Balto (สุนัขลากเลื่อนชื่อดังของอะแลสกาในศตวรรษที่ 20) พบอะไร',
     options: [
       { text: 'Balto มีบรรพบุรุษร่วมกับสายพันธุ์สุนัขเอเชียและอาร์กติกในปัจจุบัน', correct: true, why: 'สไลด์ 20 (Moon et al., 2023)' },
@@ -198,6 +214,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dna-09', type: 'match', topic: 'cm-museomics', source: '7 สไลด์ 19',
+    inText: ['สถานที่ (locality)', 'ความสูง (elevation) 5800 ft', 'วันที่เก็บ (date) 30.III.1922', 'ผู้เก็บ (collector) H.M.Pendlebury'],
     prompt: 'ป้ายตัวอย่างในสไลด์เขียนว่า "Peninsular Siam: Nakon Sri Tamarat. Khao Luang. 5800 ft. 30.III.1922. H.M.Pendlebury" — จับคู่ข้อความกับประเภทข้อมูล',
     pairs: [
       { left: 'Peninsular Siam: Nakon Sri Tamarat. Khao Luang.', right: 'สถานที่ (locality)' },
@@ -212,6 +229,7 @@ export const cMuseum: Question[] = [
   // ------------------------------------------------ cm-digitization
   {
     id: 'cm-dg-01', type: 'mcq', topic: 'cm-digitization', source: '7 สไลด์ 22',
+    inText: 'Metadata = ข้อมูลที่บรรยายข้อมูลอื่น',
     prompt: '"Metadata" ในงาน digitization หมายถึงอะไร',
     options: [
       { text: 'ข้อมูลที่บรรยายและให้รายละเอียดเกี่ยวกับข้อมูลอื่น เช่น สถานที่ พิกัด วันที่ ผู้เก็บ', correct: true, why: 'นิยามในสไลด์ 22' },
@@ -224,6 +242,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dg-02', type: 'tf', topic: 'cm-digitization', source: '7 สไลด์ 22',
+    inText: 'Digitization คือการแปลงข้อมูลเป็นรูปแบบดิจิทัล → เกิด big data',
     statement: 'Digitization คือการแปลงข้อมูลเป็นรูปแบบดิจิทัล ทำให้เกิดข้อมูลขนาดใหญ่ (big data)',
     answer: true,
     why: 'สไลด์ 22: Conversion of information into digital format → Big data',
@@ -232,6 +251,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dg-03', type: 'mcq', topic: 'cm-digitization', source: '7 สไลด์ 22',
+    inText: 'georeference (ละติจูด ลองจิจูด)',
     prompt: '"Georeference" ในรายการ metadata คืออะไร',
     options: [
       { text: 'ละติจูดและลองจิจูดของจุดเก็บตัวอย่าง', correct: true, why: 'สไลด์ 22: Georeference: latitude, longitude' },
@@ -244,6 +264,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dg-04', type: 'match', topic: 'cm-digitization', source: '7 สไลด์ 23–29',
+    inText: ['3D scanning: กะโหลก Toxodon ที่ Darwin เก็บ', 'NHM Data Portal', 'GBIF', 'ALICE (กล้องหลายตัว)', 'Mothra วัดปีกผีเสื้อ'],
     prompt: 'จับคู่ตัวอย่างงาน digitization กับสิ่งที่ทำ',
     pairs: [
       { left: '3D scanning', right: 'สแกนกะโหลก Toxodon ที่ Darwin เก็บ ให้ดูออนไลน์ได้' },
@@ -257,6 +278,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dg-05', type: 'mcq', topic: 'cm-digitization', source: '7 สไลด์ 27–28',
+    inText: ['AI identification: ระบุชนิดด้วงดินจากภาพ', 'Mothra วัดปีกผีเสื้ออังกฤษในคอลเลกชัน NHM เพื่อศึกษาว่าขนาดตัวตอบสนองต่ออุณหภูมิอย่างไร'],
     prompt: 'สไลด์ยกตัวอย่างการใช้ภาพตัวอย่างพิพิธภัณฑ์ที่เป็นดิจิทัลร่วมกับ AI/computer vision ในเรื่องใด',
     options: [
       { text: 'ระบุชนิดด้วงจากภาพ และวัดขนาดผีเสื้อเพื่อดูการตอบสนองต่ออุณหภูมิ', correct: true, why: 'สไลด์ 27 (AI identification, ด้วงดิน) และ 28 (Mothra, ผีเสื้ออังกฤษ)' },
@@ -269,6 +291,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-dg-06', type: 'order', topic: 'cm-digitization', source: '7 สไลด์ 22–25',
+    inText: 'ตัวอย่างจริงพร้อมป้ายในคลัง → ถ่ายภาพ/สแกน และบันทึก metadata → คลังข้อมูลของพิพิธภัณฑ์ (local repository) → คลังข้อมูลระดับโลก (GBIF)',
     prompt: 'เรียงเส้นทางข้อมูลจากตัวอย่างในตู้ ไปจนถึงให้นักวิจัยทั่วโลกค้นได้',
     steps: [
       'ตัวอย่างจริงพร้อมป้าย ในคลังพิพิธภัณฑ์',
@@ -283,6 +306,7 @@ export const cMuseum: Question[] = [
   // ------------------------------------------------ cm-conclusion
   {
     id: 'cm-co-01', type: 'match', topic: 'cm-conclusion', source: '7 สไลด์ 32',
+    inText: ['อดีต (past) เก็บรักษาหลักฐาน', 'ปัจจุบัน (present) เข้าใจชนิด ระบบนิเวศ และการเปลี่ยนแปลงทางชีวภาพ', 'อนาคต (future) ให้ข้อมูลเพื่อการอนุรักษ์และการพัฒนาที่ยั่งยืน'],
     prompt: 'พิพิธภัณฑ์ธรรมชาติวิทยาเชื่อมอดีต ปัจจุบัน และอนาคต — จับคู่ให้ตรงสไลด์',
     pairs: [
       { left: 'อดีต (past)', right: 'เก็บรักษาหลักฐานของความหลากหลายทางชีวภาพและวิวัฒนาการ' },
@@ -294,6 +318,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-co-02', type: 'mcq', topic: 'cm-conclusion', source: '7 สไลด์ 33',
+    inText: 'Museomics และ digitization ทำให้เทียบประชากรในอดีตกับปัจจุบัน',
     prompt: 'ตามสไลด์ 33 พิพิธภัณฑ์ช่วยตอบคำถาม "ประชากรตอบสนองต่อสิ่งแวดล้อมที่เปลี่ยนไปอย่างไร" ได้อย่างไร',
     options: [
       { text: 'Museomics และ digitization ทำให้เทียบประชากรในอดีตกับปัจจุบัน เห็นการเปลี่ยนแปลงของความหลากหลายทางพันธุกรรมและการกระจาย', correct: true, why: 'สไลด์ 33 ข้อ 3' },
@@ -306,6 +331,7 @@ export const cMuseum: Question[] = [
   },
   {
     id: 'cm-co-03', type: 'tf', topic: 'cm-conclusion', source: '7 สไลด์ 33',
+    inText: ['ตัวอย่างในอดีตและ ancient DNA', 'ศึกษากระบวนการที่นำไปสู่การสูญพันธุ์'],
     statement: 'ตามสไลด์ ตัวอย่างในอดีตและ ancient DNA ช่วยศึกษาความหลากหลายทางพันธุกรรมของสิ่งมีชีวิตที่สูญพันธุ์ และกระบวนการที่นำไปสู่การสูญพันธุ์',
     answer: true,
     why: 'สไลด์ 33 ข้อ 2: Historical specimens and ancient DNA help scientists reconstruct extinct organisms, understand their genetic diversity, and investigate the processes leading to extinction.',

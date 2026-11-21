@@ -5,6 +5,8 @@
 // Decisions (user): OGTT table is shown but has no numeric questions
 // (TODO 11); calcium is "2 hormones (slide 168) / 3 incl. calcitriol
 // (extra deck)" — both shown, TODO(professor-method) 10 left open.
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
 import { List, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
@@ -20,6 +22,7 @@ export function AApplicationsPage() {
             ['ผล', 'กลูโคสเข้าเซลล์ไม่ได้', 'กลูโคสค้างในเลือด → **hyperglycemia**'],
           ]}
         />
+        <P>ปกติ insulin ทำให้เซลล์รับกลูโคสเข้าไปใช้ ระดับกลูโคสในเลือดจึงลดลง (บท 5.6) — เบาหวานคือกลไกนี้เสีย: type 1 **ไม่มี insulin** · type 2 **มี insulin แต่เซลล์ไม่ตอบสนอง**</P>
         <P>**Insulin resistance (IR)** คือภาวะที่เซลล์ในเนื้อเยื่อที่ไวต่ออินซูลินไม่ตอบสนองต่อฮอร์โมนอินซูลินตามปกติ — ถ้าเซลล์ดื้ออินซูลินมาก ระดับกลูโคสในเลือดจะสูงขึ้น</P>
         <W id="glucose-sim" />
         <P>เกณฑ์วินิจฉัย T2DM ด้วย **Oral Glucose Tolerance Test (OGTT)** ตามตารางในสไลด์ (mg/dL):</P>

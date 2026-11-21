@@ -3,8 +3,10 @@
 // predation/herbivory, symbiosis, diversity and succession.
 // Section ids match src/data/pages.ts. Facilitation appears on the
 // slides as both +/+ and 0/+, so both are shown.
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
-import { Analogy, List, Note, P, Section, Table } from '../components/ui';
+import { Analogy, List, More, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
 
 export function ECommunityPage() {
@@ -42,13 +44,15 @@ export function ECommunityPage() {
             ['realized niche', 'niche ที่ใช้จริง **แคบกว่า**เพราะการแข่งขัน'],
           ]}
         />
+        <More title="นึกภาพแบบ Minecraft">
         <Analogy>
           habitat = "บ้านอยู่ไบโอมป่า" · niche = "อาชีพ" ในโลกนั้น เช่น เป็นคนขุดแร่ใต้ดินตอนกลางคืน — สองคนในบ้านเดียวกันอยู่ได้ถ้าทำอาชีพต่างกัน
         </Analogy>
+        </More>
         <List
           items={[
             '**Resource partitioning**: แบ่งทรัพยากรกันใช้ (นก warbler 5 ชนิดหากินคนละส่วนของต้นสน) — เกิดจาก natural selection',
-            '**Character displacement**: ลักษณะต่างกันมากเมื่ออยู่ที่เดียวกัน (sympatric) แต่คล้ายกันเมื่ออยู่แยกกัน (allopatric)',
+            '**Character displacement**: ชนิดที่อยู่พื้นที่เดียวกัน (sympatric) **วิวัฒน์ให้ลักษณะต่างกันมากขึ้น**หลายชั่วรุ่น เพื่อลดการแข่งขัน แต่คล้ายกันเมื่ออยู่แยกกัน (allopatric)',
             '**ชนิดพันธุ์ต่างถิ่น** (เช่น ปลาหมอคางดำ): ที่ไม่เหมาะ → ลดลง · เหมาะแต่แข่งไม่ได้ → ลดลง · แข่งได้ → อยู่ร่วม · **แข่งชนะ → ชนิดพื้นเมืองลดลง**',
           ]}
         />
@@ -93,6 +97,14 @@ export function ECommunityPage() {
         />
         <P>ทั้งสองมี 4 ชนิดเท่ากัน (richness เท่ากัน) แต่**สังคม 1 หลากหลายกว่า**เพราะแต่ละชนิดมีสัดส่วนเท่ากัน · ความหลากหลายสูง → ผลผลิตสูง ฟื้นตัวได้ดี เสถียร ต้านทานการรบกวน · การรบกวน (พายุ ไฟ น้ำท่วม มนุษย์) มีผลต่อความหลากหลาย (เช่น เผาทุ่งหญ้าแพรรีแบบควบคุม)</P>
         <Note>สไลด์พูดถึง diversity index แต่ไม่ได้ให้สูตร — จึงไม่มีโจทย์คำนวณ</Note>
+        <P>**การแทนที่ (succession)** = สังคมเปลี่ยนไปทีละระยะจนถึง **climax community** (ระยะสุดท้ายที่เสถียร องค์ประกอบชนิดเปลี่ยนน้อย):</P>
+        <Table
+          head={['', 'ปฐมภูมิ (primary)', 'ทุติยภูมิ (secondary)']}
+          rows={[
+            ['เริ่มที่', 'พื้นที่**ไม่มีดิน** เช่น หินเปล่าจากลาวา เนินทรายใหม่', 'พื้นที่ที่**ยังมีดิน**หลังถูกรบกวน เช่น ไร่ร้าง ป่าหลังไฟไหม้'],
+            ['ผู้บุกเบิก', '**pioneer species** เช่น ไลเคน', 'พืชล้มลุก (1–2 ปี) → หญ้า (3–4 ปี) → ไม้พุ่ม/สน (5–150 ปี) → ป่าโอ๊ก (150+ ปี)'],
+          ]}
+        />
         <W id="succession" />
         <P>มนุษย์ก็เป็นตัวรบกวนสังคม: ตัดไม้ ไฟ การขยายเมือง พลาสติก น้ำมันรั่ว การทำเหมือง</P>
       </Section>

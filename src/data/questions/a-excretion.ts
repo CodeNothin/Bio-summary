@@ -18,6 +18,7 @@ import type { Question } from '../types';
 export const aExcretion: Question[] = [
   {
     id: 'ae-ws-01', type: 'match', topic: 'ae-wastes', source: 'สัตว์ 5.7 สไลด์ 127',
+    inText: ['เกิดเป็นตัวแรก ละลายน้ำดี พิษสูงมาก', 'สร้างที่ตับจากแอมโมเนีย + CO₂ พิษต่ำกว่า ~100,000 เท่า', 'พิษต่ำ ละลายน้ำน้อยมาก ขับออกเป็น semisolid'],
     prompt: 'จับคู่ของเสียไนโตรเจนกับลักษณะ',
     pairs: [
       { left: 'แอมโมเนีย (ammonia)', right: 'เกิดเป็นตัวแรก ละลายน้ำดี พิษสูงมาก' },
@@ -29,6 +30,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ws-02', type: 'sort', topic: 'ae-wastes', source: 'สัตว์ 5.7 สไลด์ 126–127',
+    inText: ['ปลากระดูกแข็งส่วนใหญ่', 'สัตว์เลี้ยงลูกด้วยนม', 'ปลากระดูกอ่อน (ฉลาม)', 'นก สัตว์เลื้อยคลาน แมลง หอยทากบก'],
     prompt: 'จัดสัตว์ตามของเสียไนโตรเจนหลักที่ขับออก',
     bins: [
       { id: 'nh3', label: 'แอมโมเนีย' },
@@ -45,6 +47,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ws-03', type: 'mcq', topic: 'ae-wastes', source: 'สัตว์ 5.7 สไลด์ 127',
+    inText: 'แอมโมเนียละลายน้ำได้ดีและแพร่ผ่านเยื่อเซลล์สู่น้ำรอบตัวได้ทันที',
     prompt: 'ทำไมสัตว์น้ำจึงขับแอมโมเนียได้ทั้งที่แอมโมเนียมีพิษสูงมาก',
     options: [
       { text: 'แอมโมเนียละลายน้ำได้ดีและแพร่ผ่านเยื่อเซลล์สู่น้ำรอบตัวได้ทันที', correct: true, why: 'มีน้ำมากพอเจือจางและพาออกไป' },
@@ -57,6 +60,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-or-01', type: 'mcq', topic: 'ae-organs', source: 'สัตว์ 5.7 สไลด์ 128',
+    inText: 'ท่อไต (ureter) นำปัสสาวะจากไตไปกระเพาะปัสสาวะ',
     prompt: 'ท่อที่นำปัสสาวะจากไตไปกระเพาะปัสสาวะคือข้อใด',
     options: [
       { text: 'ท่อไต (ureter)', correct: true, why: 'ureter: ไต → กระเพาะปัสสาวะ' },
@@ -69,6 +73,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ne-01', type: 'order', topic: 'ae-nephron', source: 'สัตว์ 5.7 สไลด์ 129',
+    inText: ['1. กระบวนการกรอง — infiltration (filtration)', '2. การดูดกลับ (resorption)', '3. การหลั่ง (secretion)', '4. การขับถ่าย (excretion)'],
     prompt: 'เรียงกระบวนการผลิตและกำจัดปัสสาวะ 4 ขั้น',
     steps: ['กระบวนการกรอง (infiltration / filtration)', 'การดูดกลับสาร (resorption)', 'การหลั่งสาร (secretion)', 'การขับถ่าย (excretion)'],
     hints: ['ต้องกรองออกมาก่อน จึงจะเลือกเก็บกลับได้'],
@@ -76,6 +81,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ne-02', type: 'label', topic: 'ae-nephron', source: 'สัตว์ 5.7 สไลด์ 132',
+    inText: 'ผนัง glomerulus เข้า Bowman\'s capsule',
     prompt: 'แตะบริเวณที่เกิดการกรอง (infiltration/filtration)',
     diagram: 'nephron', target: 'glomerulus',
     hints: ['กลุ่มหลอดเลือดฝอยที่อยู่ใน Bowman\'s capsule'],
@@ -83,6 +89,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ne-03', type: 'match', topic: 'ae-nephron', source: 'สัตว์ 5.7 สไลด์ 133–135',
+    inText: ['proximal convoluted tubule น้ำ กลูโคส NaCl กรดอะมิโน K⁺ HCO₃⁻ NH₃, H⁺', 'descending loop of Henle น้ำเพียงอย่างเดียว', 'ascending loop of Henle NaCl เพียงอย่างเดียว', 'distal convoluted tubule NaCl, HCO₃⁻ H⁺, K⁺', 'collecting duct น้ำ NaCl ยูเรีย'],
     prompt: 'จับคู่ส่วนของหน่วยไตกับสิ่งที่เกิดขึ้น',
     pairs: [
       { left: 'proximal convoluted tubule', right: 'ดูดกลับน้ำ กลูโคส NaCl กรดอะมิโน K⁺ HCO₃⁻ · หลั่ง NH₃ และ H⁺' },
@@ -96,6 +103,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ne-04', type: 'label', topic: 'ae-nephron', source: 'สัตว์ 5.7 สไลด์ 134',
+    inText: 'ascending loop of Henle NaCl เพียงอย่างเดียว',
     prompt: 'แตะส่วนที่ดูดกลับ "NaCl เพียงอย่างเดียว"',
     diagram: 'nephron', target: 'ascending',
     hints: ['เป็นขาหนึ่งของ loop of Henle'],
@@ -103,6 +111,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ne-05', type: 'tf', topic: 'ae-nephron', source: 'สัตว์ 5.7 สไลด์ 130',
+    inText: ['80% เป็น cortical nephron (loop of Henle สั้น)', '20% เป็น juxtamedullary nephron (loop ยาว'],
     statement: 'ในคน 80% ของหน่วยไตเป็น cortical nephron ที่มี loop of Henle สั้น และ 20% เป็น juxtamedullary nephron ที่มี loop of Henle ยาว',
     answer: true,
     why: 'สไลด์ 130 — juxtamedullary nephron พบเฉพาะสัตว์เลี้ยงลูกด้วยนมและนก',
@@ -111,6 +120,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ct-01', type: 'mcq', topic: 'ae-control', source: 'สัตว์ 5.7 สไลด์ 137',
+    inText: ['JGA หลั่ง renin', 'angiotensin II', 'หลอดเลือดแดงเล็กหดตัว', 'aldosterone', 'ดูดกลับ Na⁺ และน้ำ'],
     prompt: 'เมื่อความดันหรือปริมาตรเลือดลดลง (เช่น ขาดน้ำ เสียเลือด) ระบบ RAAS ทำงานอย่างไร',
     options: [
       { text: 'JGA หลั่ง renin → angiotensin II → หลอดเลือดแดงเล็กหดตัว และ aldosterone เพิ่มการดูดกลับ Na⁺ และน้ำ', correct: true, why: 'สไลด์ 137' },
@@ -123,6 +133,7 @@ export const aExcretion: Question[] = [
   },
   {
     id: 'ae-ct-02', type: 'tf', topic: 'ae-control', source: 'สัตว์ 5.7 สไลด์ 136',
+    inText: 'เพิ่มการดูดน้ำกลับที่ collecting duct (ปัสสาวะเข้มข้นขึ้น)',
     statement: 'ADH (vasopressin) เพิ่มการดูดน้ำกลับที่ collecting duct ทำให้ปัสสาวะเข้มข้นขึ้น',
     answer: true,
     why: 'ADH = antidiuretic hormone (ต้านการขับปัสสาวะ)',
@@ -134,6 +145,7 @@ export const aExcretion: Question[] = [
 export const aApplications: Question[] = [
   {
     id: 'ax-dm-01', type: 'mcq', topic: 'ax-diabetes', source: 'สไลด์เพิ่มเติม 28 ต.ค. หน้า 1–2',
+    inText: 'insulin resistance: เซลล์กล้ามเนื้อ ไขมัน และตับไม่ตอบสนองต่ออินซูลินตามปกติ',
     prompt: 'เบาหวานชนิดที่ 2 (T2DM) ส่วนใหญ่เกิดจากอะไร',
     options: [
       { text: 'ภาวะดื้ออินซูลิน (insulin resistance): เซลล์กล้ามเนื้อ ไขมัน และตับไม่ตอบสนองต่ออินซูลินตามปกติ', correct: true, why: 'T2DM mainly results from insulin resistance' },
@@ -146,6 +158,7 @@ export const aApplications: Question[] = [
   },
   {
     id: 'ax-dm-02', type: 'tf', topic: 'ax-diabetes', source: 'สไลด์เพิ่มเติม 28 ต.ค. หน้า 2',
+    inText: ['ไม่ตอบสนองต่อฮอร์โมนอินซูลินตามปกติ', 'hyperglycemia'],
     statement: 'ในภาวะดื้ออินซูลิน อินซูลินยังจับกับตัวรับได้ แต่เซลล์ไม่ตอบสนองตามปกติ กลูโคสจึงค้างอยู่ในเลือด',
     answer: true,
     why: 'ภาพ Normal Function vs Insulin Resistance: GLUT2 ไม่พากลูโคสเข้าเซลล์',
@@ -154,6 +167,7 @@ export const aApplications: Question[] = [
   },
   {
     id: 'ax-ca-01', type: 'sort', topic: 'ax-calcium', source: 'สัตว์ 5.6 สไลด์ 168; สไลด์เพิ่มเติม หน้า 4',
+    inText: ['กระตุ้น osteoclast ยับยั้ง osteoblast · กระตุ้นการเก็บ Ca²⁺ ที่ไต · กระตุ้นการดูดซึมที่ลำไส้เล็ก', 'ยับยั้ง osteoclast กระตุ้น osteoblast · ยับยั้งการดูดกลับที่ไต · ลด PTH → ดูดซึมที่ลำไส้ลดลง'],
     prompt: 'จัดผลต่อไปนี้ให้ตรงกับฮอร์โมน',
     bins: [{ id: 'pth', label: 'PTH (เพิ่ม Ca²⁺ ในเลือด)' }, { id: 'ct', label: 'Calcitonin (ลด Ca²⁺ ในเลือด)' }],
     items: [
@@ -169,6 +183,7 @@ export const aApplications: Question[] = [
   },
   {
     id: 'ax-ca-02', type: 'mcq', topic: 'ax-calcium', source: 'สไลด์เพิ่มเติม 28 ต.ค. หน้า 6',
+    inText: ['(peak bone mass) ช่วงอายุราว 30 ปี แล้วลดลงตามอายุ', 'ผู้หญิงสูญเสียเร็วขึ้นหลังหมดประจำเดือน'],
     prompt: 'จากกราฟวงจรชีวิตของกระดูก (life cycle of bone) ข้อใดถูกต้อง',
     options: [
       { text: 'มวลกระดูกสูงสุดช่วงวัยผู้ใหญ่ตอนต้น (~30 ปี) แล้วลดลงตามอายุ ผู้หญิงลดเร็วขึ้นหลังหมดประจำเดือน', correct: true, why: 'ตามกราฟ Peak bone mass และ Bone loss due to menopause' },

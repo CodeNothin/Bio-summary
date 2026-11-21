@@ -4,6 +4,8 @@
 // Decisions (user): essential amino acids = the slide's 8 that adults
 // cannot make (9 are needed incl. histidine); "Bulb feeder" as on the
 // slide; pepsinogen is activated by HCl AND by pepsin.
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
 import { Analogy, List, More, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
@@ -25,17 +27,18 @@ export function ADigestionPage() {
           ]}
         />
         <Note>สไลด์นับ **8 ชนิด = ชนิดที่ร่างกายผู้ใหญ่สร้างเองไม่ได้** — หลายตำรานับ **9 ชนิดที่ร่างกายต้องการ** (รวม histidine) ตอบตามที่โจทย์ถาม</Note>
-        <More title="วิตามินและอาการขาดที่ควรรู้">
-          <List
-            items={[
-              'A: เม็ดสีการมองเห็น เยื่อบุผิว → ขาด: ปัญหาการมองเห็น ผิวแห้ง',
-              'D: ช่วยดูดซึม Ca และ P → ขาด: rickets (เด็ก) กระดูกอ่อน (ผู้ใหญ่)',
-              'E: antioxidant · K: การแข็งตัวของเลือด',
-              'B₁: beriberi · B₁₂: โลหิตจาง · C: สร้าง collagen → ขาด: scurvy',
-              'แร่ธาตุ: ขาด iodine → คอพอก · ขาด Ca → กระดูกพรุน · ปศุสัตว์ขาด Na, P → น้ำนมน้อย มีบุตรยาก',
-            ]}
-          />
-        </More>
+        <P>วิตามินและแร่ธาตุที่สไลด์บอกอาการขาด:</P>
+        <Table
+          head={['สารอาหาร', 'หน้าที่', 'อาการเมื่อขาด']}
+          rows={[
+            ['Vitamin A (ละลายในไขมัน)', 'เม็ดสีการมองเห็น เยื่อบุผิว', 'ปัญหาการมองเห็น ผิวแห้ง'],
+            ['Vitamin D (ละลายในไขมัน)', 'ช่วยดูดซึม Ca และ P', '**rickets (กระดูกผิดรูปในเด็ก) กระดูกอ่อนในผู้ใหญ่**'],
+            ['Vitamin E / K (ละลายในไขมัน)', 'E: antioxidant · K: การแข็งตัวของเลือด', 'K: **เลือดแข็งตัวผิดปกติ**'],
+            ['Vitamin B₁ (thiamine)', 'coenzyme', '**beriberi** (ความผิดปกติของประสาท)'],
+            ['Vitamin B₁₂ / C', 'C: สร้าง collagen', 'B₁₂: โลหิตจาง · C: **scurvy** (ผิว ฟัน หลอดเลือดเสื่อม แผลหายช้า)'],
+            ['แร่ธาตุ', 'ต้องได้โลหะทั้งหมดจากอาหาร', 'ขาด **iodine → คอพอก** · ขาด Ca → กระดูกพรุน · ปศุสัตว์ขาด Na, P → น้ำนมน้อย มีบุตรยาก'],
+          ]}
+        />
       </Section>
 
       {/* slides 39–43 */}
@@ -63,6 +66,14 @@ export function ADigestionPage() {
             ['ข้อดี', '—', '**ย่อยอาหารขนาดใหญ่ได้**'],
           ]}
         />
+        <P>**ทางเดินอาหารแบบไม่สมบูรณ์ (incomplete)** มีช่องเปิดเดียว — ปากเป็นทั้งทางเข้าและทางออกของกาก เช่น **ไฮดรา พลานาเรีย** (ย่อยทั้งนอกและในเซลล์: ไฮดราหลั่งเอนไซม์ใน gastrovascular cavity ย่อยเป็นชิ้นเล็ก แล้วเซลล์กลืนเข้า food vacuole ย่อยต่อ) · **แบบสมบูรณ์ (complete)** มี 2 ช่อง ปากและทวารหนัก แต่ละส่วนทำหน้าที่เฉพาะ เช่น **ไส้เดือนดิน นก วัว คน**</P>
+        <List
+          items={[
+            '**ไส้เดือนดิน**: mouth → esophagus → crop (พักอาหาร) → gizzard (บด) → intestine → anus',
+            '**นก**: crop เก็บและทำให้อาหารชื้น · กระเพาะหลั่งเอนไซม์ · **กึ๋น (gizzard) กล้ามเนื้อหนา มีกรวดบดอาหารแทนฟัน ไม่มีต่อมขับน้ำย่อย** · ย่อยหลักที่ลำไส้เล็ก',
+            '**สัตว์เคี้ยวเอื้อง** (วัว ควาย แพะ แกะ): ทางเดินอาหารยาว มี**ส่วนที่เกิดการหมัก (fermentation chamber) โดยจุลินทรีย์ที่อาศัยแบบพึ่งพา (mutualism)** ย่อย cellulose · กระเพาะ 4 ห้อง: rumen, reticulum, omasum, abomasum',
+          ]}
+        />
         <W id="tract-types" />
       </Section>
 
@@ -71,9 +82,18 @@ export function ADigestionPage() {
         <W id="gi-map" />
         <List
           items={[
-            '**ต่อมน้ำลาย 3 คู่**: parotid (ใต้กกหู), submandibular (ใต้ขากรรไกรล่าง), sublingual (ใต้ลิ้น) — ~1.0–1.5 ลิตร/วัน',
+            '**ต่อมน้ำลาย 3 คู่**: parotid (ใต้กกหู), submandibular (ใต้ขากรรไกรล่าง), sublingual (ใต้ลิ้น) — ~1.0–1.5 ลิตร/วัน · น้ำลายมี mucin (หล่อลื่น) **salivary amylase (แป้ง → dextrin, maltose)** และ lysozyme (ฆ่าเชื้อ) · ลิ้นคลุกอาหารเป็นก้อน (bolus)',
             '**คอหอย**: ทางร่วมของอาหารและอากาศ · **หลอดอาหาร**: อยู่หลังหลอดลม กล้ามเนื้อเรียบ บีบแบบ peristalsis มีหูรูด 2 อัน',
             '**กระเพาะ**: หูรูด lower esophageal (cardiac) sphincter และ pyloric sphincter · 4 ส่วน: cardia, fundus, body, pylorus · บุด้วย simple columnar epithelium + gastric gland',
+          ]}
+        />
+        <P>**การกลืน**: คอหอยเป็นทางร่วมของอาหารและอากาศ จึงต้องปิดทางเดินหายใจก่อน:</P>
+        <List
+          items={[
+            '**(1) ยังไม่มีอาหาร**: esophageal sphincter หดตัว epiglottis ยกขึ้น glottis เปิด → ทางเดินหายใจเปิด',
+            '**(2) อาหารมาถึงคอหอย**: reflex ทำให้กล่องเสียงและ glottis ยกขึ้น **epiglottis ลงมาปิด** → ทางเดินหายใจปิด',
+            '**(3) esophageal sphincter คลายตัว** อาหารเข้าหลอดอาหาร',
+            '**(4) peristalsis** (หด–คลายเป็นจังหวะ) ดันอาหารลงกระเพาะ',
           ]}
         />
         <W id="swallowing" />
@@ -100,7 +120,7 @@ export function ADigestionPage() {
           items={[
             '**ลำไส้เล็ก**: ยาวที่สุด ดูดซึมมากที่สุด · 3 ส่วน: **duodenum (25 ซม.), jejunum, ileum** · บุด้วย simple columnar พับเป็น **villi** (มี lacteal, capillary, hepatic portal vein) และ **microvilli (brush border)**',
             'ย่อยอาหารทุกชนิด **มากที่สุดที่ duodenum** โดยอาศัยน้ำย่อยจากตับอ่อน น้ำดีจากตับ/ถุงน้ำดี และน้ำย่อยจากลำไส้เล็กเอง',
-            '**ตับ** สร้างน้ำดี เก็บที่**ถุงน้ำดี** · น้ำดี**ไม่มีเอนไซม์** แต่เกลือน้ำดีทำให้ไขมันแตกตัว (emulsifier) ให้ lipase ทำงานดีขึ้น',
+            '**ตับสร้างน้ำดี** เก็บที่**ถุงน้ำดี** · น้ำดี**ไม่มีเอนไซม์** แต่เกลือน้ำดีทำให้ไขมันแตกตัว (emulsifier) ให้ lipase ทำงานดีขึ้น',
             '**ตับอ่อน**: acinar cells หลั่งเอนไซม์ · duct cells หลั่งน้ำ + bicarbonate = pancreatic juice',
             '**ลำไส้ใหญ่**: ไม่มีการย่อย ดูดน้ำและเกลือแร่ peristalsis อยู่ 12–24 ชม. · 4 ส่วน: cecum (ไส้ติ่ง), colon (crypt สร้างเมือก), rectum (เก็บกากที่มีจุลินทรีย์และเซลลูโลส), anal canal (หูรูด)',
           ]}
@@ -121,9 +141,11 @@ export function ADigestionPage() {
           ]}
         />
         <P>**การกระตุ้นเอนไซม์ของตับอ่อน**: trypsinogen —**enterokinase**→ trypsin · chymotrypsinogen —trypsin→ chymotrypsin · procarboxypeptidase —trypsin→ carboxypeptidase · pancreatic amylase ย่อยคาร์โบไฮเดรต**ยกเว้น cellulose**</P>
-        <Analogy>
+        <More title="นึกภาพแบบ Minecraft">
+        <Analogy tag="นึกภาพแบบนี้">
           <P>เอนไซม์ย่อยโปรตีนถูกสร้างเป็นรูป "ปิดล็อก" (-ogen) ก่อน เหมือนดาบที่ยังอยู่ในฝัก — ถ้าทำงานทันทีจะย่อยเซลล์ที่สร้างมันเอง จึงปลดล็อกเมื่อไปถึงที่ทำงานแล้วเท่านั้น</P>
         </Analogy>
+        </More>
       </Section>
 
       {/* slides 73–76 */}

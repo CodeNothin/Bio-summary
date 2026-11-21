@@ -4,6 +4,8 @@
 // (carbon neutrality, net zero, phytoremediation...). Section ids match
 // src/data/pages.ts. "National defense" is kept under provisioning
 // because the slide lists it there.
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
 import { List, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
@@ -12,7 +14,7 @@ export function EIssuesPage() {
   return (
     <>
       <Section id="es-services" title="บริการระบบนิเวศ" en="ecosystem services">
-        <P>**หน้าที่ของระบบนิเวศ (ecosystem functions)** คือกระบวนการตามธรรมชาติ (สังเคราะห์ด้วยแสง หมุนเวียนธาตุอาหาร การไหลของพลังงาน) ส่วน **บริการระบบนิเวศ (ecosystem services)** คือ**ประโยชน์ที่มนุษย์ได้รับ**จากระบบนิเวศ</P>
+        <P>**หน้าที่ของระบบนิเวศ (ecosystem functions)** คือกระบวนการตามธรรมชาติ (สังเคราะห์ด้วยแสง หมุนเวียนธาตุอาหาร **การไหลของพลังงาน**) ส่วน **บริการระบบนิเวศ (ecosystem services)** คือ**ประโยชน์ที่มนุษย์ได้รับ**จากระบบนิเวศ</P>
         <Table
           head={['ประเภท', 'ภาษาไทย (สไลด์)', 'ตัวอย่าง']}
           rows={[
@@ -41,6 +43,7 @@ export function EIssuesPage() {
 
       <Section id="es-extinction" title="การสูญพันธุ์" en="extinction">
         <P>สิ่งมีชีวิต **มากกว่า 99%** ที่เคยมีอยู่สูญพันธุ์ไปแล้ว และโลกเคยมี**การสูญพันธุ์ครั้งใหญ่ 5 ครั้ง** · ตอนนี้กำลังเกิด**ครั้งที่ 6** (Holocene / Anthropocene extinction, หลัง ~11,000 ปีก่อน) ซึ่ง**เกิดจากมนุษย์**</P>
+        <P>อัตราการสูญพันธุ์ตามธรรมชาติ (**background extinction**) ประมาณ **1–10 ชนิด/ปี** · ปัจจุบัน**สูงกว่า 100–1,000 เท่า** (ปลา ×100 นก ×1,000 หอย ×1,000 พืช ×100) รวม ~1,000 ชนิด/ปี ≈ 2–3 ชนิด/วัน = **Sixth Mass Extinction** · สาเหตุจากมนุษย์: **ทำลายแหล่งที่อยู่ ใช้ทรัพยากรเกินขนาด การเปลี่ยนแปลงภูมิอากาศ มลพิษ ชนิดพันธุ์รุกราน**</P>
         <W id="extinction-rates" />
         <Table
           head={['ประเภท', 'ความหมาย']}
@@ -63,6 +66,7 @@ export function EIssuesPage() {
             ['**Phytoremediation**', 'ใช้พืชบำบัดสารปนเปื้อน'],
           ]}
         />
+        <P>เป้าหมายเหล่านี้เร่งด่วนเพราะโลกอุ่นขึ้นแล้ว ~1.1 °C ตั้งแต่ 1880 และ**ปี 2024 ร้อนที่สุด เกิน 1.5 °C** เหนือยุคก่อนอุตสาหกรรม</P>
         <List
           items={[
             'พืชช่วย**ดักจับ PM2.5** ได้ดีถ้าผิวใบหยาบหรือมีขน (trichome)',

@@ -13,6 +13,7 @@ export const aOrganization: Question[] = [
   // ---------------------------------------------------------- ao-levels
   {
     id: 'ao-lv-01', type: 'order', topic: 'ao-levels', source: 'สัตว์ 5.1 สไลด์ 6–7',
+    inText: ['เซลล์ (cell)', 'เนื้อเยื่อ (tissue)', 'อวัยวะ (organ)', 'ระบบอวัยวะ (organ system)', 'สิ่งมีชีวิต (organism)'],
     prompt: 'เรียงลำดับขั้นการจัดระบบของสิ่งมีชีวิต จากเล็กไปใหญ่',
     steps: ['เซลล์ (cell)', 'เนื้อเยื่อ (tissue)', 'อวัยวะ (organ)', 'ระบบอวัยวะ (organ system)', 'สิ่งมีชีวิต (organism)'],
     hints: ['tissue = กลุ่มเซลล์ที่ทำหน้าที่เหมือนกัน'],
@@ -20,6 +21,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-lv-02', type: 'match', topic: 'ao-levels', source: 'สัตว์ 5.1 สไลด์ 7, 25',
+    inText: ['เซลล์ประสาท เซลล์เม็ดเลือด เซลล์กระดูก', 'เนื้อเยื่อประสาท เลือด กระดูก', 'สมอง หัวใจ ผิวหนัง', 'ระบบประสาท ระบบไหลเวียนเลือด ระบบโครงกระดูก'],
     prompt: 'จับคู่ลำดับขั้นกับตัวอย่าง',
     pairs: [
       { left: 'cell', right: 'เซลล์ประสาท เซลล์เม็ดเลือด เซลล์กระดูก' },
@@ -32,6 +34,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-lv-03', type: 'mcq', topic: 'ao-levels', source: 'สัตว์ 5.1 สไลด์ 5',
+    inText: 'สรีรวิทยา (physiology) ศึกษาหน้าที่',
     prompt: 'การศึกษา "หน้าที่" การทำงานของร่างกาย เรียกว่าอะไร',
     options: [
       { text: 'สรีรวิทยา (physiology)', correct: true, why: 'physiology = study of function' },
@@ -44,6 +47,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-lv-04', type: 'tf', topic: 'ao-levels', source: 'สัตว์ 5.1 สไลด์ 4',
+    inText: ['เซลล์เดียวต้องทำทุกหน้าที่', 'เซลล์ทำหน้าที่เฉพาะและพึ่งพากัน'],
     statement: 'ในสิ่งมีชีวิตเซลล์เดียว เซลล์เดียวต้องทำทุกหน้าที่ที่จำเป็นต่อการอยู่รอด ส่วนสิ่งมีชีวิตหลายเซลล์มีเซลล์ที่ทำหน้าที่เฉพาะและพึ่งพากัน',
     answer: true,
     why: 'ตรงกับสไลด์ 4',
@@ -53,6 +57,7 @@ export const aOrganization: Question[] = [
   // ---------------------------------------------------------- ao-epithelial
   {
     id: 'ao-ep-01', type: 'mcq', topic: 'ao-epithelial', source: 'สัตว์ 5.1 สไลด์ 13–14',
+    inText: 'pseudostratified (ดูเหมือนหลายชั้น แต่ทุกเซลล์ติด basement membrane)',
     prompt: 'เนื้อเยื่อบุผิวที่ "ดูเหมือนมีหลายชั้น แต่ทุกเซลล์ยังติดอยู่บนเยื่อรองรับฐาน" พบที่ทางเดินหายใจส่วนต้น เรียกว่าอะไร',
     options: [
       { text: 'pseudostratified epithelium', correct: true, why: 'pseudo- = เทียม หลายชั้นแบบเทียม' },
@@ -65,6 +70,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-ep-02', type: 'match', topic: 'ao-epithelial', source: 'สัตว์ 5.1 สไลด์ 12, 14',
+    inText: ['simple squamous ถุงลมในปอด ผนังหลอดเลือด (endothelium)', 'simple cuboidal ท่อไต ต่อมไทรอยด์ ต่อมน้ำลาย', 'simple columnar กระเพาะอาหาร ลำไส้เล็ก', 'stratified squamous ผิวหนัง ช่องปาก หลอดอาหาร ทวารหนัก', 'pseudostratified ciliated columnar ทางเดินหายใจส่วนต้น: โพรงจมูก หลอดลม ขั้วปอด'],
     prompt: 'จับคู่ชนิดเนื้อเยื่อบุผิวกับตำแหน่งที่พบ',
     pairs: [
       { left: 'simple squamous', right: 'ถุงลมในปอด ผนังหลอดเลือด (endothelium)' },
@@ -78,6 +84,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-ep-03', type: 'tf', topic: 'ao-epithelial', source: 'สัตว์ 5.1 สไลด์ 12',
+    inText: 'ยกเว้นหลอดอาหารและทวารหนัก',
     statement: 'simple columnar epithelium บุผนังท่อทางเดินอาหารทั้งหมดรวมถึงหลอดอาหารและทวารหนัก',
     answer: false,
     why: 'สไลด์ 12: บุผนังท่อทางเดินอาหาร "ยกเว้นหลอดอาหารและทวารหนัก" (สองแห่งนี้เป็น stratified squamous)',
@@ -86,6 +93,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-ep-04', type: 'mcq', topic: 'ao-epithelial', source: 'สัตว์ 5.1 สไลด์ 11',
+    inText: 'glandular epithelium (สร้างและหลั่งสาร)',
     prompt: 'เนื้อเยื่อบุผิวที่ดัดแปลงไปทำหน้าที่ "สร้างและหลั่งสาร" เรียกว่าอะไร',
     options: [
       { text: 'glandular epithelium', correct: true, why: 'gland = ต่อม' },
@@ -99,6 +107,7 @@ export const aOrganization: Question[] = [
   // ---------------------------------------------------------- ao-connective
   {
     id: 'ao-ct-01', type: 'match', topic: 'ao-connective', source: 'สัตว์ 5.1 สไลด์ 15',
+    inText: ['รูปร่างตรง ขนาดใหญ่ ประกอบขึ้นจาก fibrin และ microfibril', 'เป็นลอนคลื่น ยืดหยุ่นสูงสุด พบที่ aorta และกระดูกอ่อนใบหู', 'เล็ก บาง สานเป็นร่างแห พบที่ไขกระดูก ม้าม ต่อมน้ำเหลือง'],
     prompt: 'จับคู่เส้นใยในเนื้อเยื่อเกี่ยวพันกับลักษณะตามสไลด์',
     pairs: [
       { left: 'collagen fiber', right: 'ตรง ขนาดใหญ่ ประกอบจาก fibrin และ microfibril ให้ความยืดหยุ่นและความแข็งแรง' },
@@ -110,6 +119,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-ct-02', type: 'mcq', topic: 'ao-connective', source: 'สัตว์ 5.1 สไลด์ 16',
+    inText: 'dense connective tissue: fibroblast + collagen มาก เรียงแน่น → tendon (กล้ามเนื้อ–กระดูก), ligament (กระดูก–กระดูก)',
     prompt: 'เอ็นยึดกล้ามเนื้อกับกระดูก (tendon) และเอ็นยึดกระดูกกับกระดูก (ligament) เป็นเนื้อเยื่อชนิดใด',
     options: [
       { text: 'dense connective tissue', correct: true, why: 'fibroblast + collagen จำนวนมาก เรียงชิดแน่น' },
@@ -122,6 +132,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-ct-03', type: 'match', topic: 'ao-connective', source: 'สัตว์ 5.1 สไลด์ 18',
+    inText: ['hyaline = ผนังกั้นรูจมูก', 'elastic = ใบหู', 'fibrocartilage = กั้นระหว่างข้อกระดูกสันหลัง'],
     prompt: 'จับคู่ชนิดกระดูกอ่อนกับตัวอย่าง',
     pairs: [
       { left: 'hyaline cartilage', right: 'ผนังกั้นรูจมูก (เส้นใยแทรกน้อย)' },
@@ -133,6 +144,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-ct-04', type: 'mcq', topic: 'ao-connective', source: 'สัตว์ 5.1 สไลด์ 19',
+    inText: 'osteoblast สร้าง / osteoclast ทำลาย',
     prompt: 'เซลล์ที่ทำหน้าที่ "สร้าง" กระดูก และ "ทำลาย" กระดูก คือข้อใดตามลำดับ',
     options: [
       { text: 'osteoblast / osteoclast', correct: true, why: '-blast = สร้าง · -clast = ทำลาย' },
@@ -145,6 +157,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-ct-05', type: 'tf', topic: 'ao-connective', source: 'สัตว์ 5.1 สไลด์ 20',
+    inText: 'น้ำเลือด (plasma) ซึ่งเป็น matrix ที่เป็นของเหลว',
     statement: 'เลือดจัดเป็นเนื้อเยื่อเกี่ยวพัน โดยมีน้ำเลือด (plasma) เป็น matrix ที่เป็นของเหลว',
     answer: true,
     why: 'สไลด์ 20 — และ plasma ไม่ได้สร้างจากเซลล์เม็ดเลือด',
@@ -154,6 +167,7 @@ export const aOrganization: Question[] = [
   // ---------------------------------------------------------- ao-muscle-nerve
   {
     id: 'ao-mn-01', type: 'sort', topic: 'ao-muscle-nerve', source: 'สัตว์ 5.1 สไลด์ 23',
+    inText: ['มากกว่า 1 อยู่รอบนอก', 'ใต้อำนาจจิตใจ (voluntary)', 'intercalated discs', 'แตกแขนง (bifurcate)', 'กระสวย', 'หลอดอาหาร (บีบตัวแบบ peristalsis)'],
     prompt: 'จัดลักษณะต่อไปนี้ให้ตรงกับชนิดกล้ามเนื้อ',
     bins: [
       { id: 'sk', label: 'กล้ามเนื้อโครงร่าง (skeletal)' },
@@ -173,6 +187,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-mn-02', type: 'mcq', topic: 'ao-muscle-nerve', source: 'สัตว์ 5.1 สไลด์ 24',
+    inText: 'เดนไดรต์ (dendrite) รับ',
     prompt: 'ส่วนของเซลล์ประสาทที่ทำหน้าที่ "รับ" กระแสประสาท คือข้อใด',
     options: [
       { text: 'เดนไดรต์ (dendrite)', correct: true, why: 'dendrite รับกระแสประสาท' },
@@ -186,6 +201,7 @@ export const aOrganization: Question[] = [
   // ---------------------------------------------------------- ao-organs
   {
     id: 'ao-or-01', type: 'mcq', topic: 'ao-organs', source: 'สัตว์ 5.1 สไลด์ 25',
+    inText: '11 ระบบอวัยวะ',
     prompt: 'ร่างกายคนมีระบบอวัยวะทั้งหมดกี่ระบบ (ตามสไลด์)',
     options: [
       { text: '11 ระบบ', correct: true, why: 'circulatory, digestive, endocrine, excretory, immune, integumentary, muscular, nervous, reproductive, respiratory, skeletal' },
@@ -198,6 +214,7 @@ export const aOrganization: Question[] = [
   },
   {
     id: 'ao-or-02', type: 'tf', topic: 'ao-organs', source: 'สัตว์ 5.1 สไลด์ 25',
+    inText: 'อวัยวะ (organ) = เนื้อเยื่ออย่างน้อย 2 กลุ่มทำงานร่วมกัน',
     statement: 'อวัยวะ (organ) คือโครงสร้างที่ประกอบด้วยเนื้อเยื่ออย่างน้อย 2 กลุ่มที่ทำงานร่วมกันในกิจกรรมเฉพาะ',
     answer: true,
     why: 'ตามนิยามในสไลด์ 25 เช่น หัวใจมีกล้ามเนื้อหัวใจ เส้นประสาท และเลือด',
@@ -209,6 +226,7 @@ export const aOrganization: Question[] = [
 export const aForm: Question[] = [
   {
     id: 'af-sh-01', type: 'mcq', topic: 'af-shape', source: 'สัตว์ 5.2 สไลด์ 28–29',
+    inText: ['น้ำมีความหนาแน่นมากกว่าอากาศ', 'ยิ่งลึกแรงต้านของน้ำยิ่งมาก', 'การคัดเลือกตามธรรมชาติจึงคัดรูปร่างที่ลดแรงต้าน'],
     prompt: 'ปลาทูน่า ฉลาม เพนกวิน โลมา และแมวน้ำ มีรูปร่างเพรียวคล้ายกันทั้งที่เป็นสัตว์ต่างกลุ่ม เพราะเหตุใด',
     options: [
       { text: 'น้ำมีความหนาแน่นมากกว่าอากาศ ยิ่งลึกแรงต้านยิ่งมาก การคัดเลือกตามธรรมชาติจึงคัดรูปร่างที่ลดแรงต้าน', correct: true, why: 'ปัจจัยทางกายภาพเป็นตัวผลักดันวิวัฒนาการ' },
@@ -221,6 +239,7 @@ export const aForm: Question[] = [
   },
   {
     id: 'af-ho-01', type: 'mcq', topic: 'af-homeostasis', source: 'สัตว์ 5.2 สไลด์ 30',
+    inText: 'ภายนอกเปลี่ยนมาก (large changes) → ภายในเปลี่ยนน้อย อยู่ในช่วงที่ยอมรับได้',
     prompt: 'ภาวะธำรงดุล (homeostasis) หมายถึงอะไร',
     options: [
       { text: 'การรักษาสภาพภายในร่างกายให้เปลี่ยนแปลงน้อย อยู่ในช่วงที่ยอมรับได้ แม้สิ่งแวดล้อมภายนอกเปลี่ยนแปลงมาก', correct: true, why: 'Large changes outside → small changes inside' },
@@ -233,6 +252,7 @@ export const aForm: Question[] = [
   },
   {
     id: 'af-ex-01', type: 'mcq', topic: 'af-exchange', source: 'สัตว์ 5.2 สไลด์ 31–32',
+    inText: ['ส่วนที่เป็นท่อพับไปมาภายในร่างกาย', 'ระบบไหลเวียนเชื่อมกับเซลล์ผ่าน interstitial fluid'],
     prompt: 'สิ่งมีชีวิตที่มีความซับซ้อนมากขึ้น แก้ปัญหาการแลกเปลี่ยนสารกับสิ่งแวดล้อมอย่างไร',
     options: [
       { text: 'มีส่วนที่เป็นท่อพับไปมาภายในร่างกายเพื่อเพิ่มพื้นที่ผิว และมีระบบไหลเวียนเชื่อมกับเซลล์ผ่าน interstitial fluid', correct: true, why: 'เช่น ถุงลมในปอด วิลไลในลำไส้ ท่อในไต' },
@@ -245,6 +265,7 @@ export const aForm: Question[] = [
   },
   {
     id: 'af-ex-02', type: 'tf', topic: 'af-exchange', source: 'สัตว์ 5.2 สไลด์ 31',
+    inText: 'protist (เซลล์เดียวในน้ำ) แลกเปลี่ยนสารกับสิ่งแวดล้อมได้โดยตรงด้วยการแพร่',
     statement: 'protist ที่เป็นสิ่งมีชีวิตเซลล์เดียวอาศัยในแหล่งน้ำ สามารถแลกเปลี่ยนสารอาหารกับสิ่งแวดล้อมได้โดยตรงด้วยการแพร่',
     answer: true,
     why: 'สไลด์ 31',

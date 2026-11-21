@@ -9,6 +9,7 @@ export const pResponse: Question[] = [
   // ---------------------------------------------------------- pr-steps
   {
     id: 'pr-st-01', type: 'order', topic: 'pr-steps', source: 'พืช 5.5 สไลด์ 3',
+    inText: ['1. การรับสัญญาณ (signal perception)', '2. การถ่ายทอดสัญญาณ (signal transduction)', '3. การตอบสนอง (responses)'],
     prompt: 'เรียงขั้นตอนการตอบสนองของพืช',
     steps: ['การรับสัญญาณ (signal perception) — สัญญาณจับกับ receptor', 'การถ่ายทอดสัญญาณ (signal transduction) — second messenger ขยายสัญญาณ', 'การตอบสนอง (responses) — protein modification หรือ gene expression'],
     hints: ['ต้อง "รับ" ก่อนจึง "ส่งต่อ"'],
@@ -16,6 +17,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-st-02', type: 'mcq', topic: 'pr-steps', source: 'พืช 5.5 สไลด์ 5; แบบฝึกหัดสไลด์ 45',
+    inText: ['second messenger', 'NO', 'Ca²⁺'],
     prompt: 'ในกลไกการรับรู้และตอบสนองต่อสัญญาณจากสิ่งแวดล้อมของพืช Ca²⁺ และ NO ทำหน้าที่เป็นอะไร',
     options: [
       { text: 'second messenger', correct: true, why: 'สไลด์ 5: second messenger ได้แก่ cAMP, cGMP, cADPR, DAG, IP₃, NO, Ca²⁺' },
@@ -28,6 +30,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-st-03', type: 'match', topic: 'pr-steps', source: 'พืช 5.5 สไลด์ 6',
+    inText: ['การหุบของก้านใบไมยราบเมื่อถูกสัมผัส', 'การสังเคราะห์คลอโรฟิลล์เมื่อมีแสง', 'แสง อุณหภูมิ การสัมผัส ความชื้น แรงโน้มถ่วง', 'สัญญาณภายใน: ฮอร์โมน'],
     prompt: 'จับคู่ประเภทการตอบสนองกับตัวอย่างในสไลด์',
     pairs: [
       { left: 'protein modification', right: 'การหุบของก้านใบไมยราบเมื่อถูกสัมผัส' },
@@ -41,6 +44,7 @@ export const pResponse: Question[] = [
   // ---------------------------------------------------------- pr-light
   {
     id: 'pr-li-01', type: 'mcq', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 8–9; แบบฝึกหัดสไลด์ 44',
+    inText: 'cryptochrome และ phototropin เป็น receptor',
     prompt: 'สารอินทรีย์ในข้อใดทำหน้าที่เป็นตัวรับสัญญาณ (receptor) ในพืช',
     options: [
       { text: 'phytochrome, gibberellins', truth: false, why: 'gibberellin เป็นฮอร์โมน ไม่ใช่ receptor' },
@@ -53,6 +57,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-li-02', type: 'mcq', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 9',
+    inText: ['แสง red → รูป active (Pfr)', 'แสง far-red → รูป inactive (Pr)'],
     prompt: 'phytochrome เปลี่ยนรูปอย่างไรเมื่อได้รับแสงแต่ละชนิด',
     options: [
       { text: 'แสง red → รูป active (Pfr) · แสง far-red → รูป inactive (Pr)', correct: true, why: 'ตามสไลด์ 9' },
@@ -65,6 +70,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-li-03', type: 'mcq', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 13',
+    inText: 'Red → Far-red → Red งอก',
     prompt: 'เมล็ดผักกาดได้รับแสงสลับกันหลายครั้ง ชุดใดจะ "งอก"',
     options: [
       { text: 'Red → Far-red → Red', correct: true, why: 'แสงสุดท้ายเป็น red → Pfr:Ptotal เพิ่ม → กระตุ้นการงอก' },
@@ -77,6 +83,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-li-04', type: 'mcq', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 10',
+    inText: 'ใต้ร่มเงามีแสง far-red (>700 nm) มาก → มี Pr มาก',
     prompt: 'พืชใต้ร่มเงาไม้ใหญ่ยืดลำต้นยาวเพื่อหนีร่มเงา (shade avoidance) เพราะรับรู้อะไร',
     options: [
       { text: 'ใต้ร่มเงามีแสง far-red (>700 nm) มาก ทำให้มี Pr มาก พืชรับรู้ว่าเป็นสภาวะแสงน้อย', correct: true, why: 'ใบด้านบนดูดแสง 400–700 nm ไปใช้ เหลือ far-red ส่องลงมา' },
@@ -89,6 +96,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-li-05', type: 'mcq', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 11–12 (แบบฝึกหัด)',
+    inText: 'แสง (visible light) ด้วย phytochrome',
     prompt: 'การหุบของก้านใบจามจุรีตอนเย็น เกิดจากการรับสัญญาณสิ่งแวดล้อมคืออะไร และรับสัญญาณด้วย photoreceptor ที่เรียกว่าอะไร',
     options: [
       { text: 'visible light / phytochrome', correct: true, why: 'sleep movement ควบคุมโดย phytochrome (red/far-red อยู่ในช่วงแสงที่ตามองเห็น)' },
@@ -101,6 +109,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-li-06', type: 'mcq', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 7–13; แบบฝึกหัดสไลด์ 44',
+    inText: ['sleep movement', 'photomorphogenesis'],
     prompt: 'การตอบสนองของพืชในข้อใดเกิดจากการรับสัญญาณแสง',
     options: [
       { text: 'sleep movement', truth: true, why: 'ถูก ควบคุมโดย phytochrome' },
@@ -113,6 +122,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-li-07', type: 'mcq', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 14–15; แบบฝึกหัดสไลด์ 45',
+    inText: 'phototropin สีน้ำเงิน phototropism',
     prompt: 'การตอบสนองแบบ phototropism เกี่ยวข้องกับสารอินทรีย์ชนิดใดที่ทำหน้าที่รับรู้แสง',
     options: [
       { text: 'phototropin', correct: true, why: 'blue light receptor ที่ควบคุมการเบนตามแสง (mutant p1p2 ไม่เบน)' },
@@ -125,6 +135,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-li-08', type: 'tf', topic: 'pr-light', source: 'พืช 5.5 สไลด์ 7–8',
+    inText: ['skotomorphogenesis', 'สังเคราะห์คลอโรฟิลล์ ต้นกล้าเขียว = photomorphogenesis'],
     statement: 'ต้นกล้าที่งอกในที่มืดจะยืดยาว ซีด (skotomorphogenesis) ส่วนต้นกล้าที่ได้รับแสงจะมีการสังเคราะห์คลอโรฟิลล์ (photomorphogenesis)',
     answer: true,
     why: 'สไลด์ 7: photomorphogenesis vs skotomorphogenesis',
@@ -134,6 +145,7 @@ export const pResponse: Question[] = [
   // ---------------------------------------------------------- pr-auxin
   {
     id: 'pr-au-01', type: 'mcq', topic: 'pr-auxin', source: 'พืช 5.5 สไลด์ 18–19; แบบฝึกหัดสไลด์ 46',
+    inText: 'ออกซินสะสมด้านไกลแสงมากกว่า',
     prompt: 'พืชตอบสนองโดยการเบนตามแสงได้ด้วยฮอร์โมนอะไร และอย่างไร',
     options: [
       { text: 'auxin / สะสมในเนื้อเยื่อลำต้นด้านไกลแสงมากกว่าด้านใกล้แสง', correct: true, why: 'ด้านไกลแสงมี auxin มาก เซลล์ยืดมากกว่า ลำต้นจึงโค้งเข้าหาแสง' },
@@ -146,6 +158,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-au-02', type: 'mcq', topic: 'pr-auxin', source: 'พืช 5.5 สไลด์ 18',
+    inText: 'ปลายยอดสร้างสาร (auxin) ที่แพร่ลงวุ้นได้ และทำให้โค้ง',
     prompt: 'การทดลองของ Went (1926) วางวุ้นที่เคยรองปลายยอด coleoptile ไว้ด้านหนึ่งของ coleoptile ที่ตัดปลายออกในที่มืด ผลที่ได้บอกอะไร',
     options: [
       { text: 'ปลายยอดสร้างสาร (auxin) ที่แพร่ลงวุ้นได้ และทำให้ coleoptile โค้ง โดยมุมโค้งเพิ่มตามปริมาณสาร', correct: true, why: 'กราฟ: มุมโค้งเพิ่มตามจำนวนปลายยอดและความเข้มข้น IAA' },
@@ -158,6 +171,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-au-03', type: 'mcq', topic: 'pr-auxin', source: 'พืช 5.5 สไลด์ 20',
+    inText: 'ด้านล่างยืดมากกว่าและมีออกซินมากกว่า',
     prompt: 'กระถางมะเขือเทศถูกวางตะแคง ลำต้นจะโค้งขึ้น (negative gravitropism) ด้านใดของลำต้นยืดตัวมากกว่า และมีออกซินมากกว่า',
     options: [
       { text: 'ด้านล่าง — ยืดมากกว่าและมีออกซินมากกว่า', correct: true, why: 'ด้านล่างยืดมากกว่า ลำต้นจึงโค้งขึ้น' },
@@ -170,6 +184,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-au-04', type: 'tf', topic: 'pr-auxin', source: 'พืช 5.5 สไลด์ 19, 37',
+    inText: 'กระตุ้นการยืดตัวของยอด (coleoptile) กลับยับยั้งการยืดตัวของราก',
     statement: 'ความเข้มข้นของออกซินที่กระตุ้นการยืดตัวของเซลล์ในยอด (coleoptile) มีผลยับยั้งการยืดตัวของเซลล์ในราก',
     answer: true,
     why: 'กราฟ: รากตอบสนองสูงสุดที่ความเข้มข้นต่ำกว่ามาก ที่ความเข้มข้นที่ยอดชอบ รากถูกยับยั้งแล้ว',
@@ -178,6 +193,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-au-05', type: 'mcq', topic: 'pr-auxin', source: 'พืช 5.5 สไลด์ 21–22',
+    inText: 'เด็ดยอด = กำจัดแหล่งสร้างออกซิน ตาข้างจึงพ้นจาก apical dominance',
     prompt: 'การเด็ดยอดไม้กระถางทำให้ได้ทรงพุ่มแน่น เป็นเพราะอะไร',
     options: [
       { text: 'กำจัดแหล่งสร้างออกซินที่ยอด ตาข้างจึงพ้นจาก apical dominance และเจริญเป็นกิ่ง', correct: true, why: 'สไลด์ 21–22' },
@@ -190,6 +206,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-au-06', type: 'mcq', topic: 'pr-auxin', source: 'พืช 5.5 สไลด์ 22',
+    inText: 'ผงเร่งรากสำหรับปักชำและตอนกิ่ง',
     prompt: 'ผงเร่งรากที่ใช้ในการปักชำและตอนกิ่ง ใช้ฮอร์โมนกลุ่มใด',
     options: [
       { text: 'auxin', correct: true, why: 'ออกซินความเข้มข้นมากพอกระตุ้นการสร้างรากของกิ่งตัดได้' },
@@ -203,6 +220,7 @@ export const pResponse: Question[] = [
   // ---------------------------------------------------------- pr-hormones
   {
     id: 'pr-ho-01', type: 'match', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 23–36',
+    inText: ['สร้างที่ราก กระตุ้นการแบ่งเซลล์', 'ยืดปล้อง การงอกของเมล็ด การออกดอก', 'เมล็ดพักตัว ตา (bud) พักตัว', 'ปากใบปิด', 'triple response', 'ใบร่วง', 'การเปลี่ยนสภาพท่อลำเลียง', 'ควบคุมตาข้างไม่ให้เจริญเป็นกิ่ง'],
     prompt: 'จับคู่ฮอร์โมนกับบทบาทหลัก',
     pairs: [
       { left: 'cytokinin', right: 'กระตุ้นการแบ่งเซลล์ (น้ำมะพร้าวมี zeatin)' },
@@ -217,6 +235,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-02', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 21; แบบฝึกหัดสไลด์ 46',
+    inText: 'cytokinin และ strigolactone สร้างที่ราก ลำเลียงขึ้นไปยอด',
     prompt: 'ฮอร์โมนพืชชนิดใดที่มีแหล่งสร้างที่รากและลำเลียงไปยังส่วนยอดเหนือดิน',
     options: [
       { text: 'strigolactone, cytokinin', correct: true, why: 'สไลด์ 21: cytokinins และ strigolactones สร้างที่รากและลำเลียงไปยังส่วนยอด' },
@@ -229,6 +248,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-03', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 23; แบบฝึกหัดสไลด์ 47',
+    inText: 'สร้างที่ราก กระตุ้นการแบ่งเซลล์',
     prompt: 'ฮอร์โมนอะไรที่สร้างที่รากและมีบทบาทกระตุ้นการแบ่งเซลล์',
     options: [
       { text: 'cytokinin', correct: true, why: 'cytokinin: a regulator of cell division' },
@@ -241,6 +261,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-04', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 24; แบบฝึกหัดสไลด์ 45',
+    inText: 'cytokinin สูง → เกิดยอดจำนวนมาก',
     prompt: 'หากต้องการชักนำการเกิด "ยอด" จำนวนมากในขวดเพาะเลี้ยงเนื้อเยื่อ ควรใส่ฮอร์โมนอะไร',
     options: [
       { text: 'cytokinin', correct: true, why: 'auxin:cytokinin ต่ำ (cytokinin สูง) → shoot formation' },
@@ -253,6 +274,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-05', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 26–30; แบบฝึกหัดสไลด์ 47',
+    inText: ['สลายอาหารสะสม', 'ตา (bud) พักตัวในฤดูหนาว'],
     prompt: 'การตอบสนองของพืชต่อไปนี้ ควบคุมโดยฮอร์โมนอะไร',
     options: [
       { text: 'การสลายอาหารสะสมเพื่อการงอกของเมล็ด / gibberellin', truth: true, why: 'ถูก: GA ชักนำการสร้างเอนไซม์ที่สลายอาหารในเมล็ด' },
@@ -265,6 +287,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-06', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 30; แบบฝึกหัดสไลด์ 48',
+    inText: ['ABA ในใบเพิ่มได้ถึง 50 เท่า (ใน guard cell)', 'ปากใบปิด'],
     prompt: 'ฮอร์โมนที่มีปริมาณมากขึ้นใน guard cell เมื่อพืชเผชิญกับภาวะขาดน้ำ คือฮอร์โมนอะไร',
     options: [
       { text: 'abscisic acid', correct: true, why: 'ABA ในใบเพิ่มได้ถึง 50 เท่า ทำให้ปากใบปิด' },
@@ -277,6 +300,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-07', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 33; แบบฝึกหัดสไลด์ 49',
+    inText: 'auxin ลดลง → ethylene เพิ่มขึ้น',
     prompt: 'เมื่อใบพืชแก่ตัว เข้าสู่ภาวะเสื่อมถอยและร่วงหล่น มีการเปลี่ยนแปลงของฮอร์โมนอย่างไร',
     options: [
       { text: 'มีปริมาณ auxin ลดลง และมี ethylene เพิ่มขึ้น', correct: true, why: 'ใบแก่มี auxin ลดลง กระตุ้นการสร้าง ethylene ซึ่งกระตุ้นเอนไซม์สลายผนังเซลล์ที่ abscission zone' },
@@ -289,6 +313,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-08', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 37; แบบฝึกหัดสไลด์ 49',
+    inText: 'การตอบสนองขึ้นกับปริมาณฮอร์โมนในเซลล์',
     prompt: 'ข้อใดกล่าวถูกต้องเกี่ยวกับการควบคุมการตอบสนองต่อฮอร์โมนพืช',
     options: [
       { text: 'การตอบสนองของพืชขึ้นกับปริมาณฮอร์โมนในเซลล์', truth: true, correct: true, why: 'เซลล์ควบคุมปริมาณฮอร์โมนให้อยู่ในระดับที่มีผลให้เกิดการตอบสนอง (threshold)' },
@@ -301,6 +326,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-09', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 22, 27, 36; แบบฝึกหัดสไลด์ 50',
+    inText: 'ก้านช่อองุ่นยาวขึ้น',
     prompt: 'ข้อใดเป็นตัวอย่างการประยุกต์ใช้ความรู้เรื่องฮอร์โมนพืชที่ถูกต้อง',
     options: [
       { text: 'ชาวสวนตัดยอดของพืชออก ซึ่งเป็นการลดปริมาณ cytokinin เพื่อชักนำการแตกกิ่งข้าง', truth: false, why: 'ตัดยอด = ลด "auxin" ไม่ใช่ cytokinin' },
@@ -313,6 +339,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-10', type: 'mcq', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 32',
+    inText: ['อ้วน เตี้ย ลำต้นใต้ใบเลี้ยงไม่ตอบสนองต่อแรงโน้มถ่วง', 'ดันผ่านดินที่กดทับได้'],
     prompt: 'ต้นกล้าที่ได้รับ ethylene แสดง triple response อย่างไร และมีประโยชน์อะไร',
     options: [
       { text: 'อ้วน เตี้ย ลำต้นใต้ใบเลี้ยงไม่ตอบสนองต่อแรงโน้มถ่วง — แข็งแรง ดันผ่านดินที่กดทับได้', correct: true, why: 'ตามสไลด์ 32' },
@@ -353,6 +380,7 @@ export const pResponse: Question[] = [
   },
   {
     id: 'pr-ho-13', type: 'tf', topic: 'pr-hormones', source: 'พืช 5.5 สไลด์ 36',
+    inText: ['สร้างที่ราก ดึงดูดเชื้อราไมคอร์ไรซา', 'กระตุ้นการงอกของวัชพืชที่เป็นพืชกาฝาก'],
     statement: 'รากพืชสร้าง strigolactone เพื่อดึงดูดเชื้อราไมคอร์ไรซา แต่สารนี้ก็กระตุ้นการงอกของวัชพืชที่เป็นพืชกาฝากด้วย',
     answer: true,
     why: 'ตามสไลด์ 36 — strigolactone ถูกพบครั้งแรกจากการศึกษาพืชกาฝาก',

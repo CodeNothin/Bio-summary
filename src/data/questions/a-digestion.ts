@@ -15,6 +15,7 @@ export const aDigestion: Question[] = [
   // ---------------------------------------------------------- ad-nutrients
   {
     id: 'ad-nu-01', type: 'mcq', topic: 'ad-nutrients', source: 'สัตว์ 5.3 สไลด์ 33',
+    inText: 'สร้างเองไม่ได้ ต้องได้รับจากอาหาร',
     prompt: '"สารอาหารที่จำเป็น (essential nutrients)" หมายถึงอะไร',
     options: [
       { text: 'สารอาหารที่ร่างกายสัตว์สร้างเองไม่ได้ ต้องได้รับจากอาหาร', correct: true, why: 'นิยามตามสไลด์ 33' },
@@ -27,6 +28,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-nu-02', type: 'mcq', topic: 'ad-nutrients', source: 'สัตว์ 5.3 สไลด์ 34',
+    inText: '8 ชนิดที่ผู้ใหญ่สร้างเองไม่ได้',
     prompt: 'ตามสไลด์ กรดอะมิโนที่ร่างกายคน (ผู้ใหญ่) "สร้างเองไม่ได้" มีกี่ชนิด',
     options: [
       { text: '8 ชนิด', correct: true, why: 'สไลด์ 34: Met, Val, Thr, Phe, Leu, Ile, Trp, Lys' },
@@ -39,6 +41,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-nu-03', type: 'mcq', topic: 'ad-nutrients', source: 'สัตว์ 5.3 สไลด์ 34',
+    inText: 'ข้าวโพดขาด Lys ถั่วขาด Met → กินคู่กันได้ครบ',
     prompt: 'ทำไมการกินข้าวโพดร่วมกับถั่วจึงได้กรดอะมิโนจำเป็นครบ',
     options: [
       { text: 'ข้าวโพดขาด lysine ส่วนถั่วขาด methionine แต่ละอย่างจึงเติมส่วนที่อีกอย่างขาด', correct: true, why: 'ดูภาพสไลด์ 34' },
@@ -51,6 +54,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-nu-04', type: 'tf', topic: 'ad-nutrients', source: 'สัตว์ 5.3 สไลด์ 35',
+    inText: ['ขาดเอนไซม์สร้างพันธะคู่ที่ omega-3/omega-6', 'alpha-linolenic (ω-3)', 'linoleic (ω-6)'],
     statement: 'สัตว์เลี้ยงลูกด้วยนมขาดเอนไซม์สร้างพันธะคู่ที่ตำแหน่ง omega-3 และ omega-6 จึงต้องได้รับ alpha-linolenic acid และ linoleic acid จากอาหาร',
     answer: true,
     why: 'สไลด์ 35 — แมวต้องการ arachidonic acid เพิ่มอีกชนิด',
@@ -59,6 +63,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-nu-05', type: 'match', topic: 'ad-nutrients', source: 'สัตว์ 5.3 สไลด์ 36–38',
+    inText: ['rickets (กระดูกผิดรูปในเด็ก) กระดูกอ่อนในผู้ใหญ่', 'เลือดแข็งตัวผิดปกติ', 'beriberi', 'scurvy', 'iodine → คอพอก'],
     prompt: 'จับคู่สารอาหารกับอาการเมื่อขาด',
     pairs: [
       { left: 'Vitamin D', right: 'กระดูกผิดรูปในเด็ก (rickets) กระดูกอ่อนในผู้ใหญ่' },
@@ -73,6 +78,7 @@ export const aDigestion: Question[] = [
   // ---------------------------------------------------------- ad-feeding
   {
     id: 'ad-fe-01', type: 'order', topic: 'ad-feeding', source: 'สัตว์ 5.3 สไลด์ 39',
+    inText: 'ingestion → digestion → absorption → elimination',
     prompt: 'เรียงกระบวนการกินอาหาร (food processing) 4 ขั้น',
     steps: ['การกินอาหาร (ingestion)', 'การย่อยอาหาร (digestion)', 'การดูดซึมสารอาหาร (absorption)', 'การขับถ่ายกากอาหาร (elimination)'],
     hints: ['ต้องย่อยให้เล็กก่อนจึงดูดซึมได้'],
@@ -80,6 +86,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-fe-02', type: 'match', topic: 'ad-feeding', source: 'สัตว์ 5.3 สไลด์ 41',
+    inText: ['วาฬหลังค่อม หอยกาบ หอยนางรม', 'ตัวอ่อนแมลงบนใบไม้', 'Fluid feeder — ดูดของเหลว ยุง', 'มนุษย์ นกกระสา'],
     prompt: 'จับคู่วิธีกินอาหารของ heterotroph กับตัวอย่างในสไลด์',
     pairs: [
       { left: 'Suspension feeder', right: 'วาฬหลังค่อม หอยกาบ หอยนางรม (กรองชิ้นเล็กในน้ำ)' },
@@ -92,6 +99,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-fe-03', type: 'mcq', topic: 'ad-feeding', source: 'สัตว์ 5.3 สไลด์ 42–43',
+    inText: ['herbivore ฟันกว้างนูนเป็นสัน บด', 'herbivore ยาว'],
     prompt: 'ข้อใดเป็นลักษณะทางเดินอาหาร/ฟันของสัตว์กินพืชเมื่อเทียบกับสัตว์กินเนื้อ',
     options: [
       { text: 'ฟันกว้างนูนเป็นสันสำหรับบด ลำไส้ยาวและ cecum ใหญ่', correct: true, why: 'อาหารพืชย่อยยาก ต้องใช้เวลานาน' },
@@ -105,6 +113,7 @@ export const aDigestion: Question[] = [
   // ---------------------------------------------------------- ad-tracts
   {
     id: 'ad-tr-01', type: 'mcq', topic: 'ad-tracts', source: 'สัตว์ 5.3 สไลด์ 45–47',
+    inText: 'ย่อยอาหารขนาดใหญ่ได้',
     prompt: 'ข้อดีของการย่อยอาหารภายนอกเซลล์ (extracellular digestion) คืออะไร',
     options: [
       { text: 'สามารถย่อยอาหารที่มีขนาดใหญ่ได้', correct: true, why: 'สไลด์ 47' },
@@ -117,6 +126,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-tr-02', type: 'sort', topic: 'ad-tracts', source: 'สัตว์ 5.3 สไลด์ 48–51',
+    inText: ['ไฮดรา พลานาเรีย', 'ไส้เดือนดิน นก วัว คน'],
     prompt: 'จัดสัตว์ตามชนิดทางเดินอาหาร',
     bins: [{ id: 'in', label: 'ไม่สมบูรณ์ (ช่องเปิดเดียว)' }, { id: 'co', label: 'สมบูรณ์ (ปาก + ทวารหนัก)' }],
     items: [
@@ -128,6 +138,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-tr-03', type: 'order', topic: 'ad-tracts', source: 'สัตว์ 5.3 สไลด์ 51',
+    inText: 'mouth → esophagus → crop (พักอาหาร) → gizzard (บด) → intestine → anus',
     prompt: 'เรียงทางเดินอาหารของไส้เดือนดิน',
     steps: ['mouth', 'esophagus', 'crop', 'gizzard', 'intestine', 'anus'],
     hints: ['crop เก็บอาหาร gizzard บดอาหาร'],
@@ -135,6 +146,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-tr-04', type: 'mcq', topic: 'ad-tracts', source: 'สัตว์ 5.3 สไลด์ 52',
+    inText: 'กึ๋น (gizzard) กล้ามเนื้อหนา มีกรวดบดอาหารแทนฟัน ไม่มีต่อมขับน้ำย่อย',
     prompt: 'กึ๋น (gizzard) ของนกทำหน้าที่อะไร',
     options: [
       { text: 'บดอาหารแทนฟัน ด้วยกล้ามเนื้อหนาและกรวดที่อยู่ภายใน — ไม่มีต่อมขับน้ำย่อย', correct: true, why: 'สไลด์ 52' },
@@ -147,6 +159,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-tr-05', type: 'mcq', topic: 'ad-tracts', source: 'สัตว์ 5.3 สไลด์ 53',
+    inText: 'ส่วนที่เกิดการหมัก (fermentation chamber) โดยจุลินทรีย์ที่อาศัยแบบพึ่งพา (mutualism)',
     prompt: 'สัตว์เคี้ยวเอื้อง เช่น วัว ย่อย cellulose ได้อย่างไร',
     options: [
       { text: 'มีส่วนที่เกิดการหมัก (fermentation chamber) โดยจุลินทรีย์ที่อาศัยแบบพึ่งพา (mutualism)', correct: true, why: 'สไลด์ 53' },
@@ -160,6 +173,7 @@ export const aDigestion: Question[] = [
   // ---------------------------------------------------------- ad-upper
   {
     id: 'ad-up-01', type: 'order', topic: 'ad-upper', source: 'สัตว์ 5.3 สไลด์ 59',
+    inText: ['(1) ยังไม่มีอาหาร', '(2) อาหารมาถึงคอหอย', '(3) esophageal sphincter คลายตัว', '(4) peristalsis'],
     prompt: 'เรียงขั้นตอนการกลืน (swallowing reflex)',
     steps: [
       'ยังไม่มีอาหาร: esophageal sphincter หดตัว epiglottis ยกขึ้น glottis เปิด (ทางเดินหายใจเปิด)',
@@ -172,6 +186,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-up-02', type: 'match', topic: 'ad-upper', source: 'สัตว์ 5.3 สไลด์ 61',
+    inText: ['mucous cell เมือก ป้องกันไม่ให้เซลล์กระเพาะถูกย่อย', 'parietal cell กรดเกลือ (HCl)', 'chief cell pepsinogen'],
     prompt: 'จับคู่เซลล์ในต่อมกระเพาะ (gastric gland) กับสิ่งที่หลั่ง',
     pairs: [
       { left: 'mucous cell', right: 'เมือก ป้องกันไม่ให้เซลล์กระเพาะถูกย่อย' },
@@ -183,6 +198,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-up-03', type: 'mcq', topic: 'ad-upper', source: 'สัตว์ 5.3 สไลด์ 61',
+    inText: 'HCl เปลี่ยนเป็น pepsin และ pepsin ที่เกิดขึ้นช่วยเปลี่ยน pepsinogen ต่อ',
     prompt: 'pepsinogen ถูกเปลี่ยนเป็น pepsin (รูปที่ทำงาน) ได้อย่างไร',
     options: [
       { text: 'HCl เปลี่ยน pepsinogen เป็น pepsin และ pepsin ที่เกิดขึ้นก็ช่วยเปลี่ยน pepsinogen ต่อได้อีก', correct: true, why: 'ข้อความในสไลด์ (HCl) + ภาพขั้นที่ 3 (pepsin กระตุ้นเพิ่ม)' },
@@ -195,6 +211,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-up-04', type: 'mcq', topic: 'ad-upper', source: 'สัตว์ 5.3 สไลด์ 62–63',
+    inText: ['หลั่งกรดมากเกิน · Helicobacter pylori · ยา NSAIDs', 'lower esophageal sphincter ทำงานผิดปกติ'],
     prompt: 'ข้อใด "ไม่ใช่" สาเหตุของแผลเพปติก (peptic ulcer) ตามสไลด์',
     options: [
       { text: 'หูรูดหลอดอาหารส่วนล่าง (LES) ทำงานผิดปกติ', correct: true, why: 'นี่คือสาเหตุของ GERD (โรคกรดไหลย้อน)' },
@@ -207,6 +224,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-up-05', type: 'label', topic: 'ad-upper', source: 'สัตว์ 5.3 สไลด์ 56–57',
+    inText: 'salivary amylase (แป้ง → dextrin, maltose)',
     prompt: 'แตะอวัยวะที่หลั่งน้ำย่อยที่มี salivary amylase',
     diagram: 'gi-tract', target: 'salivary',
     hints: ['มี 3 คู่: ใต้กกหู ใต้ขากรรไกรล่าง ใต้ลิ้น'],
@@ -215,6 +233,7 @@ export const aDigestion: Question[] = [
   // ---------------------------------------------------------- ad-lower
   {
     id: 'ad-lo-01', type: 'label', topic: 'ad-lower', source: 'สัตว์ 5.3 สไลด์ 65',
+    inText: 'ลำไส้เล็ก: ยาวที่สุด ดูดซึมมากที่สุด',
     prompt: 'แตะส่วนที่ดูดซึมอาหารมากที่สุดและยาวที่สุดของทางเดินอาหาร',
     diagram: 'gi-tract', target: 'small-intestine',
     hints: ['มี 3 ส่วน: duodenum, jejunum, ileum'],
@@ -222,6 +241,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-lo-02', type: 'label', topic: 'ad-lower', source: 'สัตว์ 5.3 สไลด์ 68',
+    inText: 'ตับสร้างน้ำดี',
     prompt: 'แตะอวัยวะที่ "สร้าง" น้ำดี',
     diagram: 'gi-tract', target: 'liver',
     hints: ['ไม่ใช่อวัยวะที่ "เก็บ" น้ำดี'],
@@ -229,6 +249,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-lo-03', type: 'tf', topic: 'ad-lower', source: 'สัตว์ 5.3 สไลด์ 68',
+    inText: 'น้ำดีไม่มีเอนไซม์',
     statement: 'น้ำดี (bile) มีเอนไซม์ lipase ใช้ย่อยไขมัน',
     answer: false,
     why: 'น้ำดี "ไม่มีเอนไซม์" แต่มีเกลือน้ำดีทำให้ไขมันก้อนใหญ่แตกเป็นก้อนเล็ก (emulsifier) ให้ lipase จากตับอ่อนทำงานได้ดีขึ้น',
@@ -237,6 +258,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-lo-04', type: 'mcq', topic: 'ad-lower', source: 'สัตว์ 5.3 สไลด์ 69',
+    inText: 'acinar cells หลั่งเอนไซม์ · duct cells หลั่งน้ำ + bicarbonate',
     prompt: 'pancreatic juice ประกอบด้วยอะไร',
     options: [
       { text: 'เอนไซม์ย่อยอาหารจาก acinar cells และน้ำกับ bicarbonate จาก duct cells', correct: true, why: 'สไลด์ 69' },
@@ -249,6 +271,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-lo-05', type: 'mcq', topic: 'ad-lower', source: 'สัตว์ 5.3 สไลด์ 72',
+    inText: 'ลำไส้ใหญ่: ไม่มีการย่อย ดูดน้ำและเกลือแร่ peristalsis อยู่ 12–24 ชม.',
     prompt: 'ข้อใดถูกต้องเกี่ยวกับลำไส้ใหญ่',
     options: [
       { text: 'ไม่มีการย่อยอาหารแล้ว มีเพียงการดูดน้ำและเกลือแร่ กากอาหารอยู่นาน 12–24 ชม.', correct: true, why: 'สไลด์ 72' },
@@ -262,6 +285,7 @@ export const aDigestion: Question[] = [
   // ---------------------------------------------------------- ad-enzymes
   {
     id: 'ad-en-01', type: 'match', topic: 'ad-enzymes', source: 'สัตว์ 5.3 สไลด์ 57, 61, 64, 70',
+    inText: ['ปาก salivary amylase', 'กระเพาะ — pepsin', 'trypsin, chymotrypsin', 'pancreatic lipase', 'disaccharidases'],
     prompt: 'จับคู่เอนไซม์กับตำแหน่งที่ทำงาน',
     pairs: [
       { left: 'salivary amylase', right: 'ช่องปาก — แป้ง → dextrin, maltose' },
@@ -275,6 +299,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-en-02', type: 'mcq', topic: 'ad-enzymes', source: 'สัตว์ 5.3 สไลด์ 70',
+    inText: 'trypsinogen —enterokinase→ trypsin',
     prompt: 'trypsinogen ถูกเปลี่ยนเป็น trypsin โดยอะไร',
     options: [
       { text: 'enterokinase', correct: true, why: 'สไลด์ 70' },
@@ -287,6 +312,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-en-03', type: 'order', topic: 'ad-enzymes', source: 'สัตว์ 5.3 สไลด์ 64, 71',
+    inText: ['pepsin', 'trypsin, chymotrypsin, carboxypeptidase', 'dipeptidase, carboxypeptidase, aminopeptidase', 'amino acid'],
     prompt: 'เรียงการย่อยโปรตีนจากต้นจนได้กรดอะมิโน',
     steps: ['โปรตีน —pepsin (กระเพาะ)→ polypeptide สั้น', '—trypsin, chymotrypsin (ตับอ่อน)→ polypeptide ที่เล็กลง', '—carboxypeptidase (ตับอ่อน)→ peptide สั้น', '—dipeptidase, carboxypeptidase, aminopeptidase (ผนังลำไส้)→ กรดอะมิโน'],
     hints: ['เริ่มที่กระเพาะ จบที่ผนังลำไส้เล็ก'],
@@ -295,6 +321,7 @@ export const aDigestion: Question[] = [
   // ---------------------------------------------------------- ad-absorb
   {
     id: 'ad-ab-01', type: 'mcq', topic: 'ad-absorb', source: 'สัตว์ 5.3 สไลด์ 74',
+    inText: 'แพร่เข้าเซลล์ รวมกับ cholesterol เป็น chylomicron หลอดน้ำเหลือง (lacteal)',
     prompt: 'กรดไขมันถูกดูดซึมและขนส่งอย่างไร',
     options: [
       { text: 'แพร่เข้าเซลล์ รวมกับ cholesterol เป็น chylomicron แล้วขนส่งเข้าสู่หลอดน้ำเหลือง (lacteal)', correct: true, why: 'สไลด์ 74' },
@@ -307,6 +334,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-ab-02', type: 'match', topic: 'ad-absorb', source: 'สัตว์ 5.3 สไลด์ 76',
+    inText: ['gastrin กระเพาะ กระตุ้น parietal cell หลั่ง HCl', 'CCK (cholecystokinin) duodenum กระตุ้นการหลั่งเอนไซม์จากตับอ่อนและน้ำดีจากถุงน้ำดี', 'secretin duodenum กระตุ้นการหลั่ง bicarbonate จากตับอ่อน'],
     prompt: 'จับคู่ฮอร์โมนในระบบย่อยอาหารกับหน้าที่',
     pairs: [
       { left: 'Gastrin', right: 'หลั่งจากกระเพาะ กระตุ้น parietal cell ให้หลั่ง HCl' },
@@ -318,6 +346,7 @@ export const aDigestion: Question[] = [
   },
   {
     id: 'ad-ab-03', type: 'tf', topic: 'ad-absorb', source: 'สัตว์ 5.3 สไลด์ 73',
+    inText: 'ดูดซึมส่วนใหญ่ที่ jejunum และ ileum',
     statement: 'การดูดซึมสารอาหารส่วนใหญ่เกิดที่ลำไส้เล็กส่วน jejunum และ ileum',
     answer: true,
     why: 'สไลด์ 73 (ส่วนการ "ย่อย" เกิดมากที่สุดที่ duodenum ตามสไลด์ 66)',

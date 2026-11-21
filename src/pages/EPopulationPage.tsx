@@ -3,8 +3,10 @@
 // growth models and K, demography. Section ids match src/data/pages.ts.
 // Slide slips noted on the page (b = 48/1000 printed as 0.0048; the
 // mark–recapture example wording) — see README "Unit 6 notes".
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
-import { Analogy, List, Note, P, Section, Table } from '../components/ui';
+import { Analogy, List, More, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
 
 export function EPopulationPage() {
@@ -20,10 +22,12 @@ export function EPopulationPage() {
             ['**Mark–recapture**', 'จับ ทำเครื่องหมาย ปล่อย แล้วจับใหม่', 'สัตว์ที่เคลื่อนที่ได้ (ปลา ค้างคาว)'],
           ]}
         />
-        <P>**Quadrat**: ความหนาแน่น = จำนวนที่นับได้ ÷ (จำนวน quadrat × ขนาด quadrat) แล้ว ขนาดประชากร = ความหนาแน่น × พื้นที่ทั้งหมด</P>
+        <P>**Quadrat**: นับในกรอบตัวอย่าง แล้วขยายผลไปทั้งพื้นที่ (สมมติว่ากรอบเป็นตัวแทนที่ดี):</P>
+        <p className="big-rule">ความหนาแน่น = จำนวนที่นับได้ ÷ (จำนวน quadrat × ขนาด quadrat)<br />ขนาดประชากร = ความหนาแน่น × พื้นที่ทั้งหมด</p>
         <Note>ตัวอย่างในสไลด์: นับได้ 9 ต้นใน 3 quadrat ขนาด 1 m² → 9 ÷ (3 × 1) = **3 ต้น/m²** · พื้นที่ 2 × 3 = 6 m² → 3 × 6 = **18 ต้น**</Note>
         <W id="quadrat-sampler" />
-        <P>**Mark–recapture**: N = (จำนวนที่ทำเครื่องหมายครั้งแรก × จำนวนที่จับได้ครั้งที่ 2) ÷ จำนวนที่มีเครื่องหมายในครั้งที่ 2</P>
+        <P>**Mark–recapture**: สัดส่วนตัวที่มีเครื่องหมายในการจับครั้งที่ 2 ≈ สัดส่วนในประชากรทั้งหมด (R/C ≈ M/N) จึงได้:</P>
+        <p className="big-rule">N = M × C ÷ R<br />M = ทำเครื่องหมายครั้งแรก · C = จับได้ครั้งที่ 2 · R = มีเครื่องหมายในครั้งที่ 2</p>
         {/* TODO(professor-method): slide wording "if there are 4 marked squirrels total = 6/2 × 4 = 12" — taught here as N = M × C ÷ R */}
         <Note>สไลด์เขียนตัวอย่างว่า "จับครั้งที่ 2 ได้ 6 ตัว มีเครื่องหมาย 2 ตัว ถ้าทำเครื่องหมายไว้ 4 ตัว → 6/2 × 4 = 12" ซึ่งก็คือสูตรเดียวกัน (C ÷ R × M)</Note>
         <W id="mark-recapture" />
@@ -38,9 +42,11 @@ export function EPopulationPage() {
             ['**แบบสุ่ม (random)**', '—', 'ไม่มีแรงดึงดูดหรือผลักกันชัดเจน ปัจจัยต่าง ๆ คงที่/มีมาก'],
           ]}
         />
+        <More title="นึกภาพแบบ Minecraft">
         <Analogy>
           clumped = ผู้เล่นมุงกันรอบเตาเผาในฐาน · uniform = บ้านแต่ละหลังเว้นระยะเท่า ๆ กันเพราะแย่งพื้นที่ · random = ดอกไม้ที่เกิดกระจายบนทุ่งหญ้าโดยไม่มีรูปแบบ
         </Analogy>
+        </More>
       </Section>
 
       <Section id="ep-change" title="อัตราการเปลี่ยนแปลงประชากร" en="rate of change">
@@ -48,8 +54,8 @@ export function EPopulationPage() {
         <List
           items={[
             'อัตราต่อหัว (per capita): **b = B ÷ N**, **d = D ÷ N**',
-            '**r = b − d** (อัตราการเพิ่มต่อหัว) → r > 0 เพิ่ม · r < 0 ลด · **r = 0 คงที่ (zero population growth, ZPG)**',
-            'การเพิ่มขึ้นเท่ากัน (+5) มีความหมายต่างกันในหมู่บ้าน 100 คน กับ 1000 คน — จึงต้องดูเป็นอัตราต่อหัว',
+            '**r = b − d** (อัตราการเพิ่มต่อหัว) → r > 0 เพิ่ม · r < 0 ลด · **r = 0 คงที่ (zero population growth, ZPG)** · จำนวนที่เปลี่ยนต่อปี = r × N',
+            'ทำไมใช้อัตราต่อหัว: การเพิ่มขึ้นเท่ากัน (+5) มีความหมายต่างกันในหมู่บ้าน 100 คน กับ 1000 คน — **ประชากรแต่ละที่มีขนาดต่างกัน การเทียบด้วยจำนวนจริงจึงทำได้ยาก**',
           ]}
         />
         <Table
@@ -85,6 +91,16 @@ export function EPopulationPage() {
       </Section>
 
       <Section id="ep-demography" title="โครงสร้างประชากรและพลวัต" en="demography, dynamics">
+        <P>**Survivorship curve** บอกว่าตายช่วงอายุไหนมาก:</P>
+        <Table
+          head={['แบบ', 'ลักษณะ', 'ตัวอย่าง']}
+          rows={[
+            ['**Type I**', 'อัตรารอดสูงช่วงต้นและกลางชีวิต ตายมากตอนแก่', 'คน สัตว์ใหญ่'],
+            ['**Type II**', 'อัตราตายคงที่ทุกช่วงอายุ', 'นก สัตว์ฟันแทะ สัตว์เลื้อยคลาน'],
+            ['**Type III**', 'ตายมากตอนเล็ก ตัวที่รอดมักอยู่ได้นาน', 'ปะการัง พืช'],
+          ]}
+        />
+        <P>**พีระมิดอายุ (age structure)** แบ่งเป็นวัยก่อนเจริญพันธุ์ / เจริญพันธุ์ / หลังเจริญพันธุ์ — ฐานกว้างแปลว่าประชากรกำลังเพิ่ม ฐานแคบแปลว่ากำลังลดหรือเป็นสังคมสูงวัย</P>
         <W id="demography" />
         <Table
           head={['ระดับ', 'เกณฑ์ (สไลด์)']}

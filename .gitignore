@@ -9,3 +9,4 @@ Source/
 # Vite temp files and local Claude tool config
 vite.config.ts.timestamp-*
 .claude/
+.vite/

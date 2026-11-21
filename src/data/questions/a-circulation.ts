@@ -17,6 +17,7 @@ export const aCirculation: Question[] = [
   // ---------------------------------------------------------- ac-types
   {
     id: 'ac-ty-01', type: 'mcq', topic: 'ac-types', source: 'สัตว์ 5.4 สไลด์ 82–83',
+    inText: ['เลือด แยกจาก interstitial fluid', 'ที่หลอดเลือดฝอย (capillary)'],
     prompt: 'ข้อใดเป็นลักษณะของระบบไหลเวียนเลือดแบบปิด',
     options: [
       { text: 'เลือดอยู่ในหลอดเลือดตลอดเวลา แยกจาก interstitial fluid แลกเปลี่ยนสารที่หลอดเลือดฝอย', correct: true, why: 'สไลด์ 83' },
@@ -29,6 +30,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-ty-02', type: 'sort', topic: 'ac-types', source: 'สัตว์ 5.4 สไลด์ 80–83',
+    inText: ['cnidarians (แมงกะพรุน), พลานาเรีย', 'แมลง และ mollusk (กุ้ง กั้ง ปู)', 'ไส้เดือน หมึก สัตว์มีกระดูกสันหลัง'],
     prompt: 'จัดสัตว์ตามแบบของระบบไหลเวียน (ตามสไลด์)',
     bins: [
       { id: 'none', label: 'ไม่มีระบบไหลเวียนเฉพาะ' },
@@ -45,6 +47,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-ty-03', type: 'order', topic: 'ac-types', source: 'สัตว์ 5.4 สไลด์ 82',
+    inText: ['(1) หัวใจท่อ (tubular heart) ด้านหลังบีบตัว', '(2) hemolymph ไปหลอดเลือดและ sinus', '(3) แลกเปลี่ยนกับเซลล์โดยตรง', '(4) หัวใจคลายตัว hemolymph ถูกดึงกลับทางรู ostia'],
     prompt: 'เรียงขั้นตอนการไหลเวียนในระบบเปิด (แมลง)',
     steps: [
       'หัวใจ (tubular heart) ด้านหลังบีบตัว',
@@ -58,6 +61,7 @@ export const aCirculation: Question[] = [
   // ---------------------------------------------------------- ac-vertebrate
   {
     id: 'ac-ve-01', type: 'mcq', topic: 'ac-vertebrate', source: 'สัตว์ 5.4 สไลด์ 86–88',
+    inText: ['สัตว์สะเทินน้ำสะเทินบก (กบ) เป็นกลุ่มแรกที่มี 2 วงจร', '3 ห้อง (2 atrium, 1 ventricle)'],
     prompt: 'สัตว์กลุ่มใดเป็นกลุ่มแรกที่มีระบบหมุนเวียนเลือดแบบ 2 วงจร (double circulation) และมีหัวใจกี่ห้อง',
     options: [
       { text: 'สัตว์สะเทินน้ำสะเทินบก — 3 ห้อง (2 atrium, 1 ventricle)', correct: true, why: 'สไลด์ 86, 88' },
@@ -70,6 +74,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-ve-02', type: 'mcq', topic: 'ac-vertebrate', source: 'สัตว์ 5.4 สไลด์ 87',
+    inText: 'เลือดจาก gill capillary ไปเลี้ยงร่างกายโดยตรงโดยไม่กลับหัวใจ ความดันจึงค่อย ๆ ลดลง',
     prompt: 'ทำไมเลือดในวงจรเดียวของปลาจึงไหลช้าลงหลังผ่านเหงือก',
     options: [
       { text: 'เลือดจาก gill capillary ไปเลี้ยงร่างกายโดยตรงโดยไม่กลับหัวใจ ความดันจึงค่อย ๆ ลดลง', correct: true, why: 'สไลด์ 87' },
@@ -83,6 +88,7 @@ export const aCirculation: Question[] = [
   // ---------------------------------------------------------- ac-heart
   {
     id: 'ac-he-01', type: 'order', topic: 'ac-heart', source: 'สัตว์ 5.4 สไลด์ 90',
+    inText: ['ventricle ขวา → pulmonary artery → ปอด', 'pulmonary vein → atrium ซ้าย', 'ventricle ซ้าย → aorta', 'vena cava'],
     prompt: 'เรียงเส้นทางของเลือดเริ่มจากหัวใจห้องล่างขวา',
     steps: [
       'ventricle ขวา', 'pulmonary artery', 'ปอด (แลกเปลี่ยนแก๊ส)', 'pulmonary vein',
@@ -93,6 +99,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-he-02', type: 'label', topic: 'ac-heart', source: 'สัตว์ 5.4 สไลด์ 92',
+    inText: 'ซ้าย = bicuspid (mitral)',
     prompt: 'แตะลิ้นที่กั้นระหว่าง atrium ซ้ายกับ ventricle ซ้าย',
     diagram: 'heart', target: 'mitral',
     hints: ['ในภาพ ด้านขวาของหัวใจอยู่ทางซ้ายมือของเรา'],
@@ -100,6 +107,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-he-03', type: 'label', topic: 'ac-heart', source: 'สัตว์ 5.4 สไลด์ 90',
+    inText: 'oxygen-rich blood → pulmonary vein → atrium ซ้าย',
     prompt: 'แตะหลอดเลือดที่นำเลือด O₂ สูงจากปอดกลับเข้าหัวใจ',
     diagram: 'heart', target: 'pulmonary-vein',
     hints: ['vein = เข้าหัวใจ'],
@@ -107,6 +115,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-he-04', type: 'tf', topic: 'ac-heart', source: 'สัตว์ 5.4 สไลด์ 90',
+    inText: 'pulmonary artery มีเลือด O₂ ต่ำ (ออกจากหัวใจ)',
     statement: 'pulmonary artery นำเลือดที่มี O₂ ต่ำจากหัวใจไปปอด',
     answer: true,
     why: 'artery = นำเลือด "ออกจาก" หัวใจ ไม่ได้ขึ้นกับปริมาณ O₂',
@@ -115,6 +124,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-he-05', type: 'match', topic: 'ac-heart', source: 'สัตว์ 5.4 สไลด์ 85, 92',
+    inText: ['atrium รับเลือดกลับเข้าหัวใจ', 'ventricle ปั๊มเลือดออกจากหัวใจ', 'AV valve (กั้น atrium–ventricle)', 'semilunar valve: กั้น aorta–ventricle ซ้าย และ pulmonary artery–ventricle ขวา'],
     prompt: 'จับคู่ส่วนของหัวใจกับหน้าที่',
     pairs: [
       { left: 'atrium', right: 'รับเลือดกลับเข้าหัวใจ' },
@@ -128,6 +138,7 @@ export const aCirculation: Question[] = [
   // ---------------------------------------------------------- ac-cycle
   {
     id: 'ac-cy-01', type: 'numeric', topic: 'ac-cycle', source: 'สัตว์ 5.4 สไลด์ 93',
+    inText: 'cardiac output = heart rate × stroke volume',
     prompt: 'หัวใจเต้น 70 ครั้ง/นาที และบีบเลือดออกครั้งละ 75 mL (stroke volume) cardiac output เท่ากับกี่ลิตรต่อนาที',
     answer: 5.25, unit: 'L/min',
     compute: () => cardiacOutput(70, 75),
@@ -140,6 +151,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-cy-02', type: 'numeric', topic: 'ac-cycle', source: 'สัตว์ 5.4 สไลด์ 93 (ดัดแปลงตัวเลข)',
+    inText: 'cardiac output = heart rate × stroke volume',
     prompt: 'ขณะออกกำลังกาย หัวใจเต้น 120 ครั้ง/นาที stroke volume 100 mL cardiac output เท่ากับกี่ลิตรต่อนาที',
     answer: 12, unit: 'L/min',
     compute: () => cardiacOutput(120, 100),
@@ -149,6 +161,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-cy-03', type: 'order', topic: 'ac-cycle', source: 'สัตว์ 5.4 สไลด์ 94–96',
+    inText: 'ventricle หดตัว → AV valve ปิด (เสียง lub) → ความดันใน ventricle เพิ่มขึ้น → semilunar valve เปิด → เลือดถูกบีบออก',
     prompt: 'เรียงเหตุการณ์ในระยะ ventricular systole',
     steps: ['ventricle หดตัว', 'AV valve ปิด (เสียง lub)', 'ความดันใน ventricle เพิ่มขึ้น', 'semilunar valve เปิด', 'เลือดถูกบีบออก'],
     hints: ['ลิ้น AV ต้องปิดก่อน ไม่งั้นเลือดย้อนกลับขึ้น atrium'],
@@ -156,6 +169,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-cy-04', type: 'mcq', topic: 'ac-cycle', source: 'สัตว์ 5.4 สไลด์ 97',
+    inText: 'S2 "dup" (เสียงที่สอง) semilunar valve ปิด',
     prompt: 'เสียง "dup" (S2) ของหัวใจเกิดจากอะไร',
     options: [
       { text: 'การปิดของ semilunar valve เมื่อ ventricle คลายตัว', correct: true, why: 'S2 = เสียงที่สอง' },
@@ -168,6 +182,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-cy-05', type: 'tf', topic: 'ac-cycle', source: 'สัตว์ 5.4 สไลด์ 94',
+    inText: 'ความดันใน ventricle ลดลง AV valve เปิด เลือดไหลเข้าเติม ventricle',
     statement: 'ในระยะที่หัวใจคลายตัวทั้งหมด ความดันใน ventricle ลดลง AV valve เปิด และเลือดไหลเข้าเติม ventricle',
     answer: true,
     why: 'สไลด์ 94: Atrial and ventricular diastole (0.4 s)',
@@ -177,6 +192,7 @@ export const aCirculation: Question[] = [
   // ---------------------------------------------------------- ac-vessels
   {
     id: 'ac-vs-01', type: 'mcq', topic: 'ac-vessels', source: 'สัตว์ 5.4 สไลด์ 102',
+    inText: 'capillary พื้นที่รวมมากที่สุดจึงไหลช้าที่สุด',
     prompt: 'เลือดไหลช้าที่สุดในหลอดเลือดฝอย (capillary) เพราะอะไร',
     options: [
       { text: 'พื้นที่หน้าตัดรวมของ capillary มากที่สุด (law of continuity)', correct: true, why: 'ท่อที่พื้นที่หน้าตัดรวมมาก ของเหลวไหลช้า' },
@@ -189,6 +205,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-vs-02', type: 'order', topic: 'ac-vessels', source: 'สัตว์ 5.4 สไลด์ 101',
+    inText: 'aorta > artery > arteriole > capillary > venule > vein > vena cava',
     prompt: 'เรียงหลอดเลือดจาก "ความดันเลือดสูงสุด" ไป "ต่ำสุด"',
     steps: ['aorta', 'artery', 'arteriole', 'capillary', 'venule', 'vein', 'vena cava'],
     hints: ['เรียงตามเส้นทางเลือดออกจากหัวใจแล้วกลับ'],
@@ -196,6 +213,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-vs-03', type: 'mcq', topic: 'ac-vessels', source: 'สัตว์ 5.4 สไลด์ 99–100',
+    inText: 'vein ใหญ่มี one-way valve',
     prompt: 'ข้อใดถูกต้องเกี่ยวกับโครงสร้างหลอดเลือด',
     options: [
       { text: 'vein ขนาดใหญ่มี one-way valve ยอมให้เลือดไหลกลับสู่หัวใจเท่านั้น', correct: true, why: 'สไลด์ 100' },
@@ -208,6 +226,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-vs-04', type: 'numeric', topic: 'ac-vessels', source: 'สัตว์ 5.4 สไลด์ 104 (ตัวเลขในภาพ)',
+    inText: ['NFP = CHP − BCOP', '18 − 25 = −7'],
     prompt: 'ที่ปลายหลอดเลือดฝอยด้าน venule ความดันเลือด (CHP) = 18 mmHg และ blood colloid osmotic pressure (BCOP) = 25 mmHg ความดันสุทธิ (NFP = CHP − BCOP) เท่ากับเท่าใด',
     answer: -7, unit: 'mmHg', tolerance: 0.001,
     compute: () => netFiltrationPressure(18, 25),
@@ -217,6 +236,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-vs-05', type: 'mcq', topic: 'ac-vessels', source: 'สัตว์ 5.4 สไลด์ 103',
+    inText: ['กล้ามเนื้อเรียบของ arteriole', 'precapillary sphincter'],
     prompt: 'การไหลของเลือดเข้าสู่ capillary bed ถูกควบคุมโดยอะไร',
     options: [
       { text: 'การหดตัวของกล้ามเนื้อเรียบของ arteriole และ precapillary sphincter', correct: true, why: 'สไลด์ 103' },
@@ -230,6 +250,7 @@ export const aCirculation: Question[] = [
   // ---------------------------------------------------------- ac-blood
   {
     id: 'ac-bl-01', type: 'sort', topic: 'ac-blood', source: 'สัตว์ 5.4 สไลด์ 106',
+    inText: ['granulocyte (นิวเคลียสเป็นพู มี granule) = neutrophil, eosinophil, basophil', 'agranulocyte (นิวเคลียสใหญ่ค่อนข้างกลม) = lymphocyte, monocyte'],
     prompt: 'จัดเม็ดเลือดขาวเป็น granulocyte หรือ agranulocyte',
     bins: [{ id: 'g', label: 'granulocyte (นิวเคลียสเป็นพู มี granule)' }, { id: 'a', label: 'agranulocyte (นิวเคลียสใหญ่ ค่อนข้างกลม)' }],
     items: [
@@ -241,6 +262,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-bl-02', type: 'mcq', topic: 'ac-blood', source: 'สัตว์ 5.4 สไลด์ 107',
+    inText: 'จับได้ 4 O₂',
     prompt: 'ฮีโมโกลบิน 1 โมเลกุล จับ O₂ ได้สูงสุดกี่โมเลกุล',
     options: [
       { text: '4 โมเลกุล', correct: true, why: 'Hb มี heme 4 หน่วย แต่ละ heme มีเหล็ก 1 อะตอมจับ O₂ ได้ 1 โมเลกุล' },
@@ -253,6 +275,7 @@ export const aCirculation: Question[] = [
   },
   {
     id: 'ac-bl-03', type: 'mcq', topic: 'ac-blood', source: 'สัตว์ 5.4 สไลด์ 108',
+    inText: 'นำของเหลวและโปรตีนที่ซึมออกจาก capillary และไขมันที่ดูดซึมจากลำไส้เล็กกลับเข้า vena cava',
     prompt: 'หน้าที่ของระบบน้ำเหลือง (lymphatic system) ตามสไลด์คือข้อใด',
     options: [
       { text: 'นำของเหลวและโปรตีนที่ซึมออกจาก capillary และไขมันที่ดูดซึมจากลำไส้เล็ก กลับเข้าสู่ vena cava', correct: true, why: 'สไลด์ 108' },

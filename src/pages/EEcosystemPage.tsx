@@ -2,8 +2,10 @@
 // 6.4 — ecosystems: structure, trophic roles, food chains/webs, energy
 // flow and the ~10% rule, biogeochemical cycles and eutrophication,
 // bioaccumulation and biomagnification. Section ids match pages.ts.
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
-import { Analogy, List, Note, P, Section, Table } from '../components/ui';
+import { Analogy, List, More, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
 
 export function EEcosystemPage() {
@@ -40,9 +42,11 @@ export function EEcosystemPage() {
             ['ตัวอย่าง', '—', 'นากทะเล → ควบคุมเม่นทะเล → ป่าสาหร่ายเคลป์อยู่ได้'],
           ]}
         />
-        <Analogy>
+        <More title="นึกภาพแบบนี้">
+        <Analogy tag="นึกภาพแบบนี้">
           keystone = หินก้อนบนสุดของซุ้มประตู มีก้อนเดียวแต่ดึงออกแล้วทั้งซุ้มพัง · ไม่มีนากทะเล → เม่นทะเลเพิ่ม → กินเคลป์หมด
         </Analogy>
+        </More>
       </Section>
 
       <Section id="ee-energy" title="การไหลของพลังงาน" en="energy flow">
@@ -54,6 +58,7 @@ export function EEcosystemPage() {
             'จึงทำให้ห่วงโซ่อาหาร**ยาวได้ไม่เกิน ~5 ระดับผู้บริโภค**',
           ]}
         />
+        <p className="big-rule">พลังงานที่ลำดับขั้น n ≈ พลังงานผู้ผลิต × (0.1)ⁿ⁻¹<br />เช่น ผู้ผลิต 50,000 kJ → ผู้บริโภคลำดับที่ 1: 5,000 → ลำดับที่ 2: 500 kJ</p>
         <W id="energy-pyramid" />
         {/* TODO(professor-method): slide asks "which trophic level is most vulnerable to extinction?" without an answer; site answers top consumers */}
         <Note>สไลด์ถามว่า "ลำดับขั้นใดเสี่ยงสูญพันธุ์มากที่สุด" แต่ไม่ได้เฉลย — เว็บนี้ตอบ**ผู้บริโภคลำดับสูงสุด** (ได้พลังงานน้อยที่สุด ประชากรจึงเล็ก)</Note>

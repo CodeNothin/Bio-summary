@@ -15,6 +15,7 @@ export const pStructure: Question[] = [
   // ---------------------------------------------------------- pl-intro
   {
     id: 'pl-intro-01', type: 'mcq', topic: 'pl-intro', source: 'พืช 5.1 สไลด์ 5',
+    inText: 'เคลื่อนที่ไม่ได้',
     prompt: 'ข้อใด "ไม่ใช่" ลักษณะของพืชตามที่สไลด์กล่าวไว้',
     options: [
       { text: 'เคลื่อนที่ไปหาแหล่งอาหารได้เมื่อสภาพแวดล้อมไม่เหมาะสม', correct: true, why: 'พืชเคลื่อนที่ไม่ได้ จึงต้องปรับตัวเข้าหาสิ่งแวดล้อมแทน' },
@@ -27,6 +28,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-intro-02', type: 'sort', topic: 'pl-intro', source: 'พืช 5.1 สไลด์ 8–10',
+    inText: ['ข้าว ข้าวโพด กล้วยไม้ มะพร้าว', 'ถั่ว มะเขือเทศ ผักกาด กุหลาบ จามจุรี กวางตุ้ง'],
     prompt: 'จัดพืชต่อไปนี้เป็นพืชใบเลี้ยงเดี่ยวหรือใบเลี้ยงคู่ (ตามตัวอย่างในสไลด์)',
     bins: [{ id: 'mono', label: 'ใบเลี้ยงเดี่ยว (monocot)' }, { id: 'di', label: 'ใบเลี้ยงคู่ (eudicot)' }],
     items: [
@@ -38,6 +40,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-intro-03', type: 'order', topic: 'pl-intro', source: 'พืช 5.1 สไลด์ 9–10',
+    inText: 'เมล็ด → ต้นกล้า (seedling) → vegetative development (ลำต้น ใบ) → reproductive development (ออกดอก) → ได้เมล็ดรุ่นใหม่',
     prompt: 'เรียงวงชีวิตของพืชดอก (เช่น กวางตุ้ง) ให้ถูกต้อง เริ่มจากเมล็ด',
     steps: ['เมล็ด (seed)', 'ต้นกล้า (seedling)', 'การเจริญทางลำต้นและใบ (vegetative development)', 'การเจริญทางการสืบพันธุ์ — ออกดอก (reproductive development)', 'ได้เมล็ดรุ่นใหม่'],
     hints: ['ต้องโตเป็นต้นก่อน จึงจะออกดอกได้'],
@@ -45,6 +48,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-intro-04', type: 'mcq', topic: 'pl-intro', source: 'พืช 5.1 สไลด์ 6–7',
+    inText: '90%',
     prompt: 'พืชกลุ่มใดมีจำนวนชนิดมากที่สุด (ประมาณ 90% ของชนิดพืชทั้งหมด)',
     options: [
       { text: 'พืชดอก (angiosperm)', correct: true, why: 'สไลด์ 7: พืชดอกมีจำนวนชนิดประมาณ 90%' },
@@ -58,6 +62,7 @@ export const pStructure: Question[] = [
   // ---------------------------------------------------------- pl-organs
   {
     id: 'pl-org-01', type: 'mcq', topic: 'pl-organs', source: 'พืช 5.1 สไลด์ 13',
+    inText: 'ลำต้นมีข้อ (node) และปล้อง (internode) — รากไม่มี',
     prompt: 'หลักที่สไลด์ใช้แยก "ลำต้น" ออกจาก "ราก" คือข้อใด',
     options: [
       { text: 'ลำต้นมีข้อ (node) และปล้อง (internode) ส่วนรากไม่มี', correct: true, why: 'ใช่ — ขิง (rhizome) อยู่ใต้ดินแต่มีข้อปล้องจึงเป็นลำต้น' },
@@ -70,6 +75,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-org-02', type: 'tf', topic: 'pl-organs', source: 'พืช 5.1 สไลด์ 13',
+    inText: 'ขิง (rhizome) เป็นลำต้นใต้ดิน',
     statement: 'ขิง (ginger rhizome) เป็นรากเพราะอยู่ใต้ดิน',
     answer: false,
     why: 'ขิงเป็นลำต้นใต้ดิน (rhizome) เพราะมีข้อและปล้อง ส่วนแครอทเป็นราก',
@@ -78,6 +84,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-org-03', type: 'label', topic: 'pl-organs', source: 'พืช 5.1 สไลด์ 50 (แบบฝึกหัด)',
+    inText: ['สร้างเซลล์ใหม่', 'shoot apical meristem (SAM)'],
     prompt: 'แตะบริเวณที่ "สร้างเซลล์ใหม่" ทำให้ต้นสูงขึ้น',
     diagram: 'plant-body', target: 'sam',
     hints: ['อยู่ในตายอด (apical bud)'],
@@ -85,6 +92,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-org-04', type: 'label', topic: 'pl-organs', source: 'พืช 5.1 สไลด์ 12, 50',
+    inText: 'ปล้อง (internode) = ช่วงลำต้นระหว่างข้อ',
     prompt: 'แตะ "ปล้อง (internode)"',
     diagram: 'plant-body', target: 'internode',
     hints: ['ปล้อง = ช่วงระหว่างข้อสองข้อ'],
@@ -92,6 +100,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-org-05', type: 'label', topic: 'pl-organs', source: 'พืช 5.1 สไลด์ 37, 50',
+    inText: 'ตาข้าง (axillary bud) ที่ซอกใบ มี lateral shoot meristem → เจริญเป็นกิ่งข้าง',
     prompt: 'แตะตำแหน่งที่จะเจริญเป็น "กิ่งข้าง (lateral shoot)"',
     diagram: 'plant-body', target: 'axillary-bud',
     hints: ['อยู่ที่ซอกใบ'],
@@ -100,6 +109,7 @@ export const pStructure: Question[] = [
   // ---------------------------------------------------------- pl-tissues
   {
     id: 'pl-tis-01', type: 'match', topic: 'pl-tissues', source: 'พืช 5.1 สไลด์ 14',
+    inText: ['epidermis ชั้นนอกสุด ห่อหุ้มอวัยวะ', 'xylem ลำเลียงน้ำและแร่ธาตุ', 'phloem ลำเลียงอาหาร (น้ำตาล)', 'cortex อยู่ระหว่าง epidermis กับ vascular tissue', 'เจริญเป็นรากแขนงได้', 'ชั้นในสุดของคอร์เท็กซ์คือ endodermis'],
     prompt: 'จับคู่เนื้อเยื่อกับคำอธิบาย',
     pairs: [
       { left: 'epidermis', right: 'dermal tissue ชั้นนอกสุด ห่อหุ้มอวัยวะ' },
@@ -114,6 +124,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-tis-02', type: 'label', topic: 'pl-tissues', source: 'พืช 5.1 สไลด์ 14, 36',
+    inText: 'เพอริไซเคิล (pericycle) ซึ่งเจริญเป็นรากแขนงได้',
     prompt: 'แตะเนื้อเยื่อที่เจริญเป็น "รากแขนง (lateral root)"',
     diagram: 'dicot-root', target: 'pericycle',
     hints: ['เป็นชั้นนอกสุดของ vascular tissue'],
@@ -121,6 +132,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-tis-03', type: 'label', topic: 'pl-tissues', source: 'พืช 5.1 สไลด์ 14, 16',
+    inText: 'endodermis ผนังมีสาร suberin สะสม',
     prompt: 'แตะชั้นที่มีสาร suberin สะสมที่ผนังเซลล์',
     diagram: 'dicot-root', target: 'endodermis',
     hints: ['ชั้นในสุดของ cortex'],
@@ -128,6 +140,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-tis-04', type: 'tf', topic: 'pl-tissues', source: 'พืช 5.1 สไลด์ 14',
+    inText: 'ground tissue ด้านในสุดเรียกพิธ (pith)',
     statement: 'พิธ (pith) เป็น ground tissue ที่อยู่ด้านในสุดของลำต้นพืชใบเลี้ยงคู่',
     answer: true,
     why: 'สไลด์ 14: ในต้น dicot มักพบ ground tissue บริเวณด้านในสุดเรียกว่าพิธ',
@@ -137,6 +150,7 @@ export const pStructure: Question[] = [
   // ---------------------------------------------------------- pl-xsection
   {
     id: 'pl-xs-01', type: 'mcq', topic: 'pl-xsection', source: 'พืช 5.1 สไลด์ 16–17',
+    inText: 'ไซเลมเป็นแฉกจำนวนมาก',
     prompt: 'ภาคตัดขวางหนึ่งมี epidermis, cortex หนา, endodermis และตรงกลางมีไซเลมเรียงเป็นแฉก "จำนวนมาก" โดยมีโฟลเอ็มแทรกระหว่างแฉก เป็นอวัยวะใด',
     options: [
       { text: 'รากพืชใบเลี้ยงเดี่ยว', correct: true, why: 'มี endodermis = ราก, แฉกไซเลมจำนวนมาก = ใบเลี้ยงเดี่ยว' },
@@ -149,6 +163,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-xs-02', type: 'mcq', topic: 'pl-xsection', source: 'พืช 5.1 สไลด์ 47 (แบบฝึกหัด)',
+    inText: 'มัดท่อลำเลียงกระจายทั่ว ground tissue',
     prompt: 'ภาคตัดขวางที่มีมัดท่อลำเลียงกระจายอยู่ทั่วไปใน ground tissue แบ่ง cortex กับ pith ไม่ชัด เป็นอวัยวะใดของพืชกลุ่มใด',
     options: [
       { text: 'ลำต้นของพืชใบเลี้ยงเดี่ยว', correct: true, why: 'มัดท่อลำเลียงกระจาย (scattered) เป็นลักษณะของลำต้นใบเลี้ยงเดี่ยว' },
@@ -161,6 +176,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-xs-03', type: 'label', topic: 'pl-xsection', source: 'พืช 5.1 สไลด์ 18–19',
+    inText: 'ระหว่างกลางมี vascular cambium',
     prompt: 'ในลำต้นใบเลี้ยงคู่ แตะเนื้อเยื่อเจริญที่อยู่ "ระหว่าง" โฟลเอ็มกับไซเลม',
     diagram: 'dicot-stem', target: 'cambium',
     hints: ['เนื้อเยื่อนี้ "เกิดขึ้นภายหลัง" และทำให้ลำต้นขยายขนาด'],
@@ -168,6 +184,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-xs-04', type: 'label', topic: 'pl-xsection', source: 'พืช 5.1 สไลด์ 18',
+    inText: 'ground tissue ด้านในสุดของลำต้นใบเลี้ยงคู่คือพิธ (pith)',
     prompt: 'ในลำต้นใบเลี้ยงคู่ แตะ ground tissue ที่อยู่ "ด้านในสุด"',
     diagram: 'dicot-stem', target: 'pith',
     hints: ['ไม่ใช่ cortex'],
@@ -175,6 +192,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-xs-05', type: 'mcq', topic: 'pl-xsection', source: 'พืช 5.1 สไลด์ 45 (แบบฝึกหัด)',
+    inText: ['epidermis (dermal tissue) ซึ่งมี cuticle เคลือบ', 'collenchyma (ground tissue)'],
     prompt: 'ในภาคตัดขวางลำต้น เนื้อเยื่อ A คือชั้นเซลล์นอกสุดที่มี cuticle เคลือบ และเนื้อเยื่อ B คือเซลล์ใต้ชั้น A ที่มีผนังเซลล์ปฐมภูมิหนาไม่สม่ำเสมอ A และ B คือเนื้อเยื่ออะไร (ตามลำดับ)',
     options: [
       { text: 'dermal tissue / vascular tissue', truth: false, why: 'B ไม่ได้ลำเลียงน้ำหรืออาหาร' },
@@ -187,6 +205,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-xs-06', type: 'mcq', topic: 'pl-xsection', source: 'พืช 5.1 สไลด์ 52 (แบบฝึกหัด)',
+    inText: ['vascular cambium แบ่งเซลล์เรียงเป็นแถว', 'secondary growth'],
     prompt: 'ภาคตัดขวางลำต้นส่วนที่ "ไกลยอด" พบเซลล์ A เรียงเป็นแถว ๆ อยู่ระหว่างโฟลเอ็มกับไซเลม และไซเลมเชื่อมกันเป็นวง A คือเนื้อเยื่ออะไร และแสดงการเติบโตแบบใด',
     options: [
       { text: 'vascular cambium / secondary growth', correct: true, why: 'vascular cambium แบ่งเซลล์สร้าง secondary xylem/phloem ทำให้ลำต้นขยายขนาด' },
@@ -214,6 +233,7 @@ export const pStructure: Question[] = [
   // ---------------------------------------------------------- pl-leaf
   {
     id: 'pl-leaf-01', type: 'match', topic: 'pl-leaf', source: 'พืช 5.1 สไลด์ 21–22',
+    inText: ['รวมแสง', 'ดูดกลืนแสง', 'แก๊สแพร่ได้ดี', 'เปิด–ปิดเพื่อให้แก๊สแพร่และน้ำระเหยออก', 'ลดการสูญเสียน้ำ'],
     prompt: 'จับคู่ส่วนของใบกับหน้าที่',
     pairs: [
       { left: 'epidermal cell (ด้านบน)', right: 'โค้งมน ใส คล้ายเลนส์ ช่วยรวมแสง' },
@@ -227,6 +247,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-leaf-02', type: 'label', topic: 'pl-leaf', source: 'พืช 5.1 สไลด์ 22',
+    inText: 'เรียงหลวม → แก๊สแพร่ได้ดี',
     prompt: 'แตะเซลล์ที่ "เรียงตัวหลวม ๆ เอื้อต่อการแพร่ของแก๊ส"',
     diagram: 'leaf', target: 'spongy',
     hints: ['อยู่ใต้ชั้น palisade'],
@@ -234,6 +255,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-leaf-03', type: 'label', topic: 'pl-leaf', source: 'พืช 5.1 สไลด์ 22–23',
+    inText: 'guard cell ซึ่งควบคุมการเปิด–ปิด',
     prompt: 'แตะเซลล์ที่ควบคุมการเปิด–ปิดของปากใบ',
     diagram: 'leaf', target: 'guard-cell',
     hints: ['อยู่ที่ผิวใบด้านล่าง เป็นคู่'],
@@ -241,6 +263,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-leaf-04', type: 'tf', topic: 'pl-leaf', source: 'พืช 5.1 สไลด์ 22',
+    inText: 'stomata พบมากที่ผิวใบด้านล่าง (ไม่ใช่ด้านบน)',
     statement: 'ปากใบ (stomata) พบมากที่ผิวใบด้านบน เพราะได้รับแสงมากกว่า',
     answer: false,
     why: 'สไลด์ 22: stomata พบมากที่ผิวใบ "ด้านล่าง"',
@@ -249,6 +272,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-leaf-05', type: 'mcq', topic: 'pl-leaf', source: 'พืช 5.1 สไลด์ 22, 24',
+    inText: 'หนากว่า มีชั้น palisade ยาวกว่า',
     prompt: 'ใบที่โตกลางแดดจัด (leaf grown in sun) ต่างจากใบที่โตในที่ร่มอย่างไร',
     options: [
       { text: 'ใบหนากว่า มีชั้น palisade ยาวและหนาแน่นกว่า', correct: true, why: 'ภาพ electron micrograph สไลด์ 24: ใบกลางแดดมี palisade ยาวกว่าชัดเจน' },
@@ -262,6 +286,7 @@ export const pStructure: Question[] = [
   // ---------------------------------------------------------- pl-cells
   {
     id: 'pl-cell-01', type: 'sort', topic: 'pl-cells', source: 'พืช 5.1 สไลด์ 28–32',
+    inText: ['parenchyma: ผนังปฐมภูมิ', 'collenchyma: ผนังปฐมภูมิ', 'sclerenchyma: ผนังทุติยภูมิ', 'sclereid', 'fiber'],
     prompt: 'จัดเซลล์ตามชนิดผนังเซลล์',
     bins: [{ id: 'p', label: 'ผนังเซลล์ปฐมภูมิ (ไม่ติดสี safranin O)' }, { id: 's', label: 'ผนังเซลล์ทุติยภูมิ (ติดสีชมพูแดง)' }],
     items: [
@@ -273,6 +298,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-cell-02', type: 'mcq', topic: 'pl-cells', source: 'พืช 5.1 สไลด์ 30',
+    inText: 'หนาไม่สม่ำเสมอ ให้ความแข็งแรง มักอยู่ใต้ epidermis โดยเฉพาะสันของลำต้นเหลี่ยม',
     prompt: 'ข้อใดอธิบาย collenchyma cell ได้ถูกต้อง',
     options: [
       { text: 'ผนังเซลล์ปฐมภูมิหนาไม่สม่ำเสมอ ให้ความแข็งแรง มักอยู่ใต้ epidermis โดยเฉพาะสันของลำต้นเหลี่ยม', correct: true, why: 'ตรงตามสไลด์ 30' },
@@ -285,6 +311,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-cell-03', type: 'match', topic: 'pl-cells', source: 'พืช 5.1 สไลด์ 26, 31–33',
+    inText: ['tracheid, vessel element', 'sieve tube element ทำงานร่วมกับ companion cell', 'เล็ก ยาว ให้ความแข็งแรงกับโฟลเอ็ม', 'ใหญ่ สั้น เห็นลายที่ผนังชัด'],
     prompt: 'จับคู่เซลล์กับคำอธิบาย',
     pairs: [
       { left: 'tracheid / vessel element', right: 'เซลล์ลำเลียงน้ำ (ไซเลม)' },
@@ -298,6 +325,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-cell-04', type: 'mcq', topic: 'pl-cells', source: 'พืช 5.1 สไลด์ 25',
+    inText: 'lateral meristem = cork cambium, vascular cambium',
     prompt: 'ข้อใดเป็นเนื้อเยื่อเจริญด้านข้าง (lateral meristem) ทั้งหมด',
     options: [
       { text: 'cork cambium และ vascular cambium', correct: true, why: 'ตามแผนผังสไลด์ 25' },
@@ -310,6 +338,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-cell-05', type: 'tf', topic: 'pl-cells', source: 'พืช 5.1 สไลด์ 27',
+    inText: 'เปลี่ยนสภาพ (cell differentiation) ไปเป็นเซลล์ชนิดต่าง ๆ ได้ทั้งหมด',
     statement: 'เซลล์เนื้อเยื่อเจริญ (meristematic cell) สามารถเปลี่ยนสภาพ (cell differentiation) ไปเป็นเซลล์ชนิดต่าง ๆ เช่น vessel member, sieve tube member, fiber ได้',
     answer: true,
     why: 'สไลด์ 27 แสดงลูกศรจาก meristematic cell ไปยังเซลล์ทุกชนิด',
@@ -332,6 +361,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-cell-07', type: 'mcq', topic: 'pl-cells', source: 'พืช 5.1 สไลด์ 32',
+    inText: 'สารกลุ่มไขมันที่ติดสีชมพูแดง',
     prompt: 'ตามสไลด์ ผนังเซลล์ทุติยภูมิของ fiber มีองค์ประกอบอย่างไรเมื่อย้อมด้วย safranin O',
     options: [
       { text: 'มีองค์ประกอบเป็นสารกลุ่มไขมัน ติดสีชมพูแดง', correct: true, why: 'สไลด์ 32 เขียนไว้แบบนี้' },
@@ -345,6 +375,7 @@ export const pStructure: Question[] = [
   // ---------------------------------------------------------- pl-growth
   {
     id: 'pl-gr-01', type: 'order', topic: 'pl-growth', source: 'พืช 5.1 สไลด์ 35',
+    inText: 'หมวกราก (root cap) → บริเวณแบ่งเซลล์ (zone of division)',
     prompt: 'เรียงบริเวณของปลายราก จาก "ปลายสุด" ขึ้นไปด้านบน',
     steps: ['หมวกราก (root cap)', 'บริเวณแบ่งเซลล์ (zone of division)', 'บริเวณยืดตัว (elongation zone)', 'บริเวณเปลี่ยนสภาพ (differentiation zone)'],
     hints: ['เซลล์ต้อง "เกิด" ก่อน แล้ว "ยืด" แล้วค่อย "เปลี่ยนสภาพ"'],
@@ -352,6 +383,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-gr-02', type: 'label', topic: 'pl-growth', source: 'พืช 5.1 สไลด์ 35',
+    inText: 'บริเวณยืดตัว (elongation zone) เซลล์ยืดยาว รากจึงยาวขึ้น',
     prompt: 'แตะบริเวณที่เซลล์ "ยืดตัว" ทำให้รากยาวขึ้น',
     diagram: 'root-tip', target: 'elongation',
     hints: ['อยู่เหนือบริเวณแบ่งเซลล์'],
@@ -359,6 +391,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-gr-03', type: 'mcq', topic: 'pl-growth', source: 'พืช 5.1 สไลด์ 34, 39',
+    inText: 'vascular cambium (lateral meristem) แบ่งเซลล์ได้ secondary xylem',
     prompt: 'การเติบโตแบบทุติยภูมิ (secondary growth) เกิดจากอะไร',
     options: [
       { text: 'vascular cambium แบ่งเซลล์ได้ secondary xylem และ secondary phloem ทำให้ลำต้นขยายขนาด', correct: true, why: 'สไลด์ 39' },
@@ -371,6 +404,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-gr-04', type: 'tf', topic: 'pl-growth', source: 'พืช 5.1 สไลด์ 36',
+    inText: 'รากแขนงเกิดจาก pericycle (ไม่ใช่ epidermis)',
     statement: 'รากแขนงเกิดจาก epidermis ของราก จึงต่อกับไซเลมของรากไม่ได้',
     answer: false,
     why: 'รากแขนงเกิดจาก pericycle (อยู่ติด vascular tissue) จึงลำเลียงน้ำเข้าสู่ไซเลมของรากได้โดยตรง',
@@ -379,6 +413,7 @@ export const pStructure: Question[] = [
   },
   {
     id: 'pl-gr-05', type: 'tf', topic: 'pl-growth', source: 'พืช 5.1 สไลด์ 38',
+    inText: 'มัดท่อลำเลียงแยกเป็นมัด ๆ',
     statement: 'ลำต้นส่วนใกล้ยอดที่ยังเป็น primary growth มีมัดท่อลำเลียงแยกจากกันเป็นมัด ๆ',
     answer: true,
     why: 'สไลด์ 38: ระยะที่ยังไม่ขยายขนาดด้านข้าง vascular tissue เป็นมัดแยกกัน',

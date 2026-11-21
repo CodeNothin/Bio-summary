@@ -5,8 +5,10 @@
 // src/data/pages.ts.
 // Decision (user): slide 152's "ส่วนใหญ่พบในสัตว์มีกระดูกสันหลัง" stays
 // under the unmyelinated type, as the slide places it.
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
-import { Analogy, List, Note, P, Section, Table } from '../components/ui';
+import { Analogy, List, More, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
 
 export function AControlPage() {
@@ -24,7 +26,17 @@ export function AControlPage() {
             ['**endotherm**', 'ได้ความร้อนจาก metabolism ของร่างกาย', 'นก สัตว์เลี้ยงลูกด้วยนม'],
           ]}
         />
-        <P>ระบบควบคุมสมดุล 3 ส่วน: **ตัวรับ (receptor) → ศูนย์ควบคุม (control center) → อวัยวะแสดงผล (effector)** — ข้อมูลไปตาม afferent pathway แล้วคำสั่งออกทาง efferent pathway · ทำงานร่วมกันโดย 2 ระบบ: **ระบบต่อมไร้ท่อ** (ฮอร์โมนไปทั่วร่างกาย) และ**ระบบประสาท** (สัญญาณไปตำแหน่งเฉพาะ)</P>
+        <P>ระบบควบคุมสมดุลมี 3 ส่วน **ตัวรับ (receptor) → ศูนย์ควบคุม (control center) → อวัยวะแสดงผล (effector)** ทำงานเป็นวง:</P>
+        <List
+          items={[
+            '**(1) สิ่งเร้า (stimulus)** ทำให้ค่าตัวแปรเปลี่ยน',
+            '**(2) ตัวรับ (receptor/sensor)** ตรวจจับการเปลี่ยนแปลง',
+            '**(3)** ส่งข้อมูลทาง **afferent pathway** ไปศูนย์ควบคุม',
+            '**(4)** ศูนย์ควบคุมส่งคำสั่งทาง **efferent pathway** ไป effector',
+            '**(5)** การตอบสนองของ effector **ย้อนกลับ**ไปมีผลต่อสิ่งเร้า (feedback)',
+          ]}
+        />
+        <P>ทำงานร่วมกันโดย 2 ระบบ: **ระบบต่อมไร้ท่อ** (ฮอร์โมนในเลือด ไปทั่วร่างกาย) และ**ระบบประสาท** (สัญญาณไปตำแหน่งเฉพาะ)</P>
       </Section>
 
       {/* slides 143–144, 165–166 */}
@@ -67,9 +79,11 @@ export function AControlPage() {
             '**chemical synapse**: presynaptic cell ปล่อย**สารสื่อประสาท** (acetylcholine, epinephrine, norepinephrine, dopamine) → เปลี่ยนศักย์เยื่อเซลล์ของ postsynaptic cell',
           ]}
         />
+        <More title="นึกภาพแบบ Minecraft">
         <Analogy>
           <P>action potential เหมือนวงจร redstone: ส่งสัญญาณต่อเป็นช่วง ๆ ไปตามสาย (axon) และที่ปลายสายต้องใช้ "ตัวกลาง" (สารสื่อประสาท) ข้ามช่องว่างไปกระตุ้นอุปกรณ์ถัดไป</P>
         </Analogy>
+        </More>
       </Section>
 
       {/* slides 156–158 */}
@@ -116,8 +130,8 @@ export function AControlPage() {
           items={[
             '**กลูโคส** (ปกติ ~90 mg/100 mL): insulin ลด · glucagon เพิ่ม = **antagonistic hormones**',
             '**แคลเซียม** (ปกติ ~10 mg/100 mL): **PTH** (พาราไทรอยด์) เพิ่ม — กระตุ้น osteoclast ยับยั้ง osteoblast เก็บ Ca²⁺ ที่ไต ดูดซึมที่ลำไส้เล็ก · **calcitonin** (ไทรอยด์) ลด — ยับยั้ง osteoclast กระตุ้น osteoblast ยับยั้งการดูดกลับที่ไต ลด PTH',
-            '**osmolarity**: ADH เพิ่มการดูดน้ำกลับที่ collecting duct',
-            '**อุณหภูมิ** (35.6–37.8 °C): ร้อน → หลอดเลือดผิวขยาย เหงื่อออก · หนาว → หลอดเลือดผิวหดตัว ตัวสั่น TRH → TSH → thyroxine เพิ่ม metabolism',
+            '**osmolarity** (เช่น เหงื่อออกมาก): osmolarity ของเลือดเพิ่ม → **osmoreceptor ในไฮโปทาลามัส**ตรวจพบ → **ต่อมใต้สมองส่วนหลังปล่อย ADH** (และเกิดความกระหาย) → **collecting duct ดูดน้ำกลับมากขึ้น** → osmolarity กลับสู่ปกติ (~300 mOsm/L)',
+            '**อุณหภูมิ** (35.6–37.8 °C) คุมโดยไฮโปทาลามัส: ร้อน → หลอดเลือดผิวขยาย เหงื่อออก · **หนาว → หลอดเลือดที่ผิวหนังหดตัว กล้ามเนื้อสั่น** และ TRH → TSH → **ไทรอยด์หลั่ง thyroxine เพิ่ม metabolism**',
             '**ความเครียด**: ระยะสั้น — เส้นประสาท → adrenal medulla → epinephrine/norepinephrine (glycogen → กลูโคส ความดันและการหายใจเพิ่ม) · ระยะยาว — ACTH → adrenal cortex → mineralocorticoids (เก็บ Na⁺ น้ำ) และ glucocorticoids (โปรตีน/ไขมัน → กลูโคส ภูมิคุ้มกันถูกกด)',
           ]}
         />

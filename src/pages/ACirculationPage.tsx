@@ -4,8 +4,10 @@
 // Decisions (user): open-circulation examples written as on the slide;
 // amphibians 3 chambers, turtles/lizards "4 (incomplete)" explained as a
 // partly divided ventricle.
+// Writing style: see "How page text is written" in README.md. Every
+// question's `inText` phrase must stay in its section (pages.test.tsx).
 // =====================================================================
-import { Analogy, List, Note, P, Section, Table } from '../components/ui';
+import { Analogy, List, More, Note, P, Section, Table } from '../components/ui';
 import { W } from '../widgets/registry';
 
 export function ACirculationPage() {
@@ -28,7 +30,9 @@ export function ACirculationPage() {
 
       {/* slides 86–89 */}
       <Section id="ac-vertebrate" title="หัวใจสัตว์มีกระดูกสันหลัง" en="vertebrate circulation">
-        <P>หัวใจมี 2 ส่วน: **atrium** รับเลือดกลับเข้าหัวใจ · **ventricle** ปั๊มเลือดออกจากหัวใจ</P>
+        <P>หัวใจมี 2 ส่วน: **atrium รับเลือดกลับเข้าหัวใจ** · **ventricle ปั๊มเลือดออกจากหัวใจ**</P>
+        <P>**ปลา: วงจรเดียว (single circulation)** หัวใจ 2 ห้อง (1A 1V) — ventricle → เหงือก (แลกเปลี่ยนแก๊ส) → ร่างกาย → กลับหัวใจ · เลือดจาก gill capillary ไปเลี้ยงร่างกายโดยตรงโดยไม่กลับหัวใจ **ความดันจึงค่อย ๆ ลดลง เลือดไหลช้า**</P>
+        <P>**สัตว์สะเทินน้ำสะเทินบก (กบ) เป็นกลุ่มแรกที่มี 2 วงจร (double circulation)** = วงจรปอด (pulmonary/pulmocutaneous) + วงจรร่างกาย (systemic) หัวใจ **3 ห้อง (2 atrium, 1 ventricle)** · เลือดกลับหัวใจก่อนไปร่างกาย จึงถูกปั๊มซ้ำ ความดันสูงขึ้น · สัตว์อื่นมี 4 ห้อง</P>
         <W id="vertebrate-hearts" />
         <Table
           head={['', 'ปลา', 'กบ', 'เต่า/กิ้งก่า', 'จระเข้', 'นก', 'สัตว์เลี้ยงลูกด้วยนม']}
@@ -42,6 +46,7 @@ export function ACirculationPage() {
 
       {/* slides 85, 90–92 */}
       <Section id="ac-heart" title="หัวใจคน" en="human heart">
+        <P>หัวใจคน 4 ห้อง: **atrium รับเลือดกลับเข้าหัวใจ** (ขวารับจากร่างกาย ซ้ายรับจากปอด) · **ventricle ปั๊มเลือดออกจากหัวใจ** (ขวาไปปอด ซ้ายไปร่างกาย) · ลิ้นหัวใจกันเลือดไหลย้อน</P>
         <W id="heart-map" />
         <List
           items={[
@@ -59,6 +64,14 @@ export function ACirculationPage() {
         <P>**systole** = ระยะบีบตัว · **diastole** = ระยะคลายตัว · **heart rate** = จำนวนครั้งที่หัวใจบีบตัวต่อนาที · **stroke volume** = ปริมาตรเลือดที่ออกจากหัวใจต่อการบีบของ ventricle 1 ครั้ง · **cardiac output** = ปริมาตรเลือดที่ ventricle ปั๊มใน 1 นาที</P>
         <p className="big-rule">cardiac output = heart rate × stroke volume<br />5.25 L/min = 70 ครั้ง/min × 75 mL/ครั้ง</p>
         <W id="cardiac-output" />
+        <P>วัฏจักรหัวใจ 1 รอบ (~0.8 วินาที) มี 3 ระยะ:</P>
+        <List
+          items={[
+            '**(1) หัวใจคลายตัวทั้งหมด (0.4 s)**: ความดันใน ventricle ลดลง **AV valve เปิด** เลือดไหลเข้าเติม ventricle',
+            '**(2) atrial systole (0.1 s)**: atrium บีบ ดันเลือดเติม ventricle จนเต็ม',
+            '**(3) ventricular systole (0.3 s)**: **ventricle หดตัว → AV valve ปิด (เสียง lub) → ความดันใน ventricle เพิ่มขึ้น → semilunar valve เปิด → เลือดถูกบีบออก**',
+          ]}
+        />
         <W id="cardiac-cycle" />
         <Table
           head={['เสียง', 'เกิดจาก', 'จังหวะ']}
@@ -84,6 +97,8 @@ export function ACirculationPage() {
         <W id="vessel-flow" />
         <P>การไหลขึ้นกับ (1) **พื้นที่หน้าตัดรวม** (law of continuity — capillary พื้นที่รวมมากที่สุดจึงไหลช้าที่สุด แลกเปลี่ยนสารได้) (2) **ความดันเลือด**: cardiac output, peripheral resistance, gravity</P>
         <P>เลือดเข้า **capillary bed** ตามความต้องการของอวัยวะ (ออกกำลังกาย → กล้ามเนื้อได้มาก ทางเดินอาหารได้น้อย) ควบคุมโดย (1) กล้ามเนื้อเรียบของ arteriole (2) **precapillary sphincter**</P>
+        <P>**การแลกเปลี่ยนที่ capillary**: ความดันเลือด (CHP) ดันของเหลว**ออก** · แรงออสโมติกจากโปรตีนในเลือด (BCOP) ดึง**เข้า** · ด้าน arteriole CHP 35 vs BCOP 25 → ของเหลวออก · ด้าน venule CHP 18 vs BCOP 25 → ของเหลวกลับเข้า · ส่วนที่ไม่กลับ (~3.6 L/วัน) เข้าสู่ระบบน้ำเหลือง</P>
+        <p className="big-rule">NFP = CHP − BCOP<br />ด้าน arteriole: 35 − 25 = +10 (ออก) · ด้าน venule: 18 − 25 = −7 (เข้า)</p>
         <W id="capillary-exchange" />
       </Section>
 
@@ -105,9 +120,11 @@ export function ACirculationPage() {
             '**ระบบน้ำเหลือง**: นำของเหลวและโปรตีนที่ซึมออกจาก capillary และไขมันที่ดูดซึมจากลำไส้เล็กกลับเข้า vena cava · **lymph node** กรอง lymph ทำลายเชื้อโรค',
           ]}
         />
-        <Analogy>
+        <More title="นึกภาพแบบนี้">
+        <Analogy tag="นึกภาพแบบนี้">
           <P>Hb เหมือนรถเข็นที่มี 4 ช่อง (heme 4 หน่วย) — แต่ละช่องใส่ O₂ ได้ 1 ก้อน รถ 1 คันจึงขน O₂ ได้สูงสุด 4 ก้อน</P>
         </Analogy>
+        </More>
       </Section>
     </>
   );
