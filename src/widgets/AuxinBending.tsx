@@ -9,7 +9,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, WidgetFrame } from '../components/ui';
+import { How, Seg, WidgetFrame } from '../components/ui';
 
 type Mode = 'light' | 'gravity' | 'npa';
 
@@ -21,6 +21,7 @@ export function AuxinBending() {
       notice="ด้านที่มี**ออกซินมาก เซลล์ยืดมาก** จึงอยู่ด้านนอกของส่วนโค้ง · ลำต้นเบน**เข้าหาแสง**และ**ขึ้นจากแรงโน้มถ่วง** (negative gravitropism) — รากตอบสนองต่อแรงโน้มถ่วงแบบ positive"
       onReset={() => setMode('light')}
     >
+      <How>เลือกสถานการณ์ด้านล่าง — ภาพจะเปลี่ยนหรือเน้นต้นที่ตรงกับสถานการณ์นั้น</How>
       <Seg
         value={mode}
         options={[

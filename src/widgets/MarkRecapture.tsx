@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Slider, WidgetFrame } from '../components/ui';
+import { How, Readout, Slider, WidgetFrame } from '../components/ui';
 import { markRecapture, round } from '../data/calc';
 import { seeded } from '../practice/engine';
 
@@ -39,6 +39,7 @@ export function MarkRecapture() {
       onReset={() => { setTrueN(120); setMark(30); setCatch2(40); setRound2(null); setSeed(1); }}
     >
       <SlideFig id="e2-6" />
+      <How>ภาพสไลด์ไม่เปลี่ยน · ตั้งค่าด้วยแถบด้านล่าง แล้วกด 🎣 เพื่อจับครั้งที่ 2 — ค่าประมาณ N จะขึ้นด้านล่าง</How>
       <p className="small" style={{ margin: '4px 0' }}>ลองเอง: บ่อปลาจำลอง</p>
       <div className="controls">
         <Slider label="จำนวนปลาจริงในบ่อ (ปกติเราไม่รู้)" value={trueN} min={40} max={400} step={10} onChange={(v) => { setTrueN(v); setRound2(null); }} show={`${trueN} ตัว`} />

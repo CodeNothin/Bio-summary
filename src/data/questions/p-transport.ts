@@ -1,7 +1,8 @@
 // =====================================================================
 // Practice questions — พืช 5.4: internal transport (water & sugar).
 // Source deck: Unit_5.4Transport (ผศ.ดร.อัญชลี ใจดี).
-// Editing rules: see the top of p-structure.ts.
+// Editing rules: see the top of p-structure.ts. `inText` = the phrase on
+// the 5.4 page that answers the question (checked by pages.test.tsx).
 // Numeric questions use src/data/calc.ts (`compute`), so the test can
 // check the stored answer.
 // =====================================================================
@@ -12,6 +13,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-process
   {
     id: 'pt-proc-01', type: 'mcq', topic: 'pt-process', source: 'พืช 5.4 สไลด์ 2–5',
+    inText: 'ช้ามากเมื่อระยะไกล',
     prompt: 'ทำไมพืชจึงไม่ใช้ "การแพร่" ลำเลียงน้ำจากรากขึ้นไปถึงยอดไม้สูง ๆ',
     options: [
       { text: 'การแพร่ช้ามากเมื่อระยะทางไกล จึงต้องใช้ bulk flow ที่ขับเคลื่อนด้วยความต่างของความดัน', correct: true, why: 'สไลด์ 4: Diffusion is slow over long distances' },
@@ -24,6 +26,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-proc-02', type: 'match', topic: 'pt-process', source: 'พืช 5.4 สไลด์ 2, 5, 10',
+    inText: ['ความต่างของความเข้มข้น', 'ความต่างของความดัน', 'ความต่างของ water potential', 'ความต่างความเข้มข้นของไอน้ำ'],
     prompt: 'จับคู่กระบวนการกับ "แรงขับเคลื่อน"',
     pairs: [
       { left: 'การแพร่ (diffusion)', right: 'ความต่างของความเข้มข้น (concentration gradient)' },
@@ -36,6 +39,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-proc-03', type: 'mcq', topic: 'pt-process', source: 'พืช 5.4 สไลด์ 5',
+    inText: 'แปรผันตรงกับรัศมีของท่อ',
     prompt: 'ตามสมการของ Poiseuille ถ้าท่อลำเลียงมีรัศมีใหญ่ขึ้น (ปัจจัยอื่นเท่าเดิม) อัตราการไหล (volume flow rate) จะเป็นอย่างไร',
     options: [
       { text: 'เพิ่มขึ้น (แปรผันตรงกับรัศมีของท่อ)', correct: true, why: 'สไลด์ 5: อัตราการไหลแปรผันโดยตรงกับรัศมีของท่อลำเลียง' },
@@ -49,6 +53,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-water
   {
     id: 'pt-water-01', type: 'match', topic: 'pt-water', source: 'พืช 5.4 สไลด์ 6',
+    inText: ['polar molecule', 'cohesion', 'adhesion', 'high tensile strength'],
     prompt: 'จับคู่สมบัติของน้ำกับคำอธิบาย',
     pairs: [
       { left: 'polar molecule', right: 'เป็นตัวทำละลายที่ดี' },
@@ -61,6 +66,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-water-02', type: 'tf', topic: 'pt-water', source: 'พืช 5.4 สไลด์ 6',
+    inText: 'adhesion กับผนังหลอดดึงน้ำขึ้น',
     statement: 'ในหลอดแก้วเล็ก (capillarity) น้ำขึ้นไปได้เพราะ adhesion ระหว่างน้ำกับผนังหลอดดึงน้ำขึ้น ส่วน cohesion ยึดโมเลกุลน้ำไว้ด้วยกัน',
     answer: true,
     why: 'ตรงกับคำอธิบายในสไลด์ 6',
@@ -70,6 +76,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-psi
   {
     id: 'pt-psi-01', type: 'mcq', topic: 'pt-psi', source: 'พืช 5.4 สไลด์ 11–12',
+    inText: 'Ψw = 0',
     prompt: 'ข้อใดถูกต้องเกี่ยวกับ water potential (Ψw)',
     options: [
       { text: 'น้ำกลั่นที่ 1 atm มี Ψw = 0 และสารละลายมี Ψw น้อยกว่า 0', correct: true, why: 'ตัวถูกละลายยึดโมเลกุลน้ำไว้ พลังงานอิสระของน้ำจึงลดลง' },
@@ -82,6 +89,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-psi-02', type: 'numeric', topic: 'pt-psi', source: 'พืช 5.4 สไลด์ 14',
+    inText: 'Ψp = Ψw − Ψs',
     prompt: 'เซลล์เหี่ยว (flaccid) มี Ψs = −0.732 MPa และ Ψp = 0 MPa นำไปแช่ในสารละลายน้ำตาลที่มี Ψw = −0.244 MPa เมื่อถึงจุดสมดุล (Ψs ของเซลล์ถือว่าคงเดิม) เซลล์จะมี Ψp เท่าใด',
     answer: 0.488, unit: 'MPa',
     compute: () => turgorAtEquilibrium(-0.244, -0.732),
@@ -95,6 +103,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-psi-03', type: 'numeric', topic: 'pt-psi', source: 'พืช 5.4 สไลด์ 33 (ตัวเลขในภาพ)',
+    inText: 'Ψw = Ψs + Ψp',
     prompt: 'ใน sieve tube ใกล้แหล่งสร้าง (source) มี Ψs = −1.7 MPa และ Ψp = 0.6 MPa ค่า Ψw เท่ากับเท่าใด',
     answer: -1.1, unit: 'MPa',
     compute: () => waterPotential(-1.7, 0.6),
@@ -107,6 +116,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-psi-04', type: 'mcq', topic: 'pt-psi', source: 'พืช 5.4 สไลด์ 14; แบบฝึกหัดสไลด์ 40',
+    inText: 'Ψp เพิ่มขึ้น',
     prompt: 'เซลล์เหี่ยว (Ψw = −0.732 MPa) ถูกแช่ในสารละลายน้ำตาล (Ψw = −0.244 MPa) ข้อใดกล่าวถูกต้อง',
     options: [
       { text: 'ที่จุดสมดุล เซลล์มี Ψp ที่เพิ่มขึ้น', correct: true, why: 'น้ำออสโมซิสเข้าเซลล์ ดันผนังเซลล์ → แรงดันเต่งเพิ่มจาก 0 เป็น 0.488 MPa' },
@@ -119,6 +129,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-psi-05', type: 'tf', topic: 'pt-psi', source: 'พืช 5.4 สไลด์ 15',
+    inText: 'ไม่มีการเคลื่อนที่สุทธิของน้ำ',
     statement: 'เมื่อถึงจุดสมดุลที่ Ψw ภายในเซลล์เท่ากับภายนอก จะไม่มีการเคลื่อนที่สุทธิของน้ำ',
     answer: true,
     why: 'ไม่มีความต่างของ Ψw = ไม่มีแรงขับเคลื่อน (โมเลกุลน้ำยังเคลื่อนที่ไปมา แต่เข้าเท่ากับออก)',
@@ -127,6 +138,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-psi-06', type: 'mcq', topic: 'pt-psi', source: 'พืช 5.4 สไลด์ 15',
+    inText: 'เซลล์เสียแรงดันเต่ง',
     prompt: 'นำเซลล์พืชไปแช่ใน hypertonic solution (1 M KCl) จะเกิดอะไรขึ้น',
     options: [
       { text: 'น้ำออกจากเซลล์ เซลล์เสียแรงดันเต่ง', correct: true, why: 'Ψw ของสารละลายต่ำกว่าในเซลล์ น้ำจึงออก' },
@@ -140,6 +152,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-root
   {
     id: 'pt-root-01', type: 'mcq', topic: 'pt-root', source: 'พืช 5.4 สไลด์ 9, 16; แบบฝึกหัดสไลด์ 37',
+    inText: '(1) รากดูดน้ำ = osmosis',
     prompt: 'เซลล์ขนรากดูดน้ำจากดินเข้าสู่ภายในเซลล์ด้วยกระบวนการใด',
     options: [
       { text: 'ออสโมซิส (osmosis)', correct: true, why: 'สไลด์ 16: การดูดน้ำทางรากใช้กระบวนการแพร่ผ่านเยื่อ (osmosis)' },
@@ -152,6 +165,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-root-02', type: 'mcq', topic: 'pt-root', source: 'พืช 5.4 สไลด์ 18; แบบฝึกหัดสไลด์ 41',
+    inText: 'endodermis มี suberin',
     prompt: 'อัตราการดูดน้ำบริเวณใกล้ปลายรากสูงกว่าบริเวณที่ห่างออกไป เป็นเพราะรากมีเนื้อเยื่ออะไร (ตามกราฟ Less suberized → More suberized)',
     options: [
       { text: 'endodermis', correct: true, why: 'บริเวณที่ห่างจากปลายราก endodermis มี suberin สะสมมากขึ้น จึงลดการลำเลียงน้ำ' },
@@ -193,6 +207,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-xylem
   {
     id: 'pt-xy-01', type: 'mcq', topic: 'pt-xylem', source: 'พืช 5.4 สไลด์ 8–9; แบบฝึกหัดสไลด์ 38–39',
+    inText: 'transpiration pull',
     prompt: 'แรงที่ขับดันให้เกิดการลำเลียงน้ำในเนื้อเยื่อไซเลมจากรากไปยังใบพืช คือข้อใด',
     options: [
       { text: 'transpiration pull', correct: true, why: 'การคายน้ำที่ใบสร้างแรงดึง (tension) ดึงสายน้ำในไซเลมขึ้นไป' },
@@ -205,6 +220,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-xy-02', type: 'mcq', topic: 'pt-xylem', source: 'พืช 5.4 สไลด์ 9; แบบฝึกหัดสไลด์ 38–39',
+    inText: 'Ψw สูงสุดที่ไซเลมในราก',
     prompt: 'น้ำในเนื้อเยื่อไซเลมที่ตำแหน่งใดมี water potential มากที่สุด',
     options: [
       { text: 'ไซเลมที่อยู่ใกล้ปลายราก', correct: true, why: 'Ψw ลดลงเรื่อย ๆ จากดิน → ราก → ลำต้น → ใบ → อากาศ น้ำจึงไหลขึ้น' },
@@ -217,6 +233,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-xy-03', type: 'order', topic: 'pt-xylem', source: 'พืช 5.4 สไลด์ 9',
+    inText: ['ดิน −0.3', 'อากาศภายนอก −100'],
     prompt: 'เรียงตำแหน่งจาก water potential "สูงที่สุด" ไป "ต่ำที่สุด"',
     steps: ['น้ำในดิน (−0.3 MPa)', 'ไซเลมในราก (−0.6 MPa)', 'ไซเลมในลำต้น (−0.8 MPa)', 'ผนังเซลล์ใบ (−1.0 MPa)', 'ช่องอากาศในใบ (−7.0 MPa)', 'อากาศภายนอก (−100 MPa)'],
     hints: ['ค่าที่ติดลบน้อย = สูงกว่า'],
@@ -224,6 +241,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-xy-04', type: 'mcq', topic: 'pt-xylem', source: 'พืช 5.4 สไลด์ 20–21; แบบฝึกหัดสไลด์ 37',
+    inText: ['tracheid', 'vessel element'],
     prompt: 'เซลล์ที่เรียงต่อกันเป็นท่อลำเลียงน้ำ คือข้อใด',
     options: [
       { text: 'tracheid และ vessel element', correct: true, why: 'เป็นเซลล์ของไซเลม' },
@@ -236,6 +254,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-xy-05', type: 'tf', topic: 'pt-xylem', source: 'พืช 5.4 สไลด์ 22',
+    inText: 'แรงดันราก',
     statement: 'ฟองอากาศในไซเลม (cavitation) ถูกกำจัดได้ด้วยกลไกต่าง ๆ เช่น แรงดันราก ซึ่งเห็นได้จากหยดน้ำที่ขอบใบ',
     answer: true,
     why: 'สไลด์ 22 มีภาพหยดน้ำขอบใบเป็นสิ่งแสดงถึงการมีแรงดันราก',
@@ -245,6 +264,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-transpiration
   {
     id: 'pt-tr-01', type: 'mcq', topic: 'pt-transpiration', source: 'พืช 5.4 สไลด์ 24',
+    inText: 'CO₂ สูง → ปากใบเปิดน้อยลง',
     prompt: 'ข้อใด "ไม่" ถูกต้องเกี่ยวกับปัจจัยที่มีผลต่อการคายน้ำ',
     options: [
       { text: 'CO₂ สูงทำให้ปากใบเปิดกว้างขึ้น', correct: true, why: 'ผิด — CO₂ สูงมีผลให้ปากใบเปิด "น้อยลง"' },
@@ -257,6 +277,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-tr-02', type: 'mcq', topic: 'pt-transpiration', source: 'พืช 5.4 สไลด์ 23–24; แบบฝึกหัดสไลด์ 37',
+    inText: ['ไอน้ำ (แก๊ส)', 'ลดอุณหภูมิใบ'],
     prompt: 'น้ำในไซเลมมีสถานะเป็นของเหลว ส่วนน้ำที่ออกจากปากใบมีสถานะใด และการคายน้ำมีประโยชน์อะไร',
     options: [
       { text: 'แก๊ส (ไอน้ำ) — การเปลี่ยนสถานะดึงความร้อนจากเซลล์ ช่วยลดอุณหภูมิใบ', correct: true, why: 'สไลด์ 23–24' },
@@ -269,6 +290,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-tr-03', type: 'order', topic: 'pt-transpiration', source: 'พืช 5.4 สไลด์ 9, 25',
+    inText: 'ดิน → ขนราก (osmosis)',
     prompt: 'เรียงขั้นตอนการลำเลียงน้ำในต้นพืช',
     steps: ['รากดูดน้ำจากดิน (osmosis)', 'น้ำผ่านคอร์เท็กซ์ ผ่าน endodermis เข้าสู่ไซเลม', 'น้ำถูกดึงขึ้นในไซเลม (transpiration pull: bulk flow)', 'น้ำระเหยในใบและแพร่ออกทางปากใบ (transpiration: diffusion)'],
     hints: ['เริ่มที่ดิน จบที่อากาศ'],
@@ -277,6 +299,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-phloem
   {
     id: 'pt-ph-01', type: 'mcq', topic: 'pt-phloem', source: 'พืช 5.4 สไลด์ 27',
+    inText: 'อาหารสะสมเหนือรอยควั่น',
     prompt: 'การควั่นเปลือกไม้ (girdling) ออกเป็นวง ทำให้เกิดอะไรขึ้น และบอกอะไรเรา',
     options: [
       { text: 'มีการสะสมอาหารที่เนื้อเยื่อเหนือรอยควั่น แสดงว่าโฟลเอ็มในเปลือกลำเลียงอาหาร', correct: true, why: 'Mason & Maskell 1928 — เป็นที่มาของการศึกษาเนื้อเยื่อลำเลียงอาหาร' },
@@ -289,6 +312,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-ph-02', type: 'mcq', topic: 'pt-phloem', source: 'พืช 5.4 สไลด์ 31; แบบฝึกหัดสไลด์ 43',
+    inText: 'น้ำตาลมากที่สุด',
     prompt: 'ใน phloem sap พบสารชนิดใดในปริมาณมากที่สุด',
     options: [
       { text: 'น้ำตาล', correct: true, why: 'phloem sap ของละหุ่ง: sugars 80–106 mg/ml มากกว่าสารอื่นมาก' },
@@ -301,6 +325,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-ph-03', type: 'mcq', topic: 'pt-phloem', source: 'พืช 5.4 สไลด์ 26, 29; แบบฝึกหัดสไลด์ 42',
+    inText: ['source → sink', 'bulk flow'],
     prompt: 'การลำเลียงน้ำตาลในโฟลเอ็มเหมือนหรือต่างจากการลำเลียงน้ำและแร่ธาตุในไซเลมอย่างไร',
     options: [
       { text: 'เหมือนกัน คือมีทิศทางจากรากไปยังส่วนยอด', truth: false, why: 'โฟลเอ็มไม่มีทิศทางแน่นอน (source → sink อาจขึ้นหรือลง)' },
@@ -313,6 +338,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-ph-04', type: 'mcq', topic: 'pt-phloem', source: 'พืช 5.4 สไลด์ 29; แบบฝึกหัดสไลด์ 42',
+    inText: ['ตายแล้ว', 'มีชีวิต'],
     prompt: 'เซลล์ที่พบในเนื้อเยื่อโฟลเอ็มต่างจากเซลล์ในไซเลมอย่างไร',
     options: [
       { text: 'ทั้ง sieve tube และ companion cell เป็นเซลล์ที่มีชีวิต แต่ vessel และ tracheid เป็นเซลล์ที่ตายแล้ว', truth: true, correct: true, why: 'เซลล์ลำเลียงน้ำเป็นท่อกลวงที่ตายแล้ว ส่วนเซลล์โฟลเอ็มมีชีวิต (มีผนังเซลล์ปฐมภูมิ)' },
@@ -326,6 +352,7 @@ export const pTransport: Question[] = [
   // ---------------------------------------------------------- pt-pressureflow
   {
     id: 'pt-pf-01', type: 'order', topic: 'pt-pressureflow', source: 'พืช 5.4 สไลด์ 33',
+    inText: 'โหลดน้ำตาลเข้า sieve element ที่ source',
     prompt: 'เรียงขั้นตอนตามแบบจำลอง pressure-flow (Münch)',
     steps: [
       'ที่ source น้ำตาลถูกลำเลียงแบบใช้พลังงานเข้าสู่ companion cell และ sieve element',
@@ -339,6 +366,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-pf-02', type: 'mcq', topic: 'pt-pressureflow', source: 'พืช 5.4 สไลด์ 33; แบบฝึกหัดสไลด์ 44',
+    inText: ['ความต่างของความดัน', 'Ψp สูงกว่า'],
     prompt: 'phloem sap ลำเลียงจาก sieve tube ด้านใกล้ source ไปยังด้านใกล้ sink ได้เพราะอะไร',
     options: [
       { text: 'มีความต่างของ pressure ภายในเซลล์สองบริเวณนี้ที่ทำให้เกิด bulk flow ได้', truth: true, why: 'ถูก' },
@@ -351,6 +379,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-pf-03', type: 'mcq', topic: 'pt-pressureflow', source: 'พืช 5.4 สไลด์ 33; แบบฝึกหัดสไลด์ 43',
+    inText: 'ที่ sink Ψw สูงกว่า',
     prompt: 'จากตัวเลขในภาพ pressure-flow model น้ำในเนื้อเยื่อโฟลเอ็มที่ตำแหน่งใดมี water potential มากที่สุด',
     options: [
       { text: 'โฟลเอ็มที่อยู่ใกล้แหล่งใช้น้ำตาล (sink)', correct: true, why: 'sink: Ψw = −0.4 MPa มากกว่า source: −1.1 MPa' },
@@ -363,6 +392,7 @@ export const pTransport: Question[] = [
   },
   {
     id: 'pt-pf-04', type: 'mcq', topic: 'pt-pressureflow', source: 'พืช 5.4 สไลด์ 34–35; แบบฝึกหัดสไลด์ 45',
+    inText: 'apoplast → companion cell/sieve element = active transport',
     prompt: 'เส้นทางการลำเลียงน้ำตาลแบบที่ต้องใช้พลังงาน (active transport) คือข้อใด',
     options: [
       { text: 'apoplast pathway จาก phloem parenchyma เข้าสู่ companion cell', correct: true, why: 'จาก apoplast เข้าสู่ sieve element–companion cell complex ใช้ H⁺-ATPase และ sucrose-H⁺ symporter' },

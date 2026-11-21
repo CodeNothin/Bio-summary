@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { T, WidgetFrame } from '../components/ui';
+import { How, T, WidgetFrame } from '../components/ui';
 
 type Where = 'old' | 'young' | 'roots';
 interface El {
@@ -45,6 +45,7 @@ export function DeficiencyExplorer() {
       notice="ธาตุ **mobile** ถูกย้ายจากใบแก่ไปเลี้ยงใบอ่อน → **ใบแก่ (ล่าง)** แสดงอาการก่อน · ธาตุ **immobile** ย้ายไม่ได้ → **ใบอ่อน/ยอด (บน)** แสดงอาการ"
       onReset={() => setSym('N')}
     >
+      <How>แตะสัญลักษณ์ธาตุด้านล่าง — ภาพจะเปลี่ยนเป็นอาการขาดธาตุนั้น</How>
       <div className="seg">
         {elements.map((e) => (
           <button key={e.sym} className={e.sym === sym ? 'on' : ''} onClick={() => setSym(e.sym)} style={{ flex: '0 0 auto', minWidth: 44 }}>

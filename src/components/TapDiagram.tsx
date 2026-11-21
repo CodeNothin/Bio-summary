@@ -16,7 +16,7 @@ import { useState } from 'react';
 import { diagrams } from '../data/diagrams';
 import type { Diagram } from '../data/types';
 import { SlideFig } from './SlideFig';
-import { T, WidgetFrame } from './ui';
+import { How, T, WidgetFrame } from './ui';
 
 export function TapDiagram({
   diagram, selected, onTap, highlight, mark, maxWidth = 520, quiz = false,
@@ -57,6 +57,7 @@ export function DiagramExplorer({ id, title, notice, start }: { id: string; titl
   const part = d.parts.find((p) => p.id === sel);
   return (
     <WidgetFrame title={title ?? d.title} notice={notice} onReset={() => setSel(start ?? null)}>
+      <How>แตะจุดบนภาพ (หรือชื่อด้านล่าง) — ชื่อและหน้าที่ของส่วนนั้นจะขึ้นใต้ภาพ</How>
       <TapDiagram diagram={d} selected={sel} onTap={setSel} />
       <div className="part-info" aria-live="polite">
         {part ? (

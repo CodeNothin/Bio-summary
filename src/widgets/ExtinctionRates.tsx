@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Seg, WidgetFrame } from '../components/ui';
+import { How, Readout, Seg, WidgetFrame } from '../components/ui';
 
 const groups = [
   { id: 'fish', th: 'ปลา', x: 100 },
@@ -31,6 +31,7 @@ export function ExtinctionRates() {
       <div style={{ marginTop: 8 }}>
         <SlideFig id="e5-18" />
       </div>
+      <How>เลือกกลุ่มสัตว์ด้านบน — ภาพไม่เปลี่ยน แต่ตัวเลขเทียบกับอัตราธรรมชาติด้านล่างจะเปลี่ยน</How>
       <p className="small" style={{ margin: '0 0 4px' }}>เส้นประ (Background) = อัตราตามธรรมชาติ · เส้นสี = การสูญพันธุ์จริงของสัตว์มีกระดูกสันหลัง ซึ่งพุ่งขึ้นหลังการปฏิวัติอุตสาหกรรม</p>
       <div className="readouts">
         <Readout k={`${sel.th}: ปัจจุบันเทียบกับธรรมชาติ`} v={`สูงกว่า ~${sel.x.toLocaleString()} เท่า`} hl />

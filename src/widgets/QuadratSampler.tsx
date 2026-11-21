@@ -9,7 +9,7 @@
 // =====================================================================
 import { useMemo, useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, WidgetFrame } from '../components/ui';
+import { How, Readout, WidgetFrame } from '../components/ui';
 import { populationFromDensity, quadratDensity, round } from '../data/calc';
 import { seeded } from '../practice/engine';
 
@@ -64,6 +64,7 @@ export function QuadratSampler() {
       onReset={() => setQuads([])}
     >
       <SlideFig id="e2-5" />
+      <How>ภาพสไลด์ไม่เปลี่ยน · แตะในแปลงด้านล่างเพื่อวาง quadrat (หรือกด 🎲) — ค่าประมาณจำนวนต้นจะคำนวณใต้แปลง</How>
       <p className="small" style={{ margin: '4px 0' }}>ลองเอง: แปลงจำลอง 6 × 4 m ด้านล่าง</p>
       <svg viewBox={`0 0 ${W * S} ${H * S}`} className="stage" onClick={drop} role="img" aria-label="แปลงพืช 6 × 4 เมตร" style={{ cursor: 'crosshair' }}>
         <rect x={0} y={0} width={W * S} height={H * S} className="fill-tone tone-tan" opacity={0.35} />

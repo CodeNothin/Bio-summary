@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { T, WidgetFrame } from '../components/ui';
+import { How, T, WidgetFrame } from '../components/ui';
 
 interface Biome {
   id: string; th: string; en: string; tone: string; fig: string;
@@ -35,6 +35,7 @@ export function BiomeExplorer() {
       notice="ชีวนิเวศบนบกถูกกำหนดด้วย**อุณหภูมิและปริมาณฝน**เป็นหลัก — ลองเทียบทะเลทราย (ฝน < 300 mm) กับป่าเขตร้อน (> 2000 mm) และดูว่าทุนดรา/ไทก้า**หนาว**แค่ไหน"
       onReset={() => setId('map')}
     >
+      <How>แตะชื่อไบโอมด้านล่าง — ภาพจะเปลี่ยนเป็นสไลด์ของไบโอมนั้น (แผนที่ = ภาพรวมอุณหภูมิ/ฝน)</How>
       <SlideFig id={b ? b.fig : 'e1-20'} />
       <div className="seg" style={{ marginTop: 6 }}>
         <button className={id === 'map' ? 'on' : ''} onClick={() => setId('map')} style={{ fontSize: '0.8rem' }}>

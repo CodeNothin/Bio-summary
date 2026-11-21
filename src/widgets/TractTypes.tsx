@@ -6,7 +6,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, T, WidgetFrame } from '../components/ui';
+import { How, Seg, T, WidgetFrame } from '../components/ui';
 
 const animals = {
   paramecium: { fig: 'a5-46', label: 'พารามีเซียม', kind: 'ไม่มีทางเดินอาหาร', digest: 'intracellular', path: ['food vacuole', 'ปล่อยเอนไซม์เข้า vacuole', 'กากออกทาง anal pore'], note: 'โปรโตซัว: นำอาหารเข้า food vacuole แล้วปล่อยเอนไซม์เข้าไปย่อย' },
@@ -28,6 +28,7 @@ export function TractTypes() {
       notice="เทียบ **ช่องเปิดเดียว (incomplete)** กับ **ปาก + ทวารหนัก (complete)** และดูว่าใครย่อยในเซลล์ (intracellular) / นอกเซลล์ (extracellular)"
       onReset={() => setK('hydra')}
     >
+      <How>เลือกสัตว์ด้านล่าง — ภาพจะเปลี่ยนเป็นทางเดินอาหารของสัตว์นั้น</How>
       <Seg value={k} options={(Object.keys(animals) as Key[]).map((x) => ({ value: x, label: animals[x].label }))} onChange={setK} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id={a.fig} />

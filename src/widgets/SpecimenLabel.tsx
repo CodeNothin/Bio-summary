@@ -9,7 +9,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, T, WidgetFrame } from '../components/ui';
+import { How, Seg, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const parts: { id: string; text: string; name: string; tone: string; box: Box; use: string }[] = [
@@ -46,6 +46,7 @@ export function SpecimenLabel() {
       notice="ป้ายเล็ก ๆ หนึ่งแผ่นบอก **ที่ไหน · สูงเท่าไร · เมื่อไร · ใครเก็บ** — นี่คือ metadata ที่ทำให้ตัวอย่างอายุร้อยปีใช้เทียบกับปัจจุบันได้"
       onReset={reset}
     >
+      <How>สำรวจ: แตะข้อความบนป้ายเพื่อดูว่าเป็นข้อมูลอะไร · ทดสอบ: แตะส่วนของป้ายที่โจทย์ถาม</How>
       <Seg value={mode} options={[{ value: 'explore', label: 'สำรวจ' }, { value: 'quiz', label: 'ทดสอบ' }]} onChange={(v) => { setMode(v); setSel(null); setMsg(null); }} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id="c7-18">

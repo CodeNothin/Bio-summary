@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Seg, T, WidgetFrame } from '../components/ui';
+import { How, Readout, Seg, T, WidgetFrame } from '../components/ui';
 
 const cells = {
   par: {
@@ -42,6 +42,7 @@ export function CellWalls() {
       notice="ภาพทั้งหมด**ย้อมด้วย safranin O** แล้ว: เซลล์ที่มีผนัง**ทุติยภูมิ** (sclereid, fiber) ติดสีชมพูแดง · parenchyma กับ collenchyma ผนังปฐมภูมิไม่ติดสี — collenchyma หนาไม่เท่ากัน"
       onReset={() => setK('par')}
     >
+      <How>เลือกชนิดเซลล์ด้านล่าง — ภาพจะเปลี่ยนเป็นภาพถ่ายเซลล์ชนิดนั้น</How>
       <Seg value={k} options={(Object.keys(cells) as K[]).map((v) => ({ value: v, label: cells[v].label }))} onChange={setK} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id={c.fig} />

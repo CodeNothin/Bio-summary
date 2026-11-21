@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, WidgetFrame } from '../components/ui';
+import { How, Readout, WidgetFrame } from '../components/ui';
 
 // relative values 0–1 read off the slide graphs
 const vessels = [
@@ -30,6 +30,7 @@ export function VesselFlow() {
       notice="ที่ **capillary พื้นที่หน้าตัดรวมมากที่สุด → เลือดไหลช้าที่สุด** (law of continuity) จึงมีเวลาแลกเปลี่ยนสาร · ความดันลดลงตลอดทาง aorta → vena cava"
       onReset={() => setSel(3)}
     >
+      <How>แตะชนิดหลอดเลือดด้านล่าง — ภาพจะเน้นคอลัมน์ของหลอดเลือดนั้นในกราฟ</How>
       <SlideFig id="a5-102" spot={[v.col[0], 9, v.col[1], 90]} />
       <div className="readouts">
         <Readout k="พื้นที่หน้าตัดรวม" v={v.area === 1 ? 'มากที่สุด' : lvl(v.area)} />

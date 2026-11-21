@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, WidgetFrame } from '../components/ui';
+import { How, Seg, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const cols: Record<string, Box> = { nh3: [14, 62, 46, 100], urea: [46, 62, 76, 100], uric: [76, 62, 100, 100] };
@@ -39,6 +39,7 @@ export function NitrogenWaste() {
       notice="ยิ่ง**พิษน้อย**และ**ละลายน้ำน้อย** ยิ่ง**ใช้น้ำขับน้อย** → สัตว์ที่ต้องประหยัดน้ำใช้กรดยูริก · สัตว์น้ำใช้แอมโมเนียได้เพราะมีน้ำเจือจางรอบตัว"
       onReset={() => setK('nh3')}
     >
+      <How>เลือกชนิดของเสียด้านล่าง — ภาพจะเน้นคอลัมน์ของของเสียนั้น</How>
       <Seg value={k} options={(Object.keys(wastes) as K[]).map((x) => ({ value: x, label: wastes[x].label }))} onChange={setK} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id="a5-126" spot={cols[k]} />

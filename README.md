@@ -61,6 +61,10 @@ npm test
   Ψp = 0.488 MPa, the Ψ values in the pressure-flow figure, and NFP +10 / −7 mmHg. For Unit 6 it checks
   quadrat 9 ÷ (3 × 1) = 3 → 18 stems, mark–recapture 6 ÷ 2 × 4 = 12, b = 48 ÷ 1000, 25 deaths,
   r = −0.006 → −12 per year, the 10 % rule and adiabatic cooling 6.5 °C per 1000 m.
+- `src/pages/pages.test.tsx` renders each chapter page and checks that every ready question's `inText`
+  phrase appears in its own section, so page text can't drop an answer a question asks. It applies to
+  pages whose questions have `inText` (so far พืช 5.4). It also renders every widget and checks it has
+  a `<How>` line.
 - `src/practice/engine.test.ts` shuffles every mcq 50 times and checks that the right answer is never
   lost and the combined-option letters still match. It also checks that numeric answers and listed
   slips are recognised.
@@ -139,6 +143,23 @@ Rules the code follows:
   `python scripts/crop-slides.py <deck>-<page>`. Show it with `<SlideFig id="…" />`. If you change an
   existing crop, re-check the tap points and boxes that use it.
 - **Change page text:** edit `src/pages/<Name>Page.tsx`. Every `<Section id>` must exist in `pages.ts`.
+
+### How page text is written
+
+Each page is "everything you need to know" for someone who sat in the lecture but doesn't remember
+it. It is not the slides reworded, and not a bare checklist. `PTransportPage.tsx` (พืช 5.4) is the
+model:
+
+- Explain each idea in a sentence or two (what it is → how → why), with keywords in **bold**.
+- One line per equation (`<p className="big-rule">`). Calculators are allowed in the exam.
+- Keep the slides' numbers, comparison tables, step lists and the widgets, placed where they fit.
+- Researcher names and years, long lists of minor items and the Minecraft analogies go in
+  `<More title="…">` fold-outs.
+- Write only what the slides say (`Source/notes-*.md`).
+- Give every question `inText`: the phrase on the page that answers it. `npm test` checks it.
+- Every widget has a grey `<How>` line saying what you can do and what will happen: above the picture
+  if the controls change the picture, below it if the picture stays the same. `npm test` checks every
+  widget has one.
 
 ## Adding a chapter
 

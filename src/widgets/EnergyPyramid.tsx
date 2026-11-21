@@ -9,7 +9,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, Slider, WidgetFrame } from '../components/ui';
+import { How, Seg, Slider, WidgetFrame } from '../components/ui';
 import { energyAtLevel, round } from '../data/calc';
 
 /** Short labels so they fit inside the narrow top bars (ผู้บริโภค n = ผู้บริโภคลำดับที่ n). */
@@ -27,6 +27,7 @@ export function EnergyPyramid() {
         : 'สารที่ย่อยสลาย/ขับออกไม่ได้ (DDT, methylmercury) สะสมในตัว (bioaccumulation) และ**เข้มข้นขึ้นทุกขั้น** — ผู้ล่าบนสุดได้รับมากที่สุด'}
       onReset={() => { setView('energy'); setEff(10); }}
     >
+      <How>เลือก พลังงาน / สารพิษ — ภาพจะเปลี่ยนตาม · ในหน้าพลังงาน เลื่อนแถบประสิทธิภาพเพื่อดูว่าแต่ละขั้นเหลือพลังงานกี่ kJ</How>
       <Seg value={view} options={[{ value: 'energy', label: 'พลังงาน' }, { value: 'toxin', label: 'สารพิษ' }]} onChange={setView} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id={view === 'energy' ? 'e4-22' : 'e4-29'} />

@@ -340,6 +340,9 @@ th {
   font-size: 0.9rem;
   color: var(--muted);
   margin: 0 0 8px;
+  /* thin line so it doesn't run into the grey How line below */
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
 }
 .notice b {
   color: var(--ink);
@@ -1012,4 +1015,11 @@ button.slide-pin::before {
 }
 .choice-list button:disabled {
   cursor: default;
+}
+
+/* grey "how to use this widget" line (How in components/ui.tsx) */
+.how {
+  margin: 4px 0 6px;
+  font-size: 0.82rem;
+  color: var(--muted);
 }

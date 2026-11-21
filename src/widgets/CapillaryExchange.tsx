@@ -9,7 +9,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Slider, WidgetFrame } from '../components/ui';
+import { How, Readout, Slider, WidgetFrame } from '../components/ui';
 import { cardiacOutput, netFiltrationPressure, round } from '../data/calc';
 
 export function CapillaryExchange() {
@@ -25,6 +25,7 @@ export function CapillaryExchange() {
       notice="ความดันเลือดลดลงตามความยาว capillary แต่แรงดึงน้ำกลับ (BCOP) คงที่ → ด้าน **arteriole ของเหลวไหลออก** · ด้าน **venule ไหลกลับเข้า** · ส่วนที่เหลือกลับทางท่อน้ำเหลือง"
       onReset={() => setPos(0)}
     >
+      <How>เลื่อนแถบตำแหน่งด้านล่าง — เส้นบนกราฟจะเลื่อนจากต้น (arterial end) ไปปลาย (venous end) ของ capillary</How>
       <SlideFig id="a5-104">
         <div className="slide-vline" style={{ left: `${line[0]}%`, top: `${line[1]}%`, height: `${line[3] - line[1]}%` }} />
       </SlideFig>

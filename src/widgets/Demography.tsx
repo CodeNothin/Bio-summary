@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, WidgetFrame } from '../components/ui';
+import { How, Seg, WidgetFrame } from '../components/ui';
 
 const curves = {
   I: { label: 'Type I', at: [48.5, 8.5] as [number, number], text: 'รอดสูงช่วงต้นและกลางชีวิต ส่วนใหญ่อยู่ถึงวัยชรา แล้วตายมากตอนแก่ — คน สัตว์ใหญ่' },
@@ -33,6 +33,7 @@ export function Demography() {
       notice="survivorship curve บอกว่า**ตายช่วงไหนมาก** · พีระมิดอายุบอก**แนวโน้ม**ประชากร: ฐานกว้าง = จะเพิ่ม, ฐานแคบ = จะลด"
       onReset={() => { setView('curve'); setC('I'); setP('grow'); }}
     >
+      <How>เลือก Survivorship curve หรือ พีระมิดอายุ แล้วเลือกแบบ (หรือแตะจุดบนกราฟ) — ภาพจะเน้นแบบที่เลือก</How>
       <Seg value={view} options={[{ value: 'curve', label: 'Survivorship curve' }, { value: 'pyr', label: 'พีระมิดอายุ' }]} onChange={setView} />
       <div style={{ height: 6 }} />
       {view === 'curve' ? (

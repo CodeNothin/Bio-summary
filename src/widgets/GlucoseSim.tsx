@@ -9,7 +9,7 @@
 // =====================================================================
 import { useEffect, useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Toggle, WidgetFrame } from '../components/ui';
+import { How, Toggle, WidgetFrame } from '../components/ui';
 
 const SET = 90; // normal level from slide 167 (mg/100 mL)
 
@@ -48,6 +48,7 @@ export function GlucoseSim() {
       onReset={() => { setG(Array(60).fill(SET)); setResist(false); setRunning(true); }}
     >
       <SlideFig id={resist ? 'a5x-2' : 'a5-167'} />
+      <How>กด 🍚 กินข้าว แล้วดูกราฟจำลองด้านล่าง · เปิด "ดื้ออินซูลิน" เพื่อเทียบ — ภาพสไลด์เปลี่ยนตามตัวเลือกนี้เท่านั้น ส่วนกราฟจะเคลื่อนตามเวลา</How>
       <svg viewBox="0 0 290 130" className="stage" role="img" aria-label="กราฟกลูโคสในเลือด">
         <line x1={10} y1={py(SET)} x2={285} y2={py(SET)} className="s-good" strokeDasharray="5 4" strokeWidth={1.5} />
         <text x={286} y={py(SET) - 4} textAnchor="end" className="small mut">ปกติ ~90</text>

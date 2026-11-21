@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, T, WidgetFrame } from '../components/ui';
+import { How, Seg, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 type E = '+' | '0' | '−';
@@ -33,6 +33,7 @@ export function InteractionFinder() {
       notice="เลือกผลต่อชนิด A และ B — ลำดับไม่สำคัญ (+/− เหมือน −/+) · คู่ +/+ มี 3 ชื่อ แยกด้วย**ความจำเป็น**และ**การสัมผัสโดยตรง**"
       onReset={() => { setA('+'); setB('−'); }}
     >
+      <How>เลือกผลต่อชนิด A และชนิด B (+ / 0 / −) — ภาพจะเน้นความสัมพันธ์ที่ตรงกัน</How>
       <p className="small" style={{ margin: '0 0 2px' }}>ผลต่อชนิด A</p>
       <Seg value={a} options={opts} onChange={setA} />
       <p className="small" style={{ margin: '8px 0 2px' }}>ผลต่อชนิด B</p>

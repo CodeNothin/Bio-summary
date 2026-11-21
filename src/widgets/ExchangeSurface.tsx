@@ -9,7 +9,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Slider, WidgetFrame } from '../components/ui';
+import { How, Readout, Slider, WidgetFrame } from '../components/ui';
 
 export function ExchangeSurface() {
   const [s, setS] = useState(1);
@@ -22,6 +22,7 @@ export function ExchangeSurface() {
       notice="ขยายก้อนให้ใหญ่ขึ้น: พื้นที่ผิวโตตาม s² แต่ปริมาตรโตตาม s³ → **ผิวต่อปริมาตรลดลง** สัตว์ใหญ่จึงต้องมี**พื้นผิวพับไปมาภายใน** (ถุงลม วิลไล ท่อไต) และ**ระบบไหลเวียน**ส่งสารถึงทุกเซลล์"
       onReset={() => setS(1)}
     >
+      <How>เลื่อนแถบขนาดด้านล่าง — ภาพจะเปลี่ยนจากสิ่งมีชีวิตตัวเล็กเป็นตัวใหญ่ และตัวเลขผิว/ปริมาตรจะคำนวณใหม่</How>
       {s <= 2 ? (
         <SlideFig id="a5-31" spot={s === 1 ? [0, 22, 32, 98] : [30, 10, 63, 98]} />
       ) : (

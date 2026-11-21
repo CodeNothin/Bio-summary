@@ -9,7 +9,7 @@
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
 import type { Box } from '../data/figures';
-import { StepNav, T, WidgetFrame } from '../components/ui';
+import { How, StepNav, T, WidgetFrame } from '../components/ui';
 
 const steps: { fig: string; spot?: Box; t: string; s: string }[] = [
   {
@@ -35,6 +35,7 @@ export function SecondaryGrowth() {
       notice="กดถัดไป: ใกล้ยอด มัดท่อลำเลียง**แยกกัน** → ไกลยอด vascular cambium ทำให้ vascular tissue **เชื่อมเป็นวง** และสร้าง secondary xylem/phloem ลำต้นจึงอ้วนขึ้น"
       onReset={() => setI(0)}
     >
+      <How>กด ◀ ▶ ด้านล่างเพื่อไล่ทีละขั้น — ภาพจะเปลี่ยนและเน้นส่วนที่ขั้นนั้นพูดถึง</How>
       <SlideFig id={s.fig} spot={s.spot} />
       <div className="step-text">
         <b>{i + 1}. {s.t}</b>

@@ -6,7 +6,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, WidgetFrame } from '../components/ui';
+import { How, Readout, WidgetFrame } from '../components/ui';
 
 // position k = 0..3 from where WATER enters (left) to where it leaves (right)
 const water = [100, 70, 40, 15];
@@ -21,6 +21,7 @@ export function Countercurrent() {
       onReset={() => setK(0)}
     >
       <SlideFig id="a5-115" />
+      <How>กดตำแหน่ง 1, 2, 3 … ด้านล่าง — ภาพไม่เปลี่ยน แต่ %O₂ ของน้ำและเลือดที่ตำแหน่งนั้นจะแสดงด้านล่าง</How>
       <div className="seg">
         {water.map((_, i) => (
           <button key={i} className={i === k ? 'on' : ''} aria-pressed={i === k} onClick={() => setK(i)}>

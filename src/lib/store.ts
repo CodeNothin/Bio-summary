@@ -75,6 +75,7 @@ export function useStore(): State {
       return () => listeners.delete(l);
     },
     () => state,
+    () => state, // server render (used by pages.test.tsx)
   );
 }
 

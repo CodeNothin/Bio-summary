@@ -6,7 +6,7 @@
 // not slide text. To edit, change the `qs` table.
 // =====================================================================
 import { useState } from 'react';
-import { Seg, T, WidgetFrame } from '../components/ui';
+import { How, Seg, T, WidgetFrame } from '../components/ui';
 
 const qs = [
   {
@@ -49,6 +49,7 @@ export function FundamentalQuestions() {
       notice="สไลด์ใช้คำถามชุดเดียวกัน**สองครั้ง**: ตอนต้น (คำตอบทั่วไป) และตอนท้าย (พิพิธภัณฑ์ช่วยตอบอย่างไร) — สลับดูทั้งสองแบบ แล้วลองจับคู่ว่าแต่ละข้อใช้คำสำคัญอะไร"
       onReset={() => { setI(0); setView('bio'); }}
     >
+      <How>เลือกชุดคำตอบ แล้วแตะคำถามแต่ละข้อ — คำตอบจะแสดงด้านล่าง</How>
       <Seg value={view} options={[{ value: 'bio', label: 'คำตอบทั่วไป (สไลด์ 3)' }, { value: 'museum', label: 'มุมพิพิธภัณฑ์ (สไลด์ 33)' }]} onChange={setView} />
       <div className="seg" style={{ marginTop: 8 }}>
         {qs.map((_, k) => (

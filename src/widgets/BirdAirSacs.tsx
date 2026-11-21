@@ -6,7 +6,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { StepNav, T, WidgetFrame } from '../components/ui';
+import { How, StepNav, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const spots: Record<string, Box> = {
@@ -32,6 +32,7 @@ export function BirdAirSacs() {
       notice="นกมีถุงลม **8–9 ถุง** ทำหน้าที่คล้ายลูกสูบ อากาศไหลผ่านปอด**ทางเดียว** — ต่างจากปอดคนที่เป็นถุงตัน (เข้า–ออกทางเดิม)"
       onReset={() => setI(0)}
     >
+      <How>กด ◀ ▶ ด้านล่างเพื่อไล่ทีละขั้น — ภาพจะเน้นถุงลม/ปอดที่อากาศอยู่ในขั้นนั้น</How>
       <SlideFig id="a5-119" spot={spots[w]} />
       <div className="step-text"><T>{steps[i].text}</T></div>
       <StepNav i={i} n={steps.length} setI={setI} />

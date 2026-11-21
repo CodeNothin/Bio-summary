@@ -5,6 +5,7 @@
 //   Section             one card on a chapter page, with the "เข้าใจแล้ว" button
 //   Table               a simple comparison table that scrolls sideways if wide
 //   WidgetFrame         the box around every widget (title, ลองสังเกต, reset)
+//   How                 grey "how to use this widget" line (see below)
 //   Slider / Seg / Toggle / Readout / StepNav   widget controls
 //   Arrow               an SVG arrow
 // Colours come from CSS variables in styles.css.
@@ -138,6 +139,19 @@ export function WidgetFrame({ title, notice, onReset, children }: { title: strin
     </div>
   );
 }
+
+/**
+ * Grey line telling the reader what they can do in a widget and what will
+ * happen. Every widget with controls has one. Put it ABOVE the picture
+ * when the controls change the picture (highlight, pins, steps), and BELOW
+ * the picture when the picture stays the same and only text/bars change.
+ * ("ลองสังเกต" in WidgetFrame is the biology to notice; this is the how-to.)
+ */
+export const How = ({ children }: { children: string }) => (
+  <p className="how">
+    <T>{children}</T>
+  </p>
+);
 
 export function Slider({
   label, value, min, max, step, onChange, show,

@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, StepNav, WidgetFrame } from '../components/ui';
+import { How, Seg, StepNav, WidgetFrame } from '../components/ui';
 
 const paths = {
   primary: [
@@ -40,6 +40,7 @@ export function Succession() {
       notice="**primary** เริ่มจากที่ว่างไม่มีดิน (หิน ทราย) จึงช้ามาก · **secondary** เริ่มหลังการรบกวน (ไฟ ไร่ร้าง) ดินยังอยู่ จึงเร็วกว่า · ทั้งสองจบที่ **climax community**"
       onReset={() => { setK('primary'); setI(0); }}
     >
+      <How>เลือก Primary หรือ Secondary แล้วกด ◀ ▶ — ภาพจะเน้นระยะที่ขั้นนั้นพูดถึง</How>
       <Seg value={k} options={[{ value: 'primary', label: 'Primary' }, { value: 'secondary', label: 'Secondary' }]} onChange={(v) => { setK(v); setI(0); }} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id="e3-32" spot={k === 'primary' ? [s.x[0], 3, s.x[1], 49] : [s.x[0], 49, s.x[1], 99]} />

@@ -9,7 +9,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Slider, Toggle, WidgetFrame } from '../components/ui';
+import { How, Readout, Slider, Toggle, WidgetFrame } from '../components/ui';
 
 const STEPS = 60;
 
@@ -36,6 +36,7 @@ export function GrowthCurves() {
       onReset={() => { setR(0.15); setK(500); setBloom(false); }}
     >
       <SlideFig id="e2-14" />
+      <How>ภาพสไลด์ไม่เปลี่ยน · เลื่อนแถบ r และ K ด้านล่าง แล้วดูกราฟจำลองใต้ภาพเปลี่ยนตาม</How>
       <p className="small" style={{ margin: '4px 0' }}>ลองเอง: ปรับ r และ K แล้วดูกราฟจำลอง</p>
       <svg viewBox="0 0 300 200" className="stage" role="img" aria-label="กราฟการเติบโตของประชากร">
         <line x1={30} y1={180} x2={292} y2={180} className="s-muted" />

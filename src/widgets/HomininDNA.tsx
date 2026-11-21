@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { StepNav, T, WidgetFrame } from '../components/ui';
+import { How, StepNav, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const steps = [
@@ -27,6 +27,7 @@ export function HomininDNA() {
       notice="กดถัดไปทีละขั้น: กระดูกเก่า → DNA → รู้ว่าใครอยู่ที่ไหน → รู้ว่า**บรรพบุรุษเราผสมพันธุ์กับมนุษย์โบราณ** · ชื่อ 2 กลุ่มมาจาก**สถานที่ที่พบกระดูก**"
       onReset={() => setI(0)}
     >
+      <How>กด ◀ ▶ ด้านล่างเพื่อไล่ทีละขั้น — ภาพจะเปลี่ยนและเน้นส่วนที่ขั้นนั้นพูดถึง</How>
       <SlideFig id={steps[i].fig} spot={steps[i].spot} />
       <div className="step-text">
         <b>{i + 1}. {steps[i].t}</b>

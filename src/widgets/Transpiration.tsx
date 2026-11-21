@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Toggle, WidgetFrame } from '../components/ui';
+import { How, Toggle, WidgetFrame } from '../components/ui';
 
 export function Transpiration() {
   const [light, setLight] = useState(true);
@@ -32,6 +32,7 @@ export function Transpiration() {
       onReset={() => { setLight(true); setDry(false); setWind(false); setCo2(false); }}
     >
       <SlideFig id="p4-22" />
+      <How>กดปุ่มปัจจัยด้านล่าง (แสง ขาดน้ำ ลม CO₂) — ภาพไม่เปลี่ยน แต่แถบอัตราการคายน้ำและเหตุผลจะเปลี่ยน</How>
       <p className="small" style={{ textAlign: 'center', margin: '0 0 4px' }}>
         <b>ปากใบ{open > 0.6 ? 'เปิดกว้าง' : open > 0.2 ? 'เปิดเล็กน้อย' : 'ปิด'}</b>
       </p>

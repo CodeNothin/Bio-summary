@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { StepNav, T, WidgetFrame } from '../components/ui';
+import { How, StepNav, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const spots: Record<string, Box> = {
@@ -36,6 +36,7 @@ export function PressureFlow() {
       notice="น้ำตาลเข้า → น้ำตาม → แรงดันสูง → ไหลไปที่แรงดันต่ำ · ไซเลม (ซ้าย) กับโฟลเอ็ม (ขวา) ส่งน้ำวนกันไปมา"
       onReset={() => setI(0)}
     >
+      <How>เลือกขั้นตอนที่จะโฟกัส (◀ ▶ ด้านล่าง) — ภาพจะเน้นส่วนที่ขั้นนั้นพูดถึง</How>
       <SlideFig id="p4-31" spot={spots[at]} />
       <div className="step-text">
         <T>{steps[i].text}</T>

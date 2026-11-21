@@ -3,7 +3,7 @@
 // slide 93). Uses calc.ts. Start values are the slide's example.
 // =====================================================================
 import { useState } from 'react';
-import { Readout, Slider, WidgetFrame } from '../components/ui';
+import { How, Readout, Slider, WidgetFrame } from '../components/ui';
 import { cardiacOutput, round } from '../data/calc';
 
 export function CardiacOutput() {
@@ -15,6 +15,7 @@ export function CardiacOutput() {
       notice="ค่าตั้งต้นคือตัวอย่างในสไลด์: 70 ครั้ง/นาที × 75 mL/ครั้ง = **5.25 L/min** · ระวังหน่วย: mL × 1/1000 = L"
       onReset={() => { setHr(70); setSv(75); }}
     >
+      <How>เลื่อนแถบ heart rate และ stroke volume — ค่า cardiac output ด้านล่างจะคำนวณใหม่</How>
       <div className="controls">
         <Slider label="heart rate (ครั้ง/นาที)" value={hr} min={40} max={180} step={1} onChange={setHr} show={`${hr}`} />
         <Slider label="stroke volume (mL/ครั้ง)" value={sv} min={40} max={120} step={1} onChange={setSv} show={`${sv}`} />

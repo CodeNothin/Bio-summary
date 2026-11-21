@@ -6,7 +6,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, StepNav, T, WidgetFrame } from '../components/ui';
+import { How, Seg, StepNav, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const figs = { adh: 'a5-136', raas: 'a5-137' };
@@ -43,6 +43,7 @@ export function KidneyControl() {
       notice="**ADH** ตอบสนองต่อ osmolarity (น้ำน้อย/เกลือมาก) · **RAAS** ตอบสนองต่อความดัน/ปริมาตรเลือดต่ำ · ทั้งสองเป็น negative feedback"
       onReset={() => { setK('adh'); setI(0); }}
     >
+      <How>เลือก ADH หรือ RAAS แล้วกด ◀ ▶ — ภาพจะเน้นส่วนที่ขั้นนั้นพูดถึง</How>
       <Seg value={k} options={[{ value: 'adh', label: 'ADH' }, { value: 'raas', label: 'RAAS' }]} onChange={(v) => { setK(v); setI(0); }} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id={figs[k]} spot={spots[k][i]} />

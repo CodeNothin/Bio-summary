@@ -5,7 +5,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { TapDiagram } from '../components/TapDiagram';
-import { Seg, T, WidgetFrame } from '../components/ui';
+import { How, Seg, T, WidgetFrame } from '../components/ui';
 import { diagrams } from '../data/diagrams';
 
 const choices = [
@@ -27,6 +27,7 @@ export function PlantXSection() {
       notice="สลับดูทั้ง 4 แบบ แล้วดูว่า**ไซเลมจัดเรียงต่างกันอย่างไร** — ราก: แฉกตรงกลาง (คู่ 3–4 แฉก, เดี่ยว หลายแฉก) · ลำต้น: เป็นวง (คู่) หรือกระจาย (เดี่ยว) · endodermis/pericycle มีเฉพาะในราก"
       onReset={() => { setWhich('dicot-root'); setSel(null); }}
     >
+      <How>เลือกราก/ลำต้นด้านบน แล้วแตะจุดบนภาพ (หรือชื่อด้านล่าง) — ชื่อและหน้าที่ของเนื้อเยื่อจะขึ้นใต้ภาพ</How>
       <Seg value={which} options={[...choices]} onChange={(v) => { setWhich(v); setSel(null); }} />
       <div style={{ marginTop: 8 }}>
         <TapDiagram diagram={d} selected={sel} onTap={setSel} />

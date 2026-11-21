@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Slider, WidgetFrame } from '../components/ui';
+import { How, Slider, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const spots: Record<string, Box> = {
@@ -28,6 +28,7 @@ export function AuxinCytokinin() {
       notice="อัตราส่วน **auxin:cytokinin สูง → ราก** · **ต่ำ (cytokinin มาก) → ยอด** · พอ ๆ กัน → callus · cytokinin ยังกระตุ้นการแบ่งเซลล์และ **greening**"
       onReset={() => { setAuxin(0.5); setCyto(0.5); }}
     >
+      <How>เลื่อนแถบ auxin และ cytokinin ด้านล่าง — ภาพจะเน้นผลที่เกิด (ราก ยอด หรือ callus)</How>
       <SlideFig id="p5-24" spot={spots[result]} />
       <p className="small" style={{ textAlign: 'center', margin: '0 0 4px' }}>
         <b>{result === 'roots' ? 'เกิดราก (root formation)' : result === 'shoots' ? 'เกิดยอด (shoot formation)' : 'callus (กลุ่มเซลล์แบ่งตัว)'}</b>

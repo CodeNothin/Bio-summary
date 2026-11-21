@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { StepNav, T, WidgetFrame } from '../components/ui';
+import { How, StepNav, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const steps = [
@@ -26,6 +26,7 @@ export function ReflexArc() {
       notice="วงจรประสาทอย่างง่าย: อย่างน้อยมี **sensory neuron + motor neuron** · สัญญาณไม่ต้องขึ้นไปถึงสมองก่อน จึงตอบสนองได้เร็ว"
       onReset={() => setI(0)}
     >
+      <How>กด ◀ ▶ ด้านล่างเพื่อไล่ทีละขั้น — ภาพจะเน้นส่วนของ reflex arc ที่ขั้นนั้นพูดถึง</How>
       <SlideFig id="a5-158" spot={steps[i].at} />
       <div className="step-text"><T>{steps[i].text}</T></div>
       <StepNav i={i} n={steps.length} setI={setI} />

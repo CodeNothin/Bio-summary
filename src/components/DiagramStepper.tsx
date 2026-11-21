@@ -10,7 +10,7 @@
 import { useState } from 'react';
 import { diagrams } from '../data/diagrams';
 import { TapDiagram } from './TapDiagram';
-import { StepNav, T, WidgetFrame } from './ui';
+import { How, StepNav, T, WidgetFrame } from './ui';
 
 export interface Step {
   title: string;
@@ -27,6 +27,7 @@ export function DiagramStepper({ diagram, title, notice, steps, maxWidth }: {
   const s = steps[i];
   return (
     <WidgetFrame title={title} notice={notice} onReset={() => setI(0)}>
+      <How>กด ◀ ▶ ด้านล่างเพื่อไล่ทีละขั้น — ภาพจะเน้นจุดที่ขั้นนั้นพูดถึง (จุดอื่นจะจางลง)</How>
       <TapDiagram diagram={d} highlight={s.hl} maxWidth={maxWidth ?? 520} />
       <div className="step-text">
         <b>{i + 1}. {s.title}</b>

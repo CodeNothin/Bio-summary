@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Seg, T, WidgetFrame } from '../components/ui';
+import { How, Readout, Seg, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 /** each group's column on slide 89 (percent of the picture) */
@@ -35,6 +35,7 @@ export function VertebrateHearts() {
       notice="นับ **จำนวนวงจร** (ผ่านหัวใจกี่ครั้งต่อรอบ) กับ **จำนวนห้อง** — ผนังกั้น ventricle ค่อย ๆ สมบูรณ์ขึ้นจากกบ → เต่า → สัตว์เลี้ยงลูกด้วยนม"
       onReset={() => setK('fish')}
     >
+      <How>เลือกกลุ่มสัตว์ด้านล่าง — ภาพจะเน้นหัวใจของกลุ่มนั้น</How>
       <Seg value={k} options={(Object.keys(groups) as K[]).map((x) => ({ value: x, label: groups[x].label }))} onChange={setK} />
       <div style={{ marginTop: 8 }}>
         <SlideFig id="a5-89" spot={cols[k]} />

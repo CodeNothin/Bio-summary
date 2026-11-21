@@ -9,7 +9,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Slider, WidgetFrame } from '../components/ui';
+import { How, Slider, WidgetFrame } from '../components/ui';
 
 /** Response (−1…+1) of tissue with optimum at `peak` (on a 0–1 log-like axis). */
 const response = (x: number, peak: number, width: number) => {
@@ -30,6 +30,7 @@ export function AuxinDose() {
       notice="ความเข้มข้นที่**กระตุ้นยอด (coleoptile)** มากที่สุด กลับ**ยับยั้งราก** — เนื้อเยื่อต่างกันไวต่อฮอร์โมนไม่เท่ากัน"
       onReset={() => setX(0.6)}
     >
+      <How>เลื่อนแถบความเข้มข้นออกซินด้านล่าง — เส้นบนกราฟจะเลื่อนตาม ดูว่าราก/ตา/ลำต้นถูกกระตุ้นหรือยับยั้ง</How>
       <SlideFig id="p5-37">
         <div className="slide-vline" style={{ left: `${line[0]}%`, top: `${line[1]}%`, height: `${line[3] - line[1]}%` }} />
       </SlideFig>

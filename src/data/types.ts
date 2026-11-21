@@ -70,6 +70,13 @@ interface QBase {
   status?: 'ready' | 'needs-key';
   /** free note for the editor, e.g. what is unclear */
   todo?: string;
+  /**
+   * The phrase(s) on the chapter page, inside this question's section, that
+   * answer it. pages.test.tsx renders the page and checks they are there, so
+   * page text can't drop something a question asks. Required for every ready
+   * question on a page that uses it (pilot: p-transport).
+   */
+  inText?: string | string[];
 }
 
 /**

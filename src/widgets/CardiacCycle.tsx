@@ -7,7 +7,7 @@
 // =====================================================================
 import { useEffect, useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { T, WidgetFrame } from '../components/ui';
+import { How, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 /** the three panels of the slide-94 figure (percent of the picture) */
@@ -38,6 +38,7 @@ export function CardiacCycle() {
       notice="ลิ้นทั้งสองชุด**ไม่เปิดพร้อมกัน**: AV valve เปิดตอนเติมเลือด, semilunar valve เปิดตอนบีบออก · **lub = AV ปิด** (ventricle เริ่มบีบ) · **dup = semilunar ปิด** (ventricle คลาย)"
       onReset={() => { setI(0); setPlay(false); }}
     >
+      <How>แตะช่วงในแถบเวลา หรือกด ▶ เล่นต่อเนื่อง — ภาพจะเน้นช่วงของวัฏจักรหัวใจนั้น</How>
       <SlideFig id="a5-94" spot={panels[i]} />
       <div className="readouts">
         <div className="readout"><div className="k">AV valve</div><div className="v">{p.av ? 'เปิด' : 'ปิด'}</div></div>

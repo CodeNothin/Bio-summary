@@ -7,7 +7,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, T, WidgetFrame } from '../components/ui';
+import { How, Seg, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 type Shape = 'squamous' | 'cuboidal' | 'columnar';
@@ -45,6 +45,7 @@ export function EpitheliumBuilder() {
       notice="รูปร่างบอกหน้าที่: **แบนบาง → แลกเปลี่ยน · ลูกเต๋า → หลั่ง · ทรงสูง → ดูดซึม · หลายชั้น → ป้องกัน** · pseudostratified ดูเหมือนหลายชั้น แต่ทุกเซลล์ยังแตะเยื่อรองรับฐาน"
       onReset={() => { setShape('squamous'); setLayers('simple'); }}
     >
+      <How>เลือกจำนวนชั้นและรูปร่างเซลล์ — ภาพจะเน้นเนื้อเยื่อบุผิวแบบที่เลือก</How>
       <Seg value={layers} options={[{ value: 'simple', label: 'ชั้นเดียว' }, { value: 'stratified', label: 'หลายชั้น' }, { value: 'pseudo', label: 'หลายชั้นเทียม' }]} onChange={setLayers} />
       <div style={{ height: 6 }} />
       {layers !== 'pseudo' && (

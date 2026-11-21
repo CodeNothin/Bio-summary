@@ -7,5 +7,5 @@ export default defineConfig({
   base: './',
   plugins: [react()],
   server: { port: 5180, strictPort: true },
-  test: { environment: 'node', include: ['src/**/*.test.ts'] },
+  test: { environment: 'node', include: ['src/**/*.test.ts', 'src/**/*.test.tsx'] },
 });

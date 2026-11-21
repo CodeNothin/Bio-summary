@@ -5,7 +5,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { StepNav, T, WidgetFrame } from '../components/ui';
+import { How, StepNav, T, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 const steps = [
@@ -24,6 +24,7 @@ export function Swallowing() {
       notice="epiglottis เป็น “ฝาปิด” ทางเดินหายใจ — ตอนกลืน **ทางเดินหายใจปิด ทางเดินอาหารเปิด** อาหารจึงไม่ตกลงหลอดลม"
       onReset={() => setI(0)}
     >
+      <How>กด ◀ ▶ ด้านล่างเพื่อไล่ทีละขั้น — ภาพจะเน้นส่วนที่ขั้นนั้นพูดถึง</How>
       <SlideFig id="a5-59" spot={s.spot} />
       <div className="readouts">
         <div className="readout"><div className="k">ทางเดินหายใจ</div><div className="v">{s.airway}</div></div>

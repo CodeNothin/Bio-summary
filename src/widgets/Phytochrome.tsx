@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, WidgetFrame } from '../components/ui';
+import { How, Readout, WidgetFrame } from '../components/ui';
 import type { Box } from '../data/figures';
 
 /** the five dishes on the slide photo */
@@ -33,6 +33,7 @@ export function Phytochrome() {
       notice="กดแสงสลับกันหลายครั้ง — **ดูแค่แสงสุดท้าย**: red → Pfr (active) → เมล็ดผักกาดงอก · far-red → Pr (inactive) → ไม่งอก"
       onReset={() => setSeq([])}
     >
+      <How>กด 💡 Red หรือ 💡 Far-red ด้านล่าง (กดสลับได้หลายครั้ง) — ภาพจะเน้นจานเมล็ดที่ตรงกับลำดับแสงนั้น</How>
       <SlideFig id="p5-13" spot={dish} />
       <div className="readouts">
         <Readout k="phytochrome ตอนนี้" v={seq.length === 0 ? 'Pr (มืด)' : pfr ? 'Pfr (active)' : 'Pr (inactive)'} hl={pfr} />

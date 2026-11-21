@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { T, WidgetFrame } from '../components/ui';
+import { How, T, WidgetFrame } from '../components/ui';
 
 const cases = [
   { id: 'cold', fig: 'a5-143', label: 'อากาศหนาว', kind: 'neg', stimulus: 'อุณหภูมิร่างกายลดลง', receptor: 'ตัวรับอุณหภูมิที่ผิวหนัง', center: 'ไฮโปทาลามัส (heat-promoting center)', effector: 'กล้ามเนื้อสั่น · หลอดเลือดที่ผิวหดตัว · TRH → TSH → thyroxine เพิ่ม metabolism', response: 'อุณหภูมิกลับขึ้นสู่ 35.6–37.8 °C' },
@@ -37,6 +37,7 @@ export function FeedbackLoop() {
       notice="ทุกกรณีมี **receptor → control center → effector** · ถ้าผลตอบสนอง**หักล้าง**สิ่งเร้า = negative feedback · ถ้า**เสริม**ให้มากขึ้นไปอีก = positive feedback (มักพบในกรณีฉุกเฉิน)"
       onReset={() => setId('cold')}
     >
+      <How>แตะสถานการณ์ด้านล่าง — ภาพจะเปลี่ยนเป็นสไลด์ของกลไกนั้น และขั้นตอน stimulus → response จะแสดงใต้ภาพ</How>
       <div className="seg">
         {cases.map((x) => (
           <button key={x.id} className={x.id === id ? 'on' : ''} onClick={() => setId(x.id)} style={{ fontSize: '0.8rem' }}>

@@ -6,7 +6,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { WidgetFrame } from '../components/ui';
+import { How, WidgetFrame } from '../components/ui';
 
 const stops = [
   { id: 'in', n: 1, at: [50, 21] as [number, number], name: 'อากาศหายใจเข้า', po2: '160', pco2: '0.2', note: 'O₂ สูงมาก CO₂ แทบไม่มี' },
@@ -26,6 +26,7 @@ export function PartialPressure() {
       notice="แก๊สแพร่จาก**ความดันย่อยสูง → ต่ำ** เสมอ — ที่ปอด O₂ เข้าเลือด CO₂ ออก · ที่เนื้อเยื่อกลับกัน"
       onReset={() => setI(1)}
     >
+      <How>แตะจุดบนภาพ (อากาศ → ถุงลม → เลือด → เนื้อเยื่อ) — ค่าความดันย่อย O₂/CO₂ ของจุดนั้นจะขึ้นใต้ภาพ</How>
       <SlideFig
         id="a5-124"
         selected={s.id}

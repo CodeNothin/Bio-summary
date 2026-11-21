@@ -6,7 +6,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { T, WidgetFrame } from '../components/ui';
+import { How, T, WidgetFrame } from '../components/ui';
 
 const points = [
   { id: 'soil', at: [23, 91.5] as [number, number], psi: -0.3, name: 'น้ำในดิน', next: '(1) รากดูดน้ำด้วย **osmosis** — ขนรากมี Ψw ต่ำกว่าน้ำในดิน' },
@@ -26,6 +26,7 @@ export function PsiTree() {
       notice="แตะทีละจุดจากดินขึ้นไป — ค่า Ψ **ติดลบมากขึ้นเรื่อย ๆ** น้ำจึงไหลขึ้นเองตาม water potential gradient (ไซเลมใกล้รากมี Ψ สูงที่สุดในไซเลม)"
       onReset={() => setSel('soil')}
     >
+      <How>แตะจุดตัวเลขบนภาพ เริ่มจากดิน (1) — ค่า Ψ ของจุดนั้นจะขึ้นใต้ภาพ</How>
       <SlideFig
         id="p4-9"
         selected={sel}

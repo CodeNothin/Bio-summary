@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Readout, Slider, WidgetFrame } from '../components/ui';
+import { How, Readout, Slider, WidgetFrame } from '../components/ui';
 
 export function Breathing() {
   const [t, setT] = useState(0.5); // 0 = full exhale, 1 = full inhale, 0.5 = rest
@@ -22,6 +22,7 @@ export function Breathing() {
       notice="หายใจเข้า: **กล้ามเนื้อระหว่างซี่โครงหดตัว + กะบังลมหดตัว (เลื่อนลง)** → ช่องอกขยาย → ความดันในทรวงอก **ต่ำกว่า** บรรยากาศ → อากาศไหลเข้า (Boyle: V ∝ 1/P) · หายใจออกกลับกัน"
       onReset={() => setT(0.5)}
     >
+      <How>เลื่อนแถบด้านล่างระหว่างหายใจออก ↔ หายใจเข้า — ภาพจะเน้นฝั่งที่ตรงกับจังหวะนั้น</How>
       <SlideFig id="a5-122" spot={flow === 'in' ? [9, 2, 46, 74] : flow === 'out' ? [48, 2, 92, 74] : null} />
       <p className="small" style={{ textAlign: 'center', margin: '0 0 4px' }}>
         <b>กะบังลม{t > 0.55 ? 'หดตัว เลื่อนลง' : t < 0.45 ? 'คลายตัว เลื่อนขึ้น' : ' — พัก'}</b>

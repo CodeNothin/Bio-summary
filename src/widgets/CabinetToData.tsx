@@ -8,7 +8,7 @@
 // =====================================================================
 import { useState } from 'react';
 import { SlideFig } from '../components/SlideFig';
-import { Seg, StepNav, T, WidgetFrame } from '../components/ui';
+import { How, Seg, StepNav, T, WidgetFrame } from '../components/ui';
 
 const routes = {
   dna: {
@@ -43,6 +43,7 @@ export function CabinetToData() {
       notice="ตัวอย่างชิ้นเดียวใช้ได้ 2 ทาง: **museomics** ใช้ DNA ในตัวอย่าง · **digitization** ใช้ภาพและข้อมูลบนป้าย — ทั้งสองทางทำให้**เทียบอดีตกับปัจจุบัน**ได้"
       onReset={() => { setR('dna'); setI(0); }}
     >
+      <How>เลือกเส้นทางด้านบน แล้วกดขั้นตอน หรือ ◀ ▶ — ภาพจะเปลี่ยนเป็นสไลด์ของขั้นนั้น</How>
       <Seg value={r} options={(Object.keys(routes) as R[]).map((k) => ({ value: k, label: routes[k].label }))} onChange={(v) => { setR(v); setI(0); }} />
       <div style={{ display: 'flex', gap: 4, justifyContent: 'center', alignItems: 'center', margin: '12px 0 4px', flexWrap: 'wrap' }}>
         {steps.map((s, k) => (
