@@ -15,7 +15,7 @@
 // =====================================================================
 import { useEffect, useState } from 'react';
 import { pageComponents } from './chapters';
-import { pageById, pages } from './data/pages';
+import { pageById, pages, pageTag } from './data/pages';
 import { effectiveTheme, setLastPage, setTheme, useStore } from './lib/store';
 import { FlashcardsPage } from './pages/FlashcardsPage';
 import { HomePage } from './pages/HomePage';
@@ -68,9 +68,9 @@ function PageNav({ page }: { page: string }) {
   const next = ready[i + 1];
   return (
     <nav className="btn-row" style={{ justifyContent: 'space-between' }}>
-      {prev ? <a className="btn ghost" href={`#/${prev.id}`}>◀ {prev.num}</a> : <span />}
+      {prev ? <a className="btn ghost" href={`#/${prev.id}`}>◀ {pageTag(prev)}</a> : <span />}
       <a className="btn ghost" href={`#/practice/${page}`}>✏️ ฝึกโจทย์บทนี้</a>
-      {next ? <a className="btn ghost" href={`#/${next.id}`}>{next.num} ▶</a> : <span />}
+      {next ? <a className="btn ghost" href={`#/${next.id}`}>{pageTag(next)} ▶</a> : <span />}
     </nav>
   );
 }
@@ -107,7 +107,7 @@ export function App() {
     body = (
       <>
         <p className="eyebrow" style={{ marginBottom: 2 }}>
-          บทที่ {def.unit} · {def.track === 'plant' ? '🌱 พืช' : def.track === 'animal' ? '🐾 สัตว์' : ''} {def.num} · {def.en}
+          บทที่ {def.unit} · {def.track === 'plant' ? '🌱 พืช ' : def.track === 'animal' ? '🐾 สัตว์ ' : ''}{def.num} · {def.en}
         </p>
         <h1>{def.title}</h1>
         <Chips page={def.id} />

@@ -258,6 +258,13 @@ export const pages: PageDef[] = [
 /** Look up a page by id (undefined if not found). */
 export const pageById = (id: string | null | undefined) => pages.find((p) => p.id === id);
 
+/**
+ * Short page number that can't be confused across tracks: "🌱 5.3" (plant),
+ * "🐾 5.3" (animal), "6.2". Plant and animal share chapter numbers, so use
+ * this wherever a number appears without its page title.
+ */
+export const pageTag = (p: PageDef) => (p.track === 'plant' ? '🌱 ' : p.track === 'animal' ? '🐾 ' : '') + p.num;
+
 /** Every section on the site, with the page it is on. */
 export const allSections = pages.flatMap((p) => p.sections.map((s) => ({ ...s, page: p.id })));
 

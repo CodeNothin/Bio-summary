@@ -15,7 +15,7 @@
 // =====================================================================
 import { useMemo, useState } from 'react';
 import { T } from '../components/ui';
-import { pageById, pages, sectionById } from '../data/pages';
+import { pageById, pages, pageTag, sectionById } from '../data/pages';
 import { readyQuestions } from '../data/questions';
 import type { Question } from '../data/types';
 import { recordAnswer, resetStats, useStore } from '../lib/store';
@@ -163,8 +163,10 @@ function Menu() {
   const weak = weakestTopics(s);
   const missed = readyQuestions.filter((q) => s.last[q.id] === false).length;
   const tracks = [
-    { label: '🌱 พืช', ps: pages.filter((p) => p.track === 'plant') },
-    { label: '🐾 สัตว์', ps: pages.filter((p) => p.track === 'animal') },
+    { label: '🌱 บทที่ 5 · พืช', ps: pages.filter((p) => p.track === 'plant') },
+    { label: '🐾 บทที่ 5 · สัตว์', ps: pages.filter((p) => p.track === 'animal') },
+    { label: '🌍 บทที่ 6 · นิเวศวิทยา', ps: pages.filter((p) => p.unit === 6) },
+    { label: '🏛️ บทที่ 7 · บทสรุป', ps: pages.filter((p) => p.unit === 7) },
   ];
   return (
     <>
@@ -180,7 +182,7 @@ function Menu() {
         </div>
         {weak.length > 0 && (
           <p className="small" style={{ marginTop: 8 }}>
-            หัวข้อที่อ่อนตอนนี้: {weak.map((t) => sectionById(t)!.label).join(' · ')}
+            หัวข้อที่อ่อนตอนนี้: {weak.map((t) => `${pageTag(pageById(sectionById(t)!.page)!)} ${sectionById(t)!.label}`).join(' · ')}
           </p>
         )}
       </section>
@@ -218,7 +220,7 @@ function Accuracy() {
       {rows.length === 0 && <p className="small">ยังไม่ได้ฝึก — ทำโจทย์แล้วจะเห็นแถบความแม่นยำของแต่ละหัวข้อที่นี่</p>}
       {rows.map(({ p, x, a, t }) => (
         <div className="skill-row" key={x.id}>
-          <a href={`#/${p.id}/${x.id}`} style={{ color: 'inherit' }}>{p.num} {x.label}</a>
+          <a href={`#/${p.id}/${x.id}`} style={{ color: 'inherit' }}>{pageTag(p)} {x.label}</a>
           <span className="small">{Math.round(a * 100)}% ({t.correct}/{t.total})</span>
           <div className="bar"><i style={{ width: `${a * 100}%`, background: a < 0.5 ? 'var(--bad)' : a < 0.8 ? '#d97706' : 'var(--good)' }} /></div>
         </div>

@@ -1023,3 +1023,9 @@ button.slide-pin::before {
   font-size: 0.82rem;
   color: var(--muted);
 }
+
+/* An analogy inside a fold-out (<More>) already has the fold's title
+   ("นึกภาพแบบ…"), so hide the analogy's own tag to avoid saying it twice. */
+.worked .analogy .tag {
+  display: none;
+}

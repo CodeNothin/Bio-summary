@@ -119,7 +119,7 @@ export function ADigestionPage() {
         <List
           items={[
             '**ลำไส้เล็ก**: ยาวที่สุด ดูดซึมมากที่สุด · 3 ส่วน: **duodenum (25 ซม.), jejunum, ileum** · บุด้วย simple columnar พับเป็น **villi** (มี lacteal, capillary, hepatic portal vein) และ **microvilli (brush border)**',
-            'ย่อยอาหารทุกชนิด **มากที่สุดที่ duodenum** โดยอาศัยน้ำย่อยจากตับอ่อน น้ำดีจากตับ/ถุงน้ำดี และน้ำย่อยจากลำไส้เล็กเอง',
+            'ย่อยอาหารทุกชนิด **มากที่สุดที่ duodenum** โดยอาศัยน้ำย่อยจากตับอ่อน น้ำดีจากตับ/ถุงน้ำดี และน้ำย่อยจากลำไส้เล็กเอง · ระวังสับสน: **ย่อย**มากสุดที่ duodenum แต่**ดูดซึม**มากสุดที่ jejunum และ ileum',
             '**ตับสร้างน้ำดี** เก็บที่**ถุงน้ำดี** · น้ำดี**ไม่มีเอนไซม์** แต่เกลือน้ำดีทำให้ไขมันแตกตัว (emulsifier) ให้ lipase ทำงานดีขึ้น',
             '**ตับอ่อน**: acinar cells หลั่งเอนไซม์ · duct cells หลั่งน้ำ + bicarbonate = pancreatic juice',
             '**ลำไส้ใหญ่**: ไม่มีการย่อย ดูดน้ำและเกลือแร่ peristalsis อยู่ 12–24 ชม. · 4 ส่วน: cecum (ไส้ติ่ง), colon (crypt สร้างเมือก), rectum (เก็บกากที่มีจุลินทรีย์และเซลลูโลส), anal canal (หูรูด)',
@@ -141,7 +141,7 @@ export function ADigestionPage() {
           ]}
         />
         <P>**การกระตุ้นเอนไซม์ของตับอ่อน**: trypsinogen —**enterokinase**→ trypsin · chymotrypsinogen —trypsin→ chymotrypsin · procarboxypeptidase —trypsin→ carboxypeptidase · pancreatic amylase ย่อยคาร์โบไฮเดรต**ยกเว้น cellulose**</P>
-        <More title="นึกภาพแบบ Minecraft">
+        <More title="นึกภาพแบบนี้">
         <Analogy tag="นึกภาพแบบนี้">
           <P>เอนไซม์ย่อยโปรตีนถูกสร้างเป็นรูป "ปิดล็อก" (-ogen) ก่อน เหมือนดาบที่ยังอยู่ในฝัก — ถ้าทำงานทันทีจะย่อยเซลล์ที่สร้างมันเอง จึงปลดล็อกเมื่อไปถึงที่ทำงานแล้วเท่านั้น</P>
         </Analogy>
