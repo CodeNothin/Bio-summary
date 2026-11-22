@@ -9,6 +9,7 @@ import { pages } from '../data/pages';
 import type { PageDef } from '../data/pages';
 import { readyQuestions } from '../data/questions';
 import { useStore } from '../lib/store';
+import { FEEDBACK_URL } from './SupportPage';
 
 function PageCard({ p }: { p: PageDef }) {
   const done = useStore().done;
@@ -74,6 +75,13 @@ export function HomePage() {
           <a className="btn ghost" href="#/practice">✏️ ฝึกโจทย์</a>
           <a className="btn ghost" href="#/cards">🃏 แฟลชการ์ด</a>
         </div>
+        <p className="small" style={{ marginBottom: 0 }}>
+          เว็บนี้ฟรีทั้งหมด ทำโดยนิสิตที่เรียนวิชานี้ · เจอที่ผิด?{' '}
+          <a href={FEEDBACK_URL} target="_blank" rel="noreferrer">
+            ส่ง Feedback
+          </a>{' '}
+          · ถ้าช่วยได้ <a href="#/support">เลี้ยงขนมหน่อย❤️</a>
+        </p>
       </section>
 
       {units.map((u) => {

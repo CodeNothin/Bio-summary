@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { T, Table } from '../components/ui';
 import { compares, terms } from '../data/glossary';
 import { pages } from '../data/pages';
+import { SupportLine } from './SupportPage';
 
 export function TermsPage() {
   const [q, setQ] = useState('');
@@ -50,6 +51,7 @@ export function TermsPage() {
             <Table head={c.head} rows={c.rows} />
           </section>
         ))}
+      <SupportLine />
     </>
   );
 }

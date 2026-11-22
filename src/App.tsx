@@ -10,6 +10,7 @@
 //   #/cards                → flashcards
 //   #/terms                → key terms & comparison tables
 //   #/w/<widgetId>         → one widget on its own (handy for testing/sharing)
+//   #/support              → feedback form and donations (not in the tab bar)
 // A "#" URL never reloads the page and works on GitHub Pages without
 // any server setup, which is why it is used instead of normal paths.
 // =====================================================================
@@ -19,6 +20,7 @@ import { pageById, pages, pageTag } from './data/pages';
 import { effectiveTheme, setLastPage, setTheme, useStore } from './lib/store';
 import { FlashcardsPage } from './pages/FlashcardsPage';
 import { HomePage } from './pages/HomePage';
+import { SupportLine, SupportPage } from './pages/SupportPage';
 import { TermsPage } from './pages/TermsPage';
 import { PracticePage } from './practice/PracticePage';
 import { W, widgets } from './widgets/registry';
@@ -113,6 +115,7 @@ export function App() {
         <Chips page={def.id} />
         <PageC />
         <PageNav page={def.id} />
+        <SupportLine />
       </>
     );
   } else if (def) {
@@ -125,6 +128,7 @@ export function App() {
   } else if (page === 'practice') body = <PracticePage key={sub ?? ''} filter={sub} />;
   else if (page === 'cards') body = <FlashcardsPage />;
   else if (page === 'terms') body = <TermsPage />;
+  else if (page === 'support') body = <SupportPage />;
   else if (page === 'w') {
     // single-widget view: a chip per widget, then the chosen one
     body = (

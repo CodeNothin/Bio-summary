@@ -103,11 +103,14 @@ src/
     *.test.ts            the checks above
   chapters.ts            page id → page component; the list of units
   App.tsx                top bar, router (#/...), bottom tab bar
-  pages/                 one file per chapter page, plus Home, Terms, Flashcards
+  pages/                 one file per chapter page, plus Home, Terms, Flashcards, Support
+                         (SupportPage.tsx: #/support = PromptPay QR + feedback form, and SupportLine,
+                         the one-line "ส่ง Feedback · เลี้ยงขนม" link on home, every chapter end and คำศัพท์)
   widgets/               one file per widget; all.ts registers them (simple diagram explorers are made there)
   components/            ui.tsx (Section, WidgetFrame, controls), SlideFig (picture + tap points /
                          highlight box / label covers), TapDiagram, DiagramStepper
-  assets/slides/         the cut slide pictures (<deck>-<page>.webp), made by scripts/crop-slides.py
+  assets/slides/         the cut slide pictures (<deck>-<page>.webp), made by public/promptpay-qr.png  the donation QR (bank-generated, static; copied as-is into the build)
+scripts/crop-slides.py
   practice/              engine.ts (shuffle/pick/check), QuestionView.tsx (7 types), PracticePage.tsx
   lib/store.ts           localStorage progress
 scripts/crop-slides.py   cuts the figures in figures.json out of the PDFs (Python + PyMuPDF + Pillow)
